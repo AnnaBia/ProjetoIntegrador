@@ -20,8 +20,8 @@ public class Tema {
 	@Size(min = 5, max = 55)
 	private String titulo;
 	
-	@NotBlank
-	@Size(min = 5, max = 255)
+	
+	@Size(min = 0, max = 255)
 	private String img;
 	
 	@NotBlank
