@@ -8,8 +8,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "tb_tema")
+@Entity //Entidade indicando que vai ser uma tabela dentro do banco
+@Table(name = "tb_tema") //Apenas para representar o nome da tabela
 public class Tema {
 
 	@Id
@@ -19,8 +19,7 @@ public class Tema {
 	@NotBlank
 	@Size(min = 5, max = 55)
 	private String titulo;
-	
-	
+
 	@Size(min = 0, max = 255)
 	private String img;
 	
@@ -59,5 +58,6 @@ public class Tema {
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
+
 	
 }
