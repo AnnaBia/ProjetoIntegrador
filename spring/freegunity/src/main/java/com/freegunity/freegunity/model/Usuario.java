@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -21,22 +21,21 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@NotNull
+
 	private boolean admin;
-	
-	@NotNull
-	@Size(min= 5, max= 50)
+
+	@NotBlank
+	@Size(max = 50)
 	private String nomeCompleto;
-	
-	@NotNull
-	@Size(min= 5, max= 50)
+
+	@NotBlank
+	@Size(max = 256)
 	private String email;
-	
-	@NotNull
-	@Size(min= 6, max= 12)
+
+	@NotBlank
+	@Size(min = 6)
 	private String senha;
-	
+
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;

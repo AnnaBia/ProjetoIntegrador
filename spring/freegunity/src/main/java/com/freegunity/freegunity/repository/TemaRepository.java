@@ -6,9 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//INTERFACE REPOSITORY REPONSÁVEL PELA COMUNICAÇÃO DA API COM O BD
 @Repository
 public interface TemaRepository extends JpaRepository<Tema, Long> {
-	// BUSCAR DADOS SEM LEVAR EM CONSIDERAÇÃO LETRA MAIÚSCULA OU MINÚSCULA
 	public List<Tema> findAllByTituloContainingIgnoreCase(String titulo);
 }
