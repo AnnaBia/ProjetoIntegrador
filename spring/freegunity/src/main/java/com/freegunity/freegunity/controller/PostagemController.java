@@ -31,13 +31,13 @@ public class PostagemController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
-	@GetMapping("/(id)") // RETORNA UM REGISTRO DA TABELA PELO ID
+	@GetMapping("/{id}") // RETORNA UM REGISTRO DA TABELA PELO ID
 	public ResponseEntity<Postagem> getById(@PathVariable long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/descricao/{descricao}") // BUSCA UM REGISTRO PELO NOME ATRAVÉS DE UM SUBTITULO
+	@GetMapping("/descricao/{texto}") // BUSCA UM REGISTRO PELO NOME ATRAVÉS DE UM SUBTITULO
 	public ResponseEntity<List<Postagem>> getByDescricao(@PathVariable String texto){
 		return ResponseEntity.ok(repository.findAllByTextoContainingIgnoreCase(texto));
 	}
@@ -52,7 +52,7 @@ public class PostagemController {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
 	
-	@DeleteMapping("/id") // LOCALIZA UM REGISTRO NA TABELA PELO ID E DELETA
+	@DeleteMapping("/{id}") // LOCALIZA UM REGISTRO NA TABELA PELO ID E DELETA
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
 	}
