@@ -18,6 +18,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 public class SwaggerConfig {
+
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
@@ -26,6 +27,7 @@ public class SwaggerConfig {
 				.globalResponses(HttpMethod.GET, responseMessage()).globalResponses(HttpMethod.POST, responseMessage())
 				.globalResponses(HttpMethod.PUT, responseMessage())
 				.globalResponses(HttpMethod.DELETE, responseMessage());
+
 	}
 
 	public static ApiInfo metadata() {

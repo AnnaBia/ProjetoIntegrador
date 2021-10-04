@@ -37,7 +37,12 @@ public class PostagemController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/descricao/{texto}") // BUSCA UM REGISTRO PELO NOME ATRAVÉS DE UM SUBTITULO
+	@GetMapping("/titulo/{titulo}") // BUSCA UM REGISTRO PELO TITULO
+	public ResponseEntity<List<Postagem>> getByTitulo(@PathVariable String titulo) {
+		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
+	}
+
+	@GetMapping("/descricao/{texto}") // BUSCA UM REGISTRO PELO TEXTO
 	public ResponseEntity<List<Postagem>> getByDescricao(@PathVariable String texto){
 		return ResponseEntity.ok(repository.findAllByTextoContainingIgnoreCase(texto));
 	}

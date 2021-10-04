@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -22,11 +23,16 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	private boolean admin;
+	@NotBlank
+	private String admin;
 
 	@NotBlank
 	@Size(max = 50)
 	private String nomeCompleto;
+
+	@NotBlank
+	@Min(5)
+	private String usuario;
 
 	@NotBlank
 	@Size(max = 256)
@@ -36,10 +42,15 @@ public class Usuario {
 	@Size(min = 6)
 	private String senha;
 
+	@Min(0)
+	private String foto;
+
+	// RELACIONAMENTOS
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
 
+	// GETTERS AND SETTERS
 	public long getId() {
 		return id;
 	}
@@ -48,11 +59,11 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public boolean isAdmin() {
+	public String getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(boolean admin) {
+	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
 
@@ -62,6 +73,14 @@ public class Usuario {
 
 	public void setNomeCompleto(String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getEmail() {
@@ -78,6 +97,14 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 	public List<Postagem> getPostagem() {

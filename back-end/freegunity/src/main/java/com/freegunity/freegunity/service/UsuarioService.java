@@ -1,12 +1,15 @@
 package com.freegunity.freegunity.service;
 
 import java.nio.charset.Charset;
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.freegunity.freegunity.model.UserLogin;
 import com.freegunity.freegunity.model.Usuario;
@@ -16,41 +19,64 @@ import com.freegunity.freegunity.repository.UsuarioRepository;
 public class UsuarioService {
 
 	@Autowired
-    private UsuarioRepository repository;
+	private UsuarioRepository repository;
 
-    public Optional<Usuario> Cadastrar(Usuario usuario) {
+	public List<Usuario> listarUsuarios() {
+		return repository.findAll();
+	}
 
-        Optional<Usuario> user = repository.findByEmail(usuario.getEmail());
-        if (user.isPresent()) {
-            return Optional.ofNullable(null);
-        }
+	public Optional<UserLogin> Logar(Optional<UserLogin> user) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		Optional<Usuario> usuario = repository.findByEmailIgnoreCase(user.get().getEmail());
 
-        String senhaEncoder = encoder.encode(usuario.getSenha());
-        usuario.setSenha(senhaEncoder);
+		if (usuario.isPresent()) {
+			if (encoder.matches(user.get().getSenha(), usuario.get().getSenha())) {
 
-        return Optional.of(repository.save(usuario));
-    }
+				String auth = user.get().getEmail() + ":" + user.get().getSenha();
+				byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
+				String authHeader = "Basic " + new String(encodedAuth);
 
-    public Optional<UserLogin> Logar(Optional<UserLogin> user) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+				user.get().setToken(authHeader);
+				user.get().setId(usuario.get().getId());
+				user.get().setNomeCompleto(usuario.get().getNomeCompleto());
+				user.get().setUsuario(usuario.get().getUsuario());
+				user.get().setEmail(usuario.get().getEmail());
+				user.get().setSenha(usuario.get().getSenha());
+				user.get().setFoto(usuario.get().getFoto());
 
-        Optional<Usuario> usuario = repository.findByEmail(user.get().getEmail());
+				return user;
+			}
+		}
+		return null;
+	}
 
-        if (usuario.isPresent()) {
-            if (encoder.matches(user.get().getSenha(), usuario.get().getSenha())) {
+	public Optional<Usuario> Cadastrar(Usuario usuario) {
 
-                String auth = user.get().getEmail() + ":" + user.get().getSenha();
-                byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
-                String authHeader = "Basic " + new String(encodedAuth);
+		Optional<Usuario> user = repository.findByEmailIgnoreCase(usuario.getEmail());
+		if (user.isPresent()) {
+			return Optional.ofNullable(null);
+		}
 
-                user.get().setToken(authHeader);
-                user.get().setNomeCompleto(usuario.get().getNomeCompleto());
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-                return user;
-            }
-        }
-        return null;
-    }
+		String senhaEncoder = encoder.encode(usuario.getSenha());
+		usuario.setSenha(senhaEncoder);
+
+		return Optional.of(repository.save(usuario));
+	}
+
+	public Optional<Usuario> atualizarUsuario(Usuario usuario) {
+		if (repository.findById(usuario.getId()).isPresent()) {
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			String senhaEncoder = encoder.encode(usuario.getSenha());
+			usuario.setSenha(senhaEncoder);
+
+			return Optional.of(repository.save(usuario));
+
+		} else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado!", null);
+		}
+	}
+
 }

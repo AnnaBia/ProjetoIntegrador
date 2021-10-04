@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -26,14 +27,12 @@ public class Tema {
 	@NotBlank // NÃO ACEITA VALORES NULOS OU VAZIO
 	@Size(min = 5, max = 55) // DEFINE A QTDD MIN E MAX DE CARACTERES
 	private String titulo;
-	
-	@Max(255)
-	private String img;
 
 	@NotBlank
 	@Size(min = 5, max = 255)
 	private String texto;
-	
+
+	// RELACIONAMENTO
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("tema")
 	private List<Postagem> postagem;
@@ -53,14 +52,6 @@ public class Tema {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
 	}
 
 	public String getTexto() {

@@ -16,11 +16,11 @@ export class AuthService {
   ) { }
 
   entrar(userLogin: UserLogin): Observable<UserLogin> {
-    return this.http.post<UserLogin>('http://freegunity.herokuapp.com/usuarios/entrar', userLogin)
+    return this.http.post<UserLogin>('https://freegunity.herokuapp.com/usuarios/logar', userLogin)
   }
 
   cadastrar(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>('http://freegunity.herokuapp.com/usuarios/cadastrar', usuario)
+    return this.http.post<Usuario>('https://freegunity.herokuapp.com/usuarios/cadastrar', usuario)
   }
   
   logado() {

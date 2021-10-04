@@ -5,5 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.freegunity.freegunity.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository <Usuario, Long>{
-	public Optional<Usuario> findByEmail (String email);
+	public Optional<Usuario> findByEmailIgnoreCase (String email);
+	
+	public Optional<Usuario> findAllByUsuarioContainingIgnoreCase (String usuario);
+	
+	public Optional<Usuario> findAllByNomeCompletoContainingIgnoreCase (String nomeCompleto);
+	
 }

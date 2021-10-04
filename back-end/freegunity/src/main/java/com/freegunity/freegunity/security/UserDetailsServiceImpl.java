@@ -12,17 +12,17 @@ import com.freegunity.freegunity.model.Usuario;
 import com.freegunity.freegunity.repository.UsuarioRepository;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService{
+public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
-    private UsuarioRepository userRepository;
-	
+	private UsuarioRepository userRepository;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<Usuario> usuario = userRepository.findByEmail(username);
-        usuario.orElseThrow(()-> new UsernameNotFoundException(username + " not found."));
-        
-        return usuario.map(UserDetailsImpl :: new).get();
+		Optional<Usuario> usuario = userRepository.findByEmailIgnoreCase(username);
+		usuario.orElseThrow(() -> new UsernameNotFoundException(username + " not found."));
+
+		return usuario.map(UserDetailsImpl::new).get();
 	}
 
 }
