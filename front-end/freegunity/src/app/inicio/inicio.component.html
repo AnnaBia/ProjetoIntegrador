@@ -1,119 +1,136 @@
-<!--NavBar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="conteudoNavbarSuportado">
-        <div class="pr-1 pb-2">
-            <button type="button" class="btn btn-primary" >
-                Visitantes
-            </button>
-        </div>
-        <div class="pr-1 pb-2">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEntrar">
-                Entrar
-            </button>
-        </div>
-        <div class="pr-1 pb-2">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCadastrar">
-                Cadastrar
-            </button>
-        </div>
-    </div>
-</nav>
-<!-- Modal -->
-<!-- Entrar -->
-<div class="modal fade" id="modalEntrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content formato">
-            <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">Entrar</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
+<!-- 1ª tela -->
+<div class="container-fluid bg-fundo">
+
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light ">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+            aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="conteudoNavbarSuportado">
+
+            <div class="m-2">
+                <button type="button" class="btn btnMenu" data-toggle="modal" data-target="#modalEntrar">
+                    Entre
                 </button>
             </div>
-            <div class="modal-body">
-                <form class="mt-2" action="" method="post" name="login">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                            </div>
-                            <input type="text" name="username" class="form-control" id="username" placeholder="Usuario">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
-                        <small class="text-center pt-2"><a routerLink="" class="" id="signup">Esqueceu a
-                                senha?</a></small>
-                    </div>
 
-                </form>
+            <div class="">
+                <button type="button" class="btn border-light btnMenu shadow-sm" data-toggle="modal"
+                    data-target="#modalCadastrar">
+                    Cadastre-se
+                </button>
             </div>
-            <div class="modal-footer">
-                <div class="col">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-auto">
-                            <p class="text-center pt-2 tr-y"><a data-toggle="modal" data-target="#modalCadastrar" class="">Criar conta</a></p>
+
+        </div>
+    </nav>
+    <!--/NavBar-->
+
+    <!-- Modais -->
+
+    <!-- ModalEntrar -->
+    <div class="modal fade" id="modalEntrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content formato">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Entrar</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="mt-2" action="" method="post" name="login">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input type="text" name="username" class="form-control" id="username"
+                                    placeholder="Usuario">
+                            </div>
                         </div>
-                        <div class="col-md-auto ml-auto">
-                            <button type="submit" class="btn btn-primary tr-y">Entrar</button>
+                        <div class="form-group">
+                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+                            <small class="text-center pt-2"><a routerLink="" class="" id="signup">Esqueceu a
+                                    senha?</a></small>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="col">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-auto">
+                                <p class="text-center pt-2 tr-y"><a data-toggle="modal" data-target="#modalCadastrar"
+                                        class="">Criar conta</a></p>
+                            </div>
+                            <div class="col-md-auto ml-auto">
+                                <button type="submit" class="btn btn-primary tr-y">Entrar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- /ModalEntrar -->
 
-<!-- Cadastrar -->
-<div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content formato">
-            <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">Cadastrar</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="mt-2" action="" method="post" name="login">
-                    <div class="form-group">
-                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Nome completo">
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                            </div>
-                            <input type="text" name="username" class="form-control" id="username" placeholder="Usuario">
+    <!-- ModalCadastrar -->
+    <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content formato">
+
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Faça parte dessa família !</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form class="mt-2" action="" method="post" name="login">
+                        <div class="form-group">
+                            <input type="password" name="senha" id="senha" class="form-control"
+                                placeholder="Nome completo">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="senha" id="senha" class="form-control"
-                            placeholder="Confirmar senha">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <div class="col">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-auto ml-auto">
-                            <button type="submit" class="btn btn-primary tr-y">Cadastrar</button>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input type="text" name="username" class="form-control" id="username"
+                                    placeholder="Usuario">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="senha" id="senha" class="form-control"
+                                placeholder="Confirmar senha">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-auto ml-auto">
+                                <button type="submit" class="btn btn-primary tr-y">Cadastrar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-</div>
+    <!-- /ModalCadastrar -->
+    <!-- /Modais -->
