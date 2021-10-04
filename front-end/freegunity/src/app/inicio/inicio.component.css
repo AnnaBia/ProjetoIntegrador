@@ -6,10 +6,51 @@
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: white;
+    background-color: #F5F5F5;
     background-clip: padding-box;
     border: none;
     border-radius: 30px;
     outline: 0;
     max-width: 500px;
 }
+
+.bg-fundo {
+    background-image: url(src/assets/img/bg.png);
+    min-height: 720px;
+    
+    background: full-screen;
+    background-size: cover; 
+}
+
+.ftNome{
+    font-size: 80pt;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    letter-spacing: -2px;  
+    flex-wrap: wrap;
+}
+
+.ftLogo{
+    font-size: 30pt;
+    font-family: 'Montserrat', sans-serif;
+    color: white;  
+    flex-wrap: wrap;
+}
+
+.btnVisit{
+    font-size: 15pt;
+    width: 408px; 
+    padding: 16px;
+    cursor: pointer;
+    color: white; 
+}
+
+.btnMenu{
+    font-size: 15pt; 
+    width: 200px; 
+    padding: 8px;
+    color: white;
+}
+
+
+
