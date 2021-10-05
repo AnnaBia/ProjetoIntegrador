@@ -1,4 +1,4 @@
-package br.com.freegunity.freegunity;
+package br.com.freegunity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +16,7 @@ public class RedeSocialApplication {
 	public ModelAndView swaggerUi() {
 		return new ModelAndView("redirect:/swagger-ui/");
 	}
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(RedeSocialApplication.class, args);
 	}

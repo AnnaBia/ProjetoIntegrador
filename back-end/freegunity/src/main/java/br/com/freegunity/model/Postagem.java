@@ -1,6 +1,6 @@
-package br.com.freegunity.freegunity.model;
+package br.com.freegunity.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_postagem")
+@Table(name = "tb_postagens")
 public class Postagem {
 
 	@Id
@@ -24,15 +24,17 @@ public class Postagem {
 	private long id;
 
 	@NotBlank
+	@Size(max = 50)
+	private String titulo;
+
+	@NotBlank
 	@Size(max = 255)
 	private String texto;
 
-	@Size(min = 0)
-	private String imagem;
-
-	@NotBlank
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
+
+	private String imagem;
 
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
@@ -40,7 +42,7 @@ public class Postagem {
 
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
-	private Usuario usuario;
+	private User user;
 
 	public long getId() {
 		return id;
@@ -50,20 +52,20 @@ public class Postagem {
 		this.id = id;
 	}
 
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
 	public String getTexto() {
 		return texto;
 	}
 
 	public void setTexto(String texto) {
 		this.texto = texto;
-	}
-
-	public String getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
 	}
 
 	public Date getData() {
@@ -82,12 +84,20 @@ public class Postagem {
 		this.tema = tema;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 }

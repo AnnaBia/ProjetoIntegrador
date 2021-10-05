@@ -1,4 +1,4 @@
-package br.com.freegunity.freegunity.controller;
+package br.com.freegunity.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.freegunity.freegunity.model.Postagem;
-import br.com.freegunity.freegunity.repository.PostagemRepository;
+import br.com.freegunity.model.Postagem;
+import br.com.freegunity.repository.PostagemRepository;
 
 @RestController
 @RequestMapping("/postagens")
@@ -36,9 +36,9 @@ public class PostagemController {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping("/descricao/{texto}")
-	public ResponseEntity<List<Postagem>> getByTitulo(@PathVariable String texto) {
-		return ResponseEntity.ok(repository.findAllByTextoContainingIgnoreCase(texto));
+	@GetMapping("/titulo/{titulo}")
+	public ResponseEntity<List<Postagem>> getByTitulo(@PathVariable String titulo) {
+		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
 
 	@PostMapping
@@ -55,5 +55,4 @@ public class PostagemController {
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
 	}
-
 }

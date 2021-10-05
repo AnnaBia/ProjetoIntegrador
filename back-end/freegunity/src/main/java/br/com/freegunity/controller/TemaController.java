@@ -1,4 +1,4 @@
-package br.com.freegunity.freegunity.controller;
+package br.com.freegunity.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.freegunity.freegunity.model.Tema;
-import br.com.freegunity.freegunity.repository.TemaRepository;
+import br.com.freegunity.model.Tema;
+import br.com.freegunity.repository.TemaRepository;
 
 @RestController
 @RequestMapping("/temas")
@@ -36,8 +36,8 @@ public class TemaController {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<List<Tema>> getByTitulo(@PathVariable String titulo) {
+	@GetMapping("/nome/{titulo}")
+	public ResponseEntity<List<Tema>> getByNome(@PathVariable String titulo) {
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
 

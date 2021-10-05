@@ -1,4 +1,4 @@
-package br.com.freegunity.freegunity.configuration;
+package br.com.freegunity.configuration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class SwaggerConfig {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("br.com.freegunity.freegunity.controller"))
+				.apis(RequestHandlerSelectors.basePackage("org.generation.blogPessoal.controller"))
 				.paths(PathSelectors.any()).build().apiInfo(metadata()).useDefaultResponseMessages(false)
 				.globalResponses(HttpMethod.GET, responseMessage()).globalResponses(HttpMethod.POST, responseMessage())
 				.globalResponses(HttpMethod.PUT, responseMessage())
@@ -32,13 +32,13 @@ public class SwaggerConfig {
 	}
 
 	public static ApiInfo metadata() {
-		return new ApiInfoBuilder().title("FreegUnity").description("Rede Social - Projeto Integrador")
-				.version("1.0.0").license("Apache License Version 2.0").licenseUrl("https://github.com/jonpdro/ProjetoIntegrador")
+		return new ApiInfoBuilder().title("Blog Pessoal").description("Projeto API Spring - Blog Pessoal")
+				.version("1.0.0").license("Apache License Version 2.0").licenseUrl("https://github.com/jonpdro")
 				.contact(contact()).build();
 	}
 
 	private static Contact contact() {
-		return new Contact("FreegUnity", "https://github.com/jonpdro/ProjetoIntegrador", "jpcgomes0@gmail.com");
+		return new Contact("João Pedro Cruz", "https://github.com/jonpdro", "jpcgomes0@gmail.com");
 	}
 
 	private static List<Response> responseMessage() {

@@ -1,10 +1,10 @@
-package br.com.freegunity.freegunity;
+package org.generation.blogPessoal;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RedeSocialApplicationTests {
+class BlogPessoalApplicationTests {
 
 	@Test
 	void contextLoads() {

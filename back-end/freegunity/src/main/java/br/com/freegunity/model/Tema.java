@@ -1,4 +1,4 @@
-package br.com.freegunity.freegunity.model;
+package br.com.freegunity.model;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_tema")
+@Table(name = "tb_temas")
 public class Tema {
 
 	@Id

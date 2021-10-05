@@ -1,4 +1,4 @@
-package br.com.freegunity.freegunity.security;
+package br.com.freegunity.security;
 
 import java.util.Optional;
 
@@ -8,19 +8,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.freegunity.freegunity.model.Usuario;
-import br.com.freegunity.freegunity.repository.UsuarioRepository;
+import br.com.freegunity.model.User;
+import br.com.freegunity.repository.UserRepository;
 
 @Service
 public class UserServiceDetailsImpl implements UserDetailsService {
 
 	@Autowired
-	private UsuarioRepository userRepository;
+	private UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		Optional<Usuario> usuario = userRepository.findByUsuarioIgnoreCase(username);
+		Optional<User> usuario = userRepository.findByUsernameIgnoreCase(username);
 		usuario.orElseThrow(() -> new UsernameNotFoundException(username + " not found."));
 
 		return usuario.map(UserDetailsImpl::new).get();

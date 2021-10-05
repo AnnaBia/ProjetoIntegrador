@@ -1,4 +1,4 @@
-package br.com.freegunity.freegunity.model;
+package br.com.freegunity.model;
 
 public class UserLogin {
 
@@ -12,18 +12,18 @@ public class UserLogin {
 
 	private String senha;
 
-	private String admin;
+	private String token;
 
 	private String foto;
 
-	private String token;
+	private String admin;
 
-	public long getId() {
-		return id;
+	public String getAdmin() {
+		return admin;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setAdmin(String admin) {
+		this.admin = admin;
 	}
 
 	public String getNome() {
@@ -42,14 +42,6 @@ public class UserLogin {
 		this.usuario = usuario;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getSenha() {
 		return senha;
 	}
@@ -58,12 +50,12 @@ public class UserLogin {
 		this.senha = senha;
 	}
 
-	public String getAdmin() {
-		return admin;
+	public String getToken() {
+		return token;
 	}
 
-	public void setAdmin(String admin) {
-		this.admin = admin;
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 	public String getFoto() {
@@ -74,12 +66,20 @@ public class UserLogin {
 		this.foto = foto;
 	}
 
-	public String getToken() {
-		return token;
+	public long getId() {
+		return id;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

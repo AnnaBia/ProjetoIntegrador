@@ -1,11 +1,11 @@
-package br.com.freegunity.freegunity.security;
+package br.com.freegunity.security;
 
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.freegunity.freegunity.model.Usuario;
+import br.com.freegunity.model.User;
 
 public class UserDetailsImpl implements UserDetails {
 
@@ -15,7 +15,7 @@ public class UserDetailsImpl implements UserDetails {
 	private String password;
 	private Collection<GrantedAuthority> authorities;
 
-	public UserDetailsImpl(Usuario usuario) {
+	public UserDetailsImpl(User usuario) {
 		this.username = usuario.getUsuario();
 		this.password = usuario.getSenha();
 	}
