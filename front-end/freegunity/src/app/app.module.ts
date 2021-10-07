@@ -7,8 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Componentes Globais
 import { AppComponent } from './app.component';
-import { EntrarComponent } from './entrar/entrar.component';
-import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FeedComponent } from './feed/feed.component';
 import { RodapeComponent } from './rodape/rodape.component';
@@ -21,8 +19,7 @@ import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
-    EntrarComponent,
-    CadastrarComponent,
+
     InicioComponent,
     FeedComponent,
     RodapeComponent,
@@ -31,6 +28,9 @@ import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
     TemaDeleteComponent,
     PostagemEditComponent,
     TemaEditComponent
+
+   
+
   ],
   imports: [
     BrowserModule,
