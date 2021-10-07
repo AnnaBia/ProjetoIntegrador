@@ -1,5 +1,5 @@
 import { Tema } from './Tema';
-import { Usuario } from './Usuario';
+import { User } from './User';
 
 // Classe do back-end que vai ser exportada
 export class Postagem {
@@ -9,6 +9,6 @@ export class Postagem {
     public data: Date
 
     // Relacionamento entre as classes
-    public usuario: Usuario
+    public user: User
     public tema: Tema
 }
