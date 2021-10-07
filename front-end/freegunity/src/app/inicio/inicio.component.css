@@ -2,14 +2,14 @@
     position: relative;
     display: -ms-flexbox;
     display: flex;
-    padding: 1rem;
+    padding: 2rem;
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
     background-color: #F5F5F5;
     background-clip: padding-box;
     border: none;
-    border-radius: 30px;
+    border-radius: 20px;
     outline: 0;
     max-width: 500px;
 }
@@ -17,12 +17,12 @@
 .bg-fundo {
     background-image: url(src/assets/img/bg.png);
     min-height: 720px;
-    
     background: full-screen;
     background-size: cover; 
 }
 
 .ftNome{
+    margin-top: 15%;
     font-size: 80pt;
     font-family: 'Montserrat', sans-serif;
     color: white;
@@ -31,18 +31,26 @@
 }
 
 .ftLogo{
-    font-size: 30pt;
+    font-size: 25pt;
     font-family: 'Montserrat', sans-serif;
     color: white;  
     flex-wrap: wrap;
+    text-align: end;
 }
 
 .btnVisit{
+    margin-top: 100%;
+    margin-top: 40%;
     font-size: 15pt;
     width: 408px; 
     padding: 16px;
     cursor: pointer;
     color: white; 
+}
+
+.posbtnVisit{
+    margin-top: 110%;
+    position: relative;
 }
 
 .btnMenu{
@@ -52,5 +60,32 @@
     color: white;
 }
 
+.cx-1{
+    margin-top: 10%;
+    margin-left: auto;
+}
 
+.cx-2{
+    margin-top: 6%;
+    
+}
 
+.fs-title{
+    font-size: 20pt;
+}
+
+#btn-entrar{
+    background-color: #947BA0;
+    border: none;
+    width: 100px;
+}
+
+#btn-cadastrar{
+    background-color: #947BA0;
+    border: none;
+}
+
+#btn-criar{
+    background-color: #8BAD4D;
+    border: none;
+}
