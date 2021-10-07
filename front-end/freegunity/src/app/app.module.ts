@@ -11,6 +11,7 @@ import { EntrarComponent } from './entrar/entrar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FeedComponent } from './feed/feed.component';
+import { RodapeComponent } from './rodape/rodape.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FeedComponent } from './feed/feed.component';
     EntrarComponent,
     CadastrarComponent,
     InicioComponent,
-    FeedComponent
+    FeedComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
