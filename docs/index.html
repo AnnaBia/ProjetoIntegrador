@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>FreegUnity - Rede Social</title>
+  <title>FreegUnity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8" />
@@ -691,7 +691,7 @@
     var defs = {}
             defs["Postagem"] = {
   "title" : "Postagem",
-  "required" : [ "img", "texto" ],
+  "required" : [ "texto" ],
   "type" : "object",
   "properties" : {
     "data" : {
@@ -703,8 +703,6 @@
       "format" : "int64"
     },
     "img" : {
-      "maxLength" : 55,
-      "minLength" : 5,
       "type" : "string"
     },
     "tema" : {
@@ -712,17 +710,17 @@
     },
     "texto" : {
       "maxLength" : 255,
-      "minLength" : 5,
+      "minLength" : 0,
       "type" : "string"
     },
-    "usuario" : {
-      "$ref" : "#/components/schemas/Usuario"
+    "user" : {
+      "$ref" : "#/components/schemas/User"
     }
   }
 };
             defs["Tema"] = {
   "title" : "Tema",
-  "required" : [ "texto", "titulo" ],
+  "required" : [ "titulo" ],
   "type" : "object",
   "properties" : {
     "id" : {
@@ -738,56 +736,34 @@
         "$ref" : "#/components/schemas/Postagem"
       }
     },
-    "texto" : {
-      "maxLength" : 255,
-      "minLength" : 5,
-      "type" : "string"
-    },
     "titulo" : {
-      "maxLength" : 55,
-      "minLength" : 5,
+      "maxLength" : 50,
+      "minLength" : 0,
       "type" : "string"
     }
   }
 };
-            defs["UserLogin"] = {
-  "title" : "UserLogin",
-  "type" : "object",
-  "properties" : {
-    "email" : {
-      "type" : "string"
-    },
-    "nomeCompleto" : {
-      "type" : "string"
-    },
-    "senha" : {
-      "type" : "string"
-    },
-    "token" : {
-      "type" : "string"
-    }
-  }
-};
-            defs["Usuario"] = {
-  "title" : "Usuario",
-  "required" : [ "email", "nomeCompleto", "senha" ],
+            defs["User"] = {
+  "title" : "User",
+  "required" : [ "email", "nome", "senha", "username" ],
   "type" : "object",
   "properties" : {
     "admin" : {
-      "type" : "boolean"
+      "type" : "string"
     },
     "email" : {
-      "maxLength" : 256,
+      "maxLength" : 50,
       "minLength" : 0,
+      "type" : "string"
+    },
+    "foto" : {
       "type" : "string"
     },
     "id" : {
       "type" : "integer",
       "format" : "int64"
     },
-    "nomeCompleto" : {
-      "maxLength" : 50,
-      "minLength" : 0,
+    "nome" : {
       "type" : "string"
     },
     "postagem" : {
@@ -798,7 +774,43 @@
     },
     "senha" : {
       "maxLength" : 2147483647,
-      "minLength" : 6,
+      "minLength" : 8,
+      "type" : "string"
+    },
+    "username" : {
+      "maxLength" : 25,
+      "minLength" : 0,
+      "type" : "string"
+    }
+  }
+};
+            defs["UserLogin"] = {
+  "title" : "UserLogin",
+  "type" : "object",
+  "properties" : {
+    "admin" : {
+      "type" : "string"
+    },
+    "email" : {
+      "type" : "string"
+    },
+    "foto" : {
+      "type" : "string"
+    },
+    "id" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "nome" : {
+      "type" : "string"
+    },
+    "senha" : {
+      "type" : "string"
+    },
+    "token" : {
+      "type" : "string"
+    },
+    "username" : {
       "type" : "string"
     }
   }
@@ -826,11 +838,11 @@
                     <li data-group="PostagemController" data-name="getAllUsingGET" class="">
                       <a href="#api-PostagemController-getAllUsingGET">getAllUsingGET</a>
                     </li>
-                    <li data-group="PostagemController" data-name="getByDescricaoUsingGET" class="">
-                      <a href="#api-PostagemController-getByDescricaoUsingGET">getByDescricaoUsingGET</a>
-                    </li>
                     <li data-group="PostagemController" data-name="getByIdUsingGET" class="">
                       <a href="#api-PostagemController-getByIdUsingGET">getByIdUsingGET</a>
+                    </li>
+                    <li data-group="PostagemController" data-name="getByTituloUsingGET" class="">
+                      <a href="#api-PostagemController-getByTituloUsingGET">getByTituloUsingGET</a>
                     </li>
                     <li data-group="PostagemController" data-name="postUsingPOST" class="">
                       <a href="#api-PostagemController-postUsingPOST">postUsingPOST</a>
@@ -842,14 +854,14 @@
                     <li data-group="TemaController" data-name="deleteUsingDELETE1" class="">
                       <a href="#api-TemaController-deleteUsingDELETE1">deleteUsingDELETE1</a>
                     </li>
-                    <li data-group="TemaController" data-name="getAllUsingGET" class="">
-                      <a href="#api-TemaController-getAllUsingGET">getAllUsingGET</a>
+                    <li data-group="TemaController" data-name="getAllUsingGET1" class="">
+                      <a href="#api-TemaController-getAllUsingGET1">getAllUsingGET1</a>
                     </li>
                     <li data-group="TemaController" data-name="getByIdUsingGET1" class="">
                       <a href="#api-TemaController-getByIdUsingGET1">getByIdUsingGET1</a>
                     </li>
-                    <li data-group="TemaController" data-name="getByTemaUsingGET" class="">
-                      <a href="#api-TemaController-getByTemaUsingGET">getByTemaUsingGET</a>
+                    <li data-group="TemaController" data-name="getByNomeUsingGET" class="">
+                      <a href="#api-TemaController-getByNomeUsingGET">getByNomeUsingGET</a>
                     </li>
                     <li data-group="TemaController" data-name="postUsingPOST1" class="">
                       <a href="#api-TemaController-postUsingPOST1">postUsingPOST1</a>
@@ -857,12 +869,21 @@
                     <li data-group="TemaController" data-name="putUsingPUT1" class="">
                       <a href="#api-TemaController-putUsingPUT1">putUsingPUT1</a>
                     </li>
-                  <li class="nav-header" data-group="UsuarioController"><a href="#api-UsuarioController">API Methods - UsuarioController</a></li>
-                    <li data-group="UsuarioController" data-name="autenticationUsingPOST" class="">
-                      <a href="#api-UsuarioController-autenticationUsingPOST">autenticationUsingPOST</a>
+                  <li class="nav-header" data-group="UserController"><a href="#api-UserController">API Methods - UserController</a></li>
+                    <li data-group="UserController" data-name="cadastroUsingPOST" class="">
+                      <a href="#api-UserController-cadastroUsingPOST">cadastroUsingPOST</a>
                     </li>
-                    <li data-group="UsuarioController" data-name="postUsingPOST" class="">
-                      <a href="#api-UsuarioController-postUsingPOST">postUsingPOST</a>
+                    <li data-group="UserController" data-name="getAllUsingGET2" class="">
+                      <a href="#api-UserController-getAllUsingGET2">getAllUsingGET2</a>
+                    </li>
+                    <li data-group="UserController" data-name="getByIdUsingGET" class="">
+                      <a href="#api-UserController-getByIdUsingGET">getByIdUsingGET</a>
+                    </li>
+                    <li data-group="UserController" data-name="logarUsingPOST" class="">
+                      <a href="#api-UserController-logarUsingPOST">logarUsingPOST</a>
+                    </li>
+                    <li data-group="UserController" data-name="putUsingPUT2" class="">
+                      <a href="#api-UserController-putUsingPUT2">putUsingPUT2</a>
                     </li>
           </ul>
         </nav>
@@ -870,7 +891,7 @@
       <div id="content">
         <div id="project">
           <div class="pull-left">
-            <h1>FreegUnity - Rede Social</h1>
+            <h1>FreegUnity</h1>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -879,7 +900,7 @@
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
               <div class="app-desc">Version: 1.0.0</div>
             <hr>
-            <div>Projeto Integrador API Spring - Rede Social</div>
+            <div>Projeto Integrador - Rede Social</div>
           </div>
         </div>
         <div id="sections">
@@ -897,7 +918,7 @@
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/postagem/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/postagens/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -918,7 +939,7 @@
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-PostagemController-deleteUsingDELETE-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
-"//localhost:8080//postagem/{id}"</code></pre>
+"//fregunity.herokuapp.com//postagens/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-PostagemController-deleteUsingDELETE-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -982,9 +1003,9 @@ PostagemControllerApi *apiInstance = [[PostagemControllerApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-PostagemController-deleteUsingDELETE-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.PostagemControllerApi()
+var api = new FreegUnity.PostagemControllerApi()
 var id = 789; // {{Long}} id
 
 var callback = function(error, data, response) {
@@ -1186,7 +1207,7 @@ except ApiException as e:
                       <article id="api-PostagemController-getAllUsingGET-0" data-group="User" data-name="getAllUsingGET" data-version="0">
                         <div class="pull-left">
                           <h1>getAllUsingGET</h1>
-                          <p>GetAll</p>
+                          <p>getAll</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -1194,7 +1215,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/postagem</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/postagens</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -1216,7 +1237,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-PostagemController-getAllUsingGET-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: */*"\
-"//localhost:8080//postagem"</code></pre>
+"//fregunity.herokuapp.com//postagens"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-PostagemController-getAllUsingGET-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1268,7 +1289,7 @@ public class PostagemControllerApiExample {
                               <pre class="prettyprint"><code class="language-cpp">
 PostagemControllerApi *apiInstance = [[PostagemControllerApi alloc] init];
 
-// GetAll
+// getAll
 [apiInstance getAllUsingGETWithCompletionHandler: 
               ^(array[Postagem] output, NSError* error) {
                             if (output) {
@@ -1282,9 +1303,9 @@ PostagemControllerApi *apiInstance = [[PostagemControllerApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-PostagemController-getAllUsingGET-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.PostagemControllerApi()
+var api = new FreegUnity.PostagemControllerApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -1317,7 +1338,7 @@ namespace Example
 
             try
             {
-                // GetAll
+                // getAll
                 array[Postagem] result = apiInstance.getAllUsingGET();
                 Debug.WriteLine(result);
             }
@@ -1373,7 +1394,7 @@ from pprint import pprint
 api_instance = swagger_client.PostagemControllerApi()
 
 try: 
-    # GetAll
+    # getAll
     api_response = api_instance.get_all_using_get()
     pprint(api_response)
 except ApiException as e:
@@ -1492,354 +1513,6 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-PostagemController-getByDescricaoUsingGET">
-                      <article id="api-PostagemController-getByDescricaoUsingGET-0" data-group="User" data-name="getByDescricaoUsingGET" data-version="0">
-                        <div class="pull-left">
-                          <h1>getByDescricaoUsingGET</h1>
-                          <p>getByDescricao</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/postagem/descricao/{texto}</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-PostagemController-getByDescricaoUsingGET-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-java">Java</a></li>
-                          <li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-PostagemController-getByDescricaoUsingGET-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-PostagemController-getByDescricaoUsingGET-0-curl">
-                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
--H "Accept: */*"\
-"//localhost:8080//postagem/descricao/{texto}"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.PostagemControllerApi;
-
-import java.io.File;
-import java.util.*;
-
-public class PostagemControllerApiExample {
-
-    public static void main(String[] args) {
-        
-        PostagemControllerApi apiInstance = new PostagemControllerApi();
-        String texto = texto_example; // String | texto
-        try {
-            array[Postagem] result = apiInstance.getByDescricaoUsingGET(texto);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling PostagemControllerApi#getByDescricaoUsingGET");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PostagemControllerApi;
-
-public class PostagemControllerApiExample {
-
-    public static void main(String[] args) {
-        PostagemControllerApi apiInstance = new PostagemControllerApi();
-        String texto = texto_example; // String | texto
-        try {
-            array[Postagem] result = apiInstance.getByDescricaoUsingGET(texto);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling PostagemControllerApi#getByDescricaoUsingGET");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *texto = texto_example; // texto
-
-PostagemControllerApi *apiInstance = [[PostagemControllerApi alloc] init];
-
-// getByDescricao
-[apiInstance getByDescricaoUsingGETWith:texto
-              completionHandler: ^(array[Postagem] output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
-
-var api = new FreegUnityRedeSocial.PostagemControllerApi()
-var texto = texto_example; // {{String}} texto
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.getByDescricaoUsingGET(texto, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class getByDescricaoUsingGETExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new PostagemControllerApi();
-            var texto = texto_example;  // String | texto
-
-            try
-            {
-                // getByDescricao
-                array[Postagem] result = apiInstance.getByDescricaoUsingGET(texto);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling PostagemControllerApi.getByDescricaoUsingGET: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiPostagemControllerApi();
-$texto = texto_example; // String | texto
-
-try {
-    $result = $api_instance->getByDescricaoUsingGET($texto);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PostagemControllerApi->getByDescricaoUsingGET: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::PostagemControllerApi;
-
-my $api_instance = WWW::SwaggerClient::PostagemControllerApi->new();
-my $texto = texto_example; # String | texto
-
-eval { 
-    my $result = $api_instance->getByDescricaoUsingGET(texto => $texto);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling PostagemControllerApi->getByDescricaoUsingGET: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-PostagemController-getByDescricaoUsingGET-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.PostagemControllerApi()
-texto = texto_example # String | texto
-
-try: 
-    # getByDescricao
-    api_response = api_instance.get_by_descricao_using_get(texto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PostagemControllerApi->getByDescricaoUsingGET: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">texto*</td>
-                                  <td>
-                                  
-                                  
-                                      <div id="d2e199_getByDescricaoUsingGET_texto">
-                                          <div class="json-schema-view">
-                                              <div class="primitive">
-                                                  <span class="type">
-                                                      String
-                                                  </span>
-                                  
-                                                      <div class="inner description">
-                                                          texto
-                                                      </div>
-                                              </div>
-                                                  <div class="inner required">
-                                                      Required
-                                                  </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  </tr>
-                            </table>
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - OK </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-getByDescricaoUsingGET-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-getByDescricaoUsingGET-200-schema">
-                                  <div id='responses-getByDescricaoUsingGET-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "OK",
-  "content" : {
-    "*/*" : {
-      "schema" : {
-        "type" : "array",
-        "items" : {
-          "$ref" : "#/components/schemas/Postagem"
-        },
-        "x-content-type" : "*/*"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["*/*"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-getByDescricaoUsingGET-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-getByDescricaoUsingGET-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-getByDescricaoUsingGET-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                            <h3> Status: 201 - Criado! </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 400 - Erro na requisição! </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 401 - Não Autorizado! </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 403 - Proibido! </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 404 - Não Encontrado! </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 500 - Erro! </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
                     <div id="api-PostagemController-getByIdUsingGET">
                       <article id="api-PostagemController-getByIdUsingGET-0" data-group="User" data-name="getByIdUsingGET" data-version="0">
                         <div class="pull-left">
@@ -1852,7 +1525,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/postagem/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/postagens/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -1874,7 +1547,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-PostagemController-getByIdUsingGET-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: */*"\
-"//localhost:8080//postagem/{id}"</code></pre>
+"//fregunity.herokuapp.com//postagens/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-PostagemController-getByIdUsingGET-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1943,9 +1616,9 @@ PostagemControllerApi *apiInstance = [[PostagemControllerApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-PostagemController-getByIdUsingGET-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.PostagemControllerApi()
+var api = new FreegUnity.PostagemControllerApi()
 var id = 789; // {{Long}} id
 
 var callback = function(error, data, response) {
@@ -2187,6 +1860,354 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-PostagemController-getByTituloUsingGET">
+                      <article id="api-PostagemController-getByTituloUsingGET-0" data-group="User" data-name="getByTituloUsingGET" data-version="0">
+                        <div class="pull-left">
+                          <h1>getByTituloUsingGET</h1>
+                          <p>getByTitulo</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/postagens/titulo/{titulo}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-PostagemController-getByTituloUsingGET-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-PostagemController-getByTituloUsingGET-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-PostagemController-getByTituloUsingGET-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+-H "Accept: */*"\
+"//fregunity.herokuapp.com//postagens/titulo/{titulo}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PostagemControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PostagemControllerApiExample {
+
+    public static void main(String[] args) {
+        
+        PostagemControllerApi apiInstance = new PostagemControllerApi();
+        String titulo = titulo_example; // String | titulo
+        try {
+            array[Postagem] result = apiInstance.getByTituloUsingGET(titulo);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PostagemControllerApi#getByTituloUsingGET");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PostagemControllerApi;
+
+public class PostagemControllerApiExample {
+
+    public static void main(String[] args) {
+        PostagemControllerApi apiInstance = new PostagemControllerApi();
+        String titulo = titulo_example; // String | titulo
+        try {
+            array[Postagem] result = apiInstance.getByTituloUsingGET(titulo);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PostagemControllerApi#getByTituloUsingGET");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *titulo = titulo_example; // titulo
+
+PostagemControllerApi *apiInstance = [[PostagemControllerApi alloc] init];
+
+// getByTitulo
+[apiInstance getByTituloUsingGETWith:titulo
+              completionHandler: ^(array[Postagem] output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
+
+var api = new FreegUnity.PostagemControllerApi()
+var titulo = titulo_example; // {{String}} titulo
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getByTituloUsingGET(titulo, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getByTituloUsingGETExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PostagemControllerApi();
+            var titulo = titulo_example;  // String | titulo
+
+            try
+            {
+                // getByTitulo
+                array[Postagem] result = apiInstance.getByTituloUsingGET(titulo);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PostagemControllerApi.getByTituloUsingGET: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPostagemControllerApi();
+$titulo = titulo_example; // String | titulo
+
+try {
+    $result = $api_instance->getByTituloUsingGET($titulo);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PostagemControllerApi->getByTituloUsingGET: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PostagemControllerApi;
+
+my $api_instance = WWW::SwaggerClient::PostagemControllerApi->new();
+my $titulo = titulo_example; # String | titulo
+
+eval { 
+    my $result = $api_instance->getByTituloUsingGET(titulo => $titulo);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling PostagemControllerApi->getByTituloUsingGET: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-PostagemController-getByTituloUsingGET-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PostagemControllerApi()
+titulo = titulo_example # String | titulo
+
+try: 
+    # getByTitulo
+    api_response = api_instance.get_by_titulo_using_get(titulo)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PostagemControllerApi->getByTituloUsingGET: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">titulo*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_getByTituloUsingGET_titulo">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      String
+                                                  </span>
+                                  
+                                                      <div class="inner description">
+                                                          titulo
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getByTituloUsingGET-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getByTituloUsingGET-200-schema">
+                                  <div id='responses-getByTituloUsingGET-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "*/*" : {
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Postagem"
+        },
+        "x-content-type" : "*/*"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["*/*"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getByTituloUsingGET-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getByTituloUsingGET-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getByTituloUsingGET-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 201 - Criado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 400 - Erro na requisição! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 401 - Não Autorizado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 403 - Proibido! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 404 - Não Encontrado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Erro! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-PostagemController-postUsingPOST">
                       <article id="api-PostagemController-postUsingPOST-0" data-group="User" data-name="postUsingPOST" data-version="0">
                         <div class="pull-left">
@@ -2199,7 +2220,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/postagem</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/postagens</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2222,7 +2243,7 @@ except ApiException as e:
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Accept: */*"\
 -H "Content-Type: application/json"\
-"//localhost:8080//postagem"</code></pre>
+"//fregunity.herokuapp.com//postagens"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-PostagemController-postUsingPOST-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2291,9 +2312,9 @@ PostagemControllerApi *apiInstance = [[PostagemControllerApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-PostagemController-postUsingPOST-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.PostagemControllerApi()
+var api = new FreegUnity.PostagemControllerApi()
 var body = ; // {{Postagem}} postagem
 
 var callback = function(error, data, response) {
@@ -2559,7 +2580,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/postagem</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/postagens</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2582,7 +2603,7 @@ except ApiException as e:
                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
 -H "Accept: */*"\
 -H "Content-Type: application/json"\
-"//localhost:8080//postagem"</code></pre>
+"//fregunity.herokuapp.com//postagens"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-PostagemController-putUsingPUT-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2651,9 +2672,9 @@ PostagemControllerApi *apiInstance = [[PostagemControllerApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-PostagemController-putUsingPUT-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.PostagemControllerApi()
+var api = new FreegUnity.PostagemControllerApi()
 var body = ; // {{Postagem}} postagem
 
 var callback = function(error, data, response) {
@@ -2922,7 +2943,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/tema/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/temas/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2943,7 +2964,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-TemaController-deleteUsingDELETE1-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
-"//localhost:8080//tema/{id}"</code></pre>
+"//fregunity.herokuapp.com//temas/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-TemaController-deleteUsingDELETE1-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3007,9 +3028,9 @@ TemaControllerApi *apiInstance = [[TemaControllerApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-TemaController-deleteUsingDELETE1-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.TemaControllerApi()
+var api = new FreegUnity.TemaControllerApi()
 var id = 789; // {{Long}} id
 
 var callback = function(error, data, response) {
@@ -3207,10 +3228,10 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-TemaController-getAllUsingGET">
-                      <article id="api-TemaController-getAllUsingGET-0" data-group="User" data-name="getAllUsingGET" data-version="0">
+                    <div id="api-TemaController-getAllUsingGET1">
+                      <article id="api-TemaController-getAllUsingGET1-0" data-group="User" data-name="getAllUsingGET1" data-version="0">
                         <div class="pull-left">
-                          <h1>getAllUsingGET</h1>
+                          <h1>getAllUsingGET1</h1>
                           <p>getAll</p>
                         </div>
                         <div class="pull-right"></div>
@@ -3219,31 +3240,31 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/tema</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/temas</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-TemaController-getAllUsingGET-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-TemaController-getAllUsingGET-0-java">Java</a></li>
-                          <li class=""><a href="#examples-TemaController-getAllUsingGET-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-TemaController-getAllUsingGET-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-TemaController-getAllUsingGET-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-TemaController-getAllUsingGET-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-TemaController-getAllUsingGET-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-TemaController-getAllUsingGET-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-TemaController-getAllUsingGET-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-TemaController-getAllUsingGET-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-TemaController-getAllUsingGET-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-TemaController-getAllUsingGET1-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-TemaController-getAllUsingGET1-0-java">Java</a></li>
+                          <li class=""><a href="#examples-TemaController-getAllUsingGET1-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-TemaController-getAllUsingGET1-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-TemaController-getAllUsingGET1-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-TemaController-getAllUsingGET1-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-TemaController-getAllUsingGET1-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-TemaController-getAllUsingGET1-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-TemaController-getAllUsingGET1-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-TemaController-getAllUsingGET1-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-TemaController-getAllUsingGET1-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-TemaController-getAllUsingGET-0-curl">
+                          <div class="tab-pane active" id="examples-TemaController-getAllUsingGET1-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: */*"\
-"//localhost:8080//tema"</code></pre>
+"//fregunity.herokuapp.com//temas"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-java">
+                          <div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -3258,17 +3279,17 @@ public class TemaControllerApiExample {
         
         TemaControllerApi apiInstance = new TemaControllerApi();
         try {
-            array[Tema] result = apiInstance.getAllUsingGET();
+            array[Tema] result = apiInstance.getAllUsingGET1();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling TemaControllerApi#getAllUsingGET");
+            System.err.println("Exception when calling TemaControllerApi#getAllUsingGET1");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-android">
+                          <div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.TemaControllerApi;
 
 public class TemaControllerApiExample {
@@ -3276,25 +3297,25 @@ public class TemaControllerApiExample {
     public static void main(String[] args) {
         TemaControllerApi apiInstance = new TemaControllerApi();
         try {
-            array[Tema] result = apiInstance.getAllUsingGET();
+            array[Tema] result = apiInstance.getAllUsingGET1();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling TemaControllerApi#getAllUsingGET");
+            System.err.println("Exception when calling TemaControllerApi#getAllUsingGET1");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-groovy">
+  <div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-objc">
+                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">
 TemaControllerApi *apiInstance = [[TemaControllerApi alloc] init];
 
 // getAll
-[apiInstance getAllUsingGETWithCompletionHandler: 
+[apiInstance getAllUsingGET1WithCompletionHandler: 
               ^(array[Tema] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -3306,10 +3327,10 @@ TemaControllerApi *apiInstance = [[TemaControllerApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.TemaControllerApi()
+var api = new FreegUnity.TemaControllerApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -3317,14 +3338,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getAllUsingGET(callback);
+api.getAllUsingGET1(callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-angular">
+                            <!--<div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-csharp">
+                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -3333,7 +3354,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class getAllUsingGETExample
+    public class getAllUsingGET1Example
     {
         public void main()
         {
@@ -3343,12 +3364,12 @@ namespace Example
             try
             {
                 // getAll
-                array[Tema] result = apiInstance.getAllUsingGET();
+                array[Tema] result = apiInstance.getAllUsingGET1();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling TemaControllerApi.getAllUsingGET: " + e.Message );
+                Debug.Print("Exception when calling TemaControllerApi.getAllUsingGET1: " + e.Message );
             }
         }
     }
@@ -3356,22 +3377,22 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-php">
+                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiTemaControllerApi();
 
 try {
-    $result = $api_instance->getAllUsingGET();
+    $result = $api_instance->getAllUsingGET1();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemaControllerApi->getAllUsingGET: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemaControllerApi->getAllUsingGET1: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-perl">
+                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::TemaControllerApi;
@@ -3379,15 +3400,15 @@ use WWW::SwaggerClient::TemaControllerApi;
 my $api_instance = WWW::SwaggerClient::TemaControllerApi->new();
 
 eval { 
-    my $result = $api_instance->getAllUsingGET();
+    my $result = $api_instance->getAllUsingGET1();
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling TemaControllerApi->getAllUsingGET: $@\n";
+    warn "Exception when calling TemaControllerApi->getAllUsingGET1: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET-0-python">
+                            <div class="tab-pane" id="examples-TemaController-getAllUsingGET1-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -3399,10 +3420,10 @@ api_instance = swagger_client.TemaControllerApi()
 
 try: 
     # getAll
-    api_response = api_instance.get_all_using_get()
+    api_response = api_instance.get_all_using_get1()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling TemaControllerApi->getAllUsingGET: %s\n" % e)</code></pre>
+    print("Exception when calling TemaControllerApi->getAllUsingGET1: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -3418,14 +3439,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-getAllUsingGET-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-getAllUsingGET1-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-getAllUsingGET-200-schema">
-                                  <div id='responses-getAllUsingGET-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-getAllUsingGET1-200-schema">
+                                  <div id='responses-getAllUsingGET1-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -3455,14 +3476,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-getAllUsingGET-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-getAllUsingGET-200-schema-200');
+                                        $('#responses-getAllUsingGET1-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getAllUsingGET1-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-getAllUsingGET-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-getAllUsingGET1-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -3529,7 +3550,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/tema/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/temas/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -3551,7 +3572,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-TemaController-getByIdUsingGET1-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: */*"\
-"//localhost:8080//tema/{id}"</code></pre>
+"//fregunity.herokuapp.com//temas/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-TemaController-getByIdUsingGET1-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3620,9 +3641,9 @@ TemaControllerApi *apiInstance = [[TemaControllerApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-TemaController-getByIdUsingGET1-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.TemaControllerApi()
+var api = new FreegUnity.TemaControllerApi()
 var id = 789; // {{Long}} id
 
 var callback = function(error, data, response) {
@@ -3864,11 +3885,11 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-TemaController-getByTemaUsingGET">
-                      <article id="api-TemaController-getByTemaUsingGET-0" data-group="User" data-name="getByTemaUsingGET" data-version="0">
+                    <div id="api-TemaController-getByNomeUsingGET">
+                      <article id="api-TemaController-getByNomeUsingGET-0" data-group="User" data-name="getByNomeUsingGET" data-version="0">
                         <div class="pull-left">
-                          <h1>getByTemaUsingGET</h1>
-                          <p>getByTema</p>
+                          <h1>getByNomeUsingGET</h1>
+                          <p>getByNome</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -3876,31 +3897,31 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/tema/titulo/{titulo}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/temas/nome/{titulo}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-TemaController-getByTemaUsingGET-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-java">Java</a></li>
-                          <li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-TemaController-getByTemaUsingGET-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-TemaController-getByNomeUsingGET-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-java">Java</a></li>
+                          <li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-TemaController-getByNomeUsingGET-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-TemaController-getByTemaUsingGET-0-curl">
+                          <div class="tab-pane active" id="examples-TemaController-getByNomeUsingGET-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: */*"\
-"//localhost:8080//tema/titulo/{titulo}"</code></pre>
+"//fregunity.herokuapp.com//temas/nome/{titulo}"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-java">
+                          <div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -3916,17 +3937,17 @@ public class TemaControllerApiExample {
         TemaControllerApi apiInstance = new TemaControllerApi();
         String titulo = titulo_example; // String | titulo
         try {
-            array[Tema] result = apiInstance.getByTemaUsingGET(titulo);
+            array[Tema] result = apiInstance.getByNomeUsingGET(titulo);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling TemaControllerApi#getByTemaUsingGET");
+            System.err.println("Exception when calling TemaControllerApi#getByNomeUsingGET");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-android">
+                          <div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.TemaControllerApi;
 
 public class TemaControllerApiExample {
@@ -3935,26 +3956,26 @@ public class TemaControllerApiExample {
         TemaControllerApi apiInstance = new TemaControllerApi();
         String titulo = titulo_example; // String | titulo
         try {
-            array[Tema] result = apiInstance.getByTemaUsingGET(titulo);
+            array[Tema] result = apiInstance.getByNomeUsingGET(titulo);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling TemaControllerApi#getByTemaUsingGET");
+            System.err.println("Exception when calling TemaControllerApi#getByNomeUsingGET");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-groovy">
+  <div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-objc">
+                            <div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">String *titulo = titulo_example; // titulo
 
 TemaControllerApi *apiInstance = [[TemaControllerApi alloc] init];
 
-// getByTema
-[apiInstance getByTemaUsingGETWith:titulo
+// getByNome
+[apiInstance getByNomeUsingGETWith:titulo
               completionHandler: ^(array[Tema] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -3966,10 +3987,10 @@ TemaControllerApi *apiInstance = [[TemaControllerApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                            <div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.TemaControllerApi()
+var api = new FreegUnity.TemaControllerApi()
 var titulo = titulo_example; // {{String}} titulo
 
 var callback = function(error, data, response) {
@@ -3979,14 +4000,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getByTemaUsingGET(titulo, callback);
+api.getByNomeUsingGET(titulo, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-angular">
+                            <!--<div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-csharp">
+                            <div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -3995,7 +4016,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class getByTemaUsingGETExample
+    public class getByNomeUsingGETExample
     {
         public void main()
         {
@@ -4005,13 +4026,13 @@ namespace Example
 
             try
             {
-                // getByTema
-                array[Tema] result = apiInstance.getByTemaUsingGET(titulo);
+                // getByNome
+                array[Tema] result = apiInstance.getByNomeUsingGET(titulo);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling TemaControllerApi.getByTemaUsingGET: " + e.Message );
+                Debug.Print("Exception when calling TemaControllerApi.getByNomeUsingGET: " + e.Message );
             }
         }
     }
@@ -4019,7 +4040,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-php">
+                            <div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -4027,15 +4048,15 @@ $api_instance = new Swagger\Client\ApiTemaControllerApi();
 $titulo = titulo_example; // String | titulo
 
 try {
-    $result = $api_instance->getByTemaUsingGET($titulo);
+    $result = $api_instance->getByNomeUsingGET($titulo);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemaControllerApi->getByTemaUsingGET: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemaControllerApi->getByNomeUsingGET: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-perl">
+                            <div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::TemaControllerApi;
@@ -4044,15 +4065,15 @@ my $api_instance = WWW::SwaggerClient::TemaControllerApi->new();
 my $titulo = titulo_example; # String | titulo
 
 eval { 
-    my $result = $api_instance->getByTemaUsingGET(titulo => $titulo);
+    my $result = $api_instance->getByNomeUsingGET(titulo => $titulo);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling TemaControllerApi->getByTemaUsingGET: $@\n";
+    warn "Exception when calling TemaControllerApi->getByNomeUsingGET: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-TemaController-getByTemaUsingGET-0-python">
+                            <div class="tab-pane" id="examples-TemaController-getByNomeUsingGET-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -4064,11 +4085,11 @@ api_instance = swagger_client.TemaControllerApi()
 titulo = titulo_example # String | titulo
 
 try: 
-    # getByTema
-    api_response = api_instance.get_by_tema_using_get(titulo)
+    # getByNome
+    api_response = api_instance.get_by_nome_using_get(titulo)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling TemaControllerApi->getByTemaUsingGET: %s\n" % e)</code></pre>
+    print("Exception when calling TemaControllerApi->getByNomeUsingGET: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -4084,7 +4105,7 @@ except ApiException as e:
                                   <td>
                                   
                                   
-                                      <div id="d2e199_getByTemaUsingGET_titulo">
+                                      <div id="d2e199_getByNomeUsingGET_titulo">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -4113,14 +4134,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-getByTemaUsingGET-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-getByNomeUsingGET-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-getByTemaUsingGET-200-schema">
-                                  <div id='responses-getByTemaUsingGET-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-getByNomeUsingGET-200-schema">
+                                  <div id='responses-getByNomeUsingGET-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -4150,14 +4171,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-getByTemaUsingGET-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-getByTemaUsingGET-200-schema-200');
+                                        $('#responses-getByNomeUsingGET-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getByNomeUsingGET-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-getByTemaUsingGET-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-getByNomeUsingGET-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -4224,7 +4245,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/tema</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/temas</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -4247,7 +4268,7 @@ except ApiException as e:
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Accept: */*"\
 -H "Content-Type: application/json"\
-"//localhost:8080//tema"</code></pre>
+"//fregunity.herokuapp.com//temas"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-TemaController-postUsingPOST1-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -4316,9 +4337,9 @@ TemaControllerApi *apiInstance = [[TemaControllerApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-TemaController-postUsingPOST1-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.TemaControllerApi()
+var api = new FreegUnity.TemaControllerApi()
 var body = ; // {{Tema}} tema
 
 var callback = function(error, data, response) {
@@ -4584,7 +4605,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/tema</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/temas</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -4607,7 +4628,7 @@ except ApiException as e:
                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
 -H "Accept: */*"\
 -H "Content-Type: application/json"\
-"//localhost:8080//tema"</code></pre>
+"//fregunity.herokuapp.com//temas"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-TemaController-putUsingPUT1-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -4676,9 +4697,9 @@ TemaControllerApi *apiInstance = [[TemaControllerApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-TemaController-putUsingPUT1-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.TemaControllerApi()
+var api = new FreegUnity.TemaControllerApi()
 var body = ; // {{Tema}} tema
 
 var callback = function(error, data, response) {
@@ -4933,13 +4954,13 @@ except ApiException as e:
                       </div>
                       <hr>
                   </section>
-                <section id="api-UsuarioController">
-                  <h1>UsuarioController</h1>
-                    <div id="api-UsuarioController-autenticationUsingPOST">
-                      <article id="api-UsuarioController-autenticationUsingPOST-0" data-group="User" data-name="autenticationUsingPOST" data-version="0">
+                <section id="api-UserController">
+                  <h1>UserController</h1>
+                    <div id="api-UserController-cadastroUsingPOST">
+                      <article id="api-UserController-cadastroUsingPOST-0" data-group="User" data-name="cadastroUsingPOST" data-version="0">
                         <div class="pull-left">
-                          <h1>autenticationUsingPOST</h1>
-                          <p>Autentication</p>
+                          <h1>cadastroUsingPOST</h1>
+                          <p>cadastro</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -4947,87 +4968,87 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/usuarios/logar</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/usuarios/cadastrar</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-UsuarioController-autenticationUsingPOST-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-java">Java</a></li>
-                          <li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-UsuarioController-autenticationUsingPOST-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-UserController-cadastroUsingPOST-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-UserController-cadastroUsingPOST-0-java">Java</a></li>
+                          <li class=""><a href="#examples-UserController-cadastroUsingPOST-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-UserController-cadastroUsingPOST-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-UserController-cadastroUsingPOST-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-UserController-cadastroUsingPOST-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-UserController-cadastroUsingPOST-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-UserController-cadastroUsingPOST-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-UserController-cadastroUsingPOST-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-UserController-cadastroUsingPOST-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-UserController-cadastroUsingPOST-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-UsuarioController-autenticationUsingPOST-0-curl">
+                          <div class="tab-pane active" id="examples-UserController-cadastroUsingPOST-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Accept: */*"\
 -H "Content-Type: application/json"\
-"//localhost:8080//usuarios/logar"</code></pre>
+"//fregunity.herokuapp.com//usuarios/cadastrar"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-java">
+                          <div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.UsuarioControllerApi;
+import io.swagger.client.api.UserControllerApi;
 
 import java.io.File;
 import java.util.*;
 
-public class UsuarioControllerApiExample {
+public class UserControllerApiExample {
 
     public static void main(String[] args) {
         
-        UsuarioControllerApi apiInstance = new UsuarioControllerApi();
-        UserLogin body = ; // UserLogin | user
+        UserControllerApi apiInstance = new UserControllerApi();
+        User body = ; // User | usuario
         try {
-            UserLogin result = apiInstance.autenticationUsingPOST(body);
+            User result = apiInstance.cadastroUsingPOST(body);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsuarioControllerApi#autenticationUsingPOST");
+            System.err.println("Exception when calling UserControllerApi#cadastroUsingPOST");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.UsuarioControllerApi;
+                          <div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.UserControllerApi;
 
-public class UsuarioControllerApiExample {
+public class UserControllerApiExample {
 
     public static void main(String[] args) {
-        UsuarioControllerApi apiInstance = new UsuarioControllerApi();
-        UserLogin body = ; // UserLogin | user
+        UserControllerApi apiInstance = new UserControllerApi();
+        User body = ; // User | usuario
         try {
-            UserLogin result = apiInstance.autenticationUsingPOST(body);
+            User result = apiInstance.cadastroUsingPOST(body);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsuarioControllerApi#autenticationUsingPOST");
+            System.err.println("Exception when calling UserControllerApi#cadastroUsingPOST");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-groovy">
+  <div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">UserLogin *body = ; // user
+                            <div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">User *body = ; // usuario
 
-UsuarioControllerApi *apiInstance = [[UsuarioControllerApi alloc] init];
+UserControllerApi *apiInstance = [[UserControllerApi alloc] init];
 
-// Autentication
-[apiInstance autenticationUsingPOSTWith:body
-              completionHandler: ^(UserLogin output, NSError* error) {
+// cadastro
+[apiInstance cadastroUsingPOSTWith:body
+              completionHandler: ^(User output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -5038,11 +5059,11 @@ UsuarioControllerApi *apiInstance = [[UsuarioControllerApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                            <div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.UsuarioControllerApi()
-var body = ; // {{UserLogin}} user
+var api = new FreegUnity.UserControllerApi()
+var body = ; // {{User}} usuario
 
 var callback = function(error, data, response) {
   if (error) {
@@ -5051,14 +5072,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.autenticationUsingPOST(body, callback);
+api.cadastroUsingPOST(body, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-angular">
+                            <!--<div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-csharp">
+                            <div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -5067,23 +5088,23 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class autenticationUsingPOSTExample
+    public class cadastroUsingPOSTExample
     {
         public void main()
         {
 
-            var apiInstance = new UsuarioControllerApi();
-            var body = new UserLogin(); // UserLogin | user
+            var apiInstance = new UserControllerApi();
+            var body = new User(); // User | usuario
 
             try
             {
-                // Autentication
-                UserLogin result = apiInstance.autenticationUsingPOST(body);
+                // cadastro
+                User result = apiInstance.cadastroUsingPOST(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling UsuarioControllerApi.autenticationUsingPOST: " + e.Message );
+                Debug.Print("Exception when calling UserControllerApi.cadastroUsingPOST: " + e.Message );
             }
         }
     }
@@ -5091,40 +5112,40 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-php">
+                            <div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\ApiUsuarioControllerApi();
-$body = ; // UserLogin | user
+$api_instance = new Swagger\Client\ApiUserControllerApi();
+$body = ; // User | usuario
 
 try {
-    $result = $api_instance->autenticationUsingPOST($body);
+    $result = $api_instance->cadastroUsingPOST($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling UsuarioControllerApi->autenticationUsingPOST: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling UserControllerApi->cadastroUsingPOST: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-perl">
+                            <div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::UsuarioControllerApi;
+use WWW::SwaggerClient::UserControllerApi;
 
-my $api_instance = WWW::SwaggerClient::UsuarioControllerApi->new();
-my $body = WWW::SwaggerClient::Object::UserLogin->new(); # UserLogin | user
+my $api_instance = WWW::SwaggerClient::UserControllerApi->new();
+my $body = WWW::SwaggerClient::Object::User->new(); # User | usuario
 
 eval { 
-    my $result = $api_instance->autenticationUsingPOST(body => $body);
+    my $result = $api_instance->cadastroUsingPOST(body => $body);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling UsuarioControllerApi->autenticationUsingPOST: $@\n";
+    warn "Exception when calling UserControllerApi->cadastroUsingPOST: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-UsuarioController-autenticationUsingPOST-0-python">
+                            <div class="tab-pane" id="examples-UserController-cadastroUsingPOST-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -5132,15 +5153,15 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.UsuarioControllerApi()
-body =  # UserLogin | user
+api_instance = swagger_client.UserControllerApi()
+body =  # User | usuario
 
 try: 
-    # Autentication
-    api_response = api_instance.autentication_using_post(body)
+    # cadastro
+    api_response = api_instance.cadastro_using_post(body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UsuarioControllerApi->autenticationUsingPOST: %s\n" % e)</code></pre>
+    print("Exception when calling UserControllerApi->cadastroUsingPOST: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -5161,11 +5182,11 @@ except ApiException as e:
                                 <script>
                                 $(document).ready(function() {
                                   var schemaWrapper = {
-  "description" : "user",
+  "description" : "usuario",
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/UserLogin"
+        "$ref" : "#/components/schemas/User"
       }
     }
   },
@@ -5183,12 +5204,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_autenticationUsingPOST_body');
+                                  var result = $('#d2e199_cadastroUsingPOST_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_autenticationUsingPOST_body"></div>
+                                <div id="d2e199_cadastroUsingPOST_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -5200,14 +5221,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-autenticationUsingPOST-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-cadastroUsingPOST-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-autenticationUsingPOST-200-schema">
-                                  <div id='responses-autenticationUsingPOST-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-cadastroUsingPOST-200-schema">
+                                  <div id='responses-cadastroUsingPOST-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -5215,7 +5236,7 @@ except ApiException as e:
   "content" : {
     "*/*" : {
       "schema" : {
-        "$ref" : "#/components/schemas/UserLogin"
+        "$ref" : "#/components/schemas/User"
       }
     }
   }
@@ -5233,14 +5254,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-autenticationUsingPOST-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-autenticationUsingPOST-200-schema-200');
+                                        $('#responses-cadastroUsingPOST-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-cadastroUsingPOST-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-autenticationUsingPOST-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-cadastroUsingPOST-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -5295,11 +5316,11 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-UsuarioController-postUsingPOST">
-                      <article id="api-UsuarioController-postUsingPOST-0" data-group="User" data-name="postUsingPOST" data-version="0">
+                    <div id="api-UserController-getAllUsingGET2">
+                      <article id="api-UserController-getAllUsingGET2-0" data-group="User" data-name="getAllUsingGET2" data-version="0">
                         <div class="pull-left">
-                          <h1>postUsingPOST</h1>
-                          <p>Post</p>
+                          <h1>getAllUsingGET2</h1>
+                          <p>getAll</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -5307,87 +5328,83 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/usuarios/cadastrar</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/usuarios/all</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-UsuarioController-postUsingPOST-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-UsuarioController-postUsingPOST-0-java">Java</a></li>
-                          <li class=""><a href="#examples-UsuarioController-postUsingPOST-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-UsuarioController-postUsingPOST-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-UsuarioController-postUsingPOST-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-UsuarioController-postUsingPOST-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-UsuarioController-postUsingPOST-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-UsuarioController-postUsingPOST-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-UsuarioController-postUsingPOST-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-UsuarioController-postUsingPOST-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-UsuarioController-postUsingPOST-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-UserController-getAllUsingGET2-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-UserController-getAllUsingGET2-0-java">Java</a></li>
+                          <li class=""><a href="#examples-UserController-getAllUsingGET2-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-UserController-getAllUsingGET2-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-UserController-getAllUsingGET2-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-UserController-getAllUsingGET2-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-UserController-getAllUsingGET2-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-UserController-getAllUsingGET2-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-UserController-getAllUsingGET2-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-UserController-getAllUsingGET2-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-UserController-getAllUsingGET2-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-UsuarioController-postUsingPOST-0-curl">
-                           <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+                          <div class="tab-pane active" id="examples-UserController-getAllUsingGET2-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: */*"\
--H "Content-Type: application/json"\
-"//localhost:8080//usuarios/cadastrar"</code></pre>
+"//fregunity.herokuapp.com//usuarios/all"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-java">
+                          <div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.UsuarioControllerApi;
+import io.swagger.client.api.UserControllerApi;
 
 import java.io.File;
 import java.util.*;
 
-public class UsuarioControllerApiExample {
+public class UserControllerApiExample {
 
     public static void main(String[] args) {
         
-        UsuarioControllerApi apiInstance = new UsuarioControllerApi();
-        Usuario body = ; // Usuario | usuario
+        UserControllerApi apiInstance = new UserControllerApi();
         try {
-            Usuario result = apiInstance.postUsingPOST(body);
+            array[User] result = apiInstance.getAllUsingGET2();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsuarioControllerApi#postUsingPOST");
+            System.err.println("Exception when calling UserControllerApi#getAllUsingGET2");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.UsuarioControllerApi;
+                          <div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.UserControllerApi;
 
-public class UsuarioControllerApiExample {
+public class UserControllerApiExample {
 
     public static void main(String[] args) {
-        UsuarioControllerApi apiInstance = new UsuarioControllerApi();
-        Usuario body = ; // Usuario | usuario
+        UserControllerApi apiInstance = new UserControllerApi();
         try {
-            Usuario result = apiInstance.postUsingPOST(body);
+            array[User] result = apiInstance.getAllUsingGET2();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsuarioControllerApi#postUsingPOST");
+            System.err.println("Exception when calling UserControllerApi#getAllUsingGET2");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-groovy">
+  <div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Usuario *body = ; // usuario
+                            <div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+UserControllerApi *apiInstance = [[UserControllerApi alloc] init];
 
-UsuarioControllerApi *apiInstance = [[UsuarioControllerApi alloc] init];
-
-// Post
-[apiInstance postUsingPOSTWith:body
-              completionHandler: ^(Usuario output, NSError* error) {
+// getAll
+[apiInstance getAllUsingGET2WithCompletionHandler: 
+              ^(array[User] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -5398,12 +5415,10 @@ UsuarioControllerApi *apiInstance = [[UsuarioControllerApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var FreegUnityRedeSocial = require('freeg_unity___rede_social');
+                            <div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
 
-var api = new FreegUnityRedeSocial.UsuarioControllerApi()
-var body = ; // {{Usuario}} usuario
-
+var api = new FreegUnity.UserControllerApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -5411,14 +5426,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.postUsingPOST(body, callback);
+api.getAllUsingGET2(callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-angular">
+                            <!--<div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-csharp">
+                            <div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -5427,23 +5442,22 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class postUsingPOSTExample
+    public class getAllUsingGET2Example
     {
         public void main()
         {
 
-            var apiInstance = new UsuarioControllerApi();
-            var body = new Usuario(); // Usuario | usuario
+            var apiInstance = new UserControllerApi();
 
             try
             {
-                // Post
-                Usuario result = apiInstance.postUsingPOST(body);
+                // getAll
+                array[User] result = apiInstance.getAllUsingGET2();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling UsuarioControllerApi.postUsingPOST: " + e.Message );
+                Debug.Print("Exception when calling UserControllerApi.getAllUsingGET2: " + e.Message );
             }
         }
     }
@@ -5451,40 +5465,38 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-php">
+                            <div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\ApiUsuarioControllerApi();
-$body = ; // Usuario | usuario
+$api_instance = new Swagger\Client\ApiUserControllerApi();
 
 try {
-    $result = $api_instance->postUsingPOST($body);
+    $result = $api_instance->getAllUsingGET2();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling UsuarioControllerApi->postUsingPOST: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling UserControllerApi->getAllUsingGET2: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-perl">
+                            <div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::UsuarioControllerApi;
+use WWW::SwaggerClient::UserControllerApi;
 
-my $api_instance = WWW::SwaggerClient::UsuarioControllerApi->new();
-my $body = WWW::SwaggerClient::Object::Usuario->new(); # Usuario | usuario
+my $api_instance = WWW::SwaggerClient::UserControllerApi->new();
 
 eval { 
-    my $result = $api_instance->postUsingPOST(body => $body);
+    my $result = $api_instance->getAllUsingGET2();
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling UsuarioControllerApi->postUsingPOST: $@\n";
+    warn "Exception when calling UserControllerApi->getAllUsingGET2: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-UsuarioController-postUsingPOST-0-python">
+                            <div class="tab-pane" id="examples-UserController-getAllUsingGET2-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -5492,15 +5504,681 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.UsuarioControllerApi()
-body =  # Usuario | usuario
+api_instance = swagger_client.UserControllerApi()
 
 try: 
-    # Post
-    api_response = api_instance.post_using_post(body)
+    # getAll
+    api_response = api_instance.get_all_using_get2()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UsuarioControllerApi->postUsingPOST: %s\n" % e)</code></pre>
+    print("Exception when calling UserControllerApi->getAllUsingGET2: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getAllUsingGET2-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getAllUsingGET2-200-schema">
+                                  <div id='responses-getAllUsingGET2-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "*/*" : {
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/User"
+        },
+        "x-content-type" : "*/*"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["*/*"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getAllUsingGET2-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getAllUsingGET2-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getAllUsingGET2-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 201 - Criado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 400 - Erro na requisição! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 401 - Não Autorizado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 403 - Proibido! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 404 - Não Encontrado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Erro! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-UserController-getByIdUsingGET">
+                      <article id="api-UserController-getByIdUsingGET-0" data-group="User" data-name="getByIdUsingGET" data-version="0">
+                        <div class="pull-left">
+                          <h1>getByIdUsingGET</h1>
+                          <p>GetById</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/usuarios/{id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-UserController-getByIdUsingGET-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-UserController-getByIdUsingGET-0-java">Java</a></li>
+                          <li class=""><a href="#examples-UserController-getByIdUsingGET-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-UserController-getByIdUsingGET-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-UserController-getByIdUsingGET-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-UserController-getByIdUsingGET-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-UserController-getByIdUsingGET-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-UserController-getByIdUsingGET-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-UserController-getByIdUsingGET-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-UserController-getByIdUsingGET-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-UserController-getByIdUsingGET-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-UserController-getByIdUsingGET-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+-H "Accept: */*"\
+"//fregunity.herokuapp.com//usuarios/{id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.UserControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class UserControllerApiExample {
+
+    public static void main(String[] args) {
+        
+        UserControllerApi apiInstance = new UserControllerApi();
+        Long id = 789; // Long | id
+        try {
+            User result = apiInstance.getByIdUsingGET(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserControllerApi#getByIdUsingGET");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.UserControllerApi;
+
+public class UserControllerApiExample {
+
+    public static void main(String[] args) {
+        UserControllerApi apiInstance = new UserControllerApi();
+        Long id = 789; // Long | id
+        try {
+            User result = apiInstance.getByIdUsingGET(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserControllerApi#getByIdUsingGET");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Long *id = 789; // id
+
+UserControllerApi *apiInstance = [[UserControllerApi alloc] init];
+
+// GetById
+[apiInstance getByIdUsingGETWith:id
+              completionHandler: ^(User output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
+
+var api = new FreegUnity.UserControllerApi()
+var id = 789; // {{Long}} id
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getByIdUsingGET(id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getByIdUsingGETExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new UserControllerApi();
+            var id = 789;  // Long | id
+
+            try
+            {
+                // GetById
+                User result = apiInstance.getByIdUsingGET(id);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UserControllerApi.getByIdUsingGET: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiUserControllerApi();
+$id = 789; // Long | id
+
+try {
+    $result = $api_instance->getByIdUsingGET($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserControllerApi->getByIdUsingGET: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::UserControllerApi;
+
+my $api_instance = WWW::SwaggerClient::UserControllerApi->new();
+my $id = 789; # Long | id
+
+eval { 
+    my $result = $api_instance->getByIdUsingGET(id => $id);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling UserControllerApi->getByIdUsingGET: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-getByIdUsingGET-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.UserControllerApi()
+id = 789 # Long | id
+
+try: 
+    # GetById
+    api_response = api_instance.get_by_id_using_get(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserControllerApi->getByIdUsingGET: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_getByIdUsingGET_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      Long
+                                                  </span>
+                                                      <span class="format">
+                                                          (int64)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          id
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getByIdUsingGET-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getByIdUsingGET-200-schema">
+                                  <div id='responses-getByIdUsingGET-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "*/*" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/User"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["*/*"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getByIdUsingGET-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getByIdUsingGET-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getByIdUsingGET-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 201 - Criado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 400 - Erro na requisição! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 401 - Não Autorizado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 403 - Proibido! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 404 - Não Encontrado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Erro! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-UserController-logarUsingPOST">
+                      <article id="api-UserController-logarUsingPOST-0" data-group="User" data-name="logarUsingPOST" data-version="0">
+                        <div class="pull-left">
+                          <h1>logarUsingPOST</h1>
+                          <p>logar</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/usuarios/entrar</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-UserController-logarUsingPOST-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-UserController-logarUsingPOST-0-java">Java</a></li>
+                          <li class=""><a href="#examples-UserController-logarUsingPOST-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-UserController-logarUsingPOST-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-UserController-logarUsingPOST-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-UserController-logarUsingPOST-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-UserController-logarUsingPOST-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-UserController-logarUsingPOST-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-UserController-logarUsingPOST-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-UserController-logarUsingPOST-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-UserController-logarUsingPOST-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-UserController-logarUsingPOST-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: */*"\
+-H "Content-Type: application/json"\
+"//fregunity.herokuapp.com//usuarios/entrar"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-UserController-logarUsingPOST-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.UserControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class UserControllerApiExample {
+
+    public static void main(String[] args) {
+        
+        UserControllerApi apiInstance = new UserControllerApi();
+        UserLogin body = ; // UserLogin | usuario
+        try {
+            UserLogin result = apiInstance.logarUsingPOST(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserControllerApi#logarUsingPOST");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-UserController-logarUsingPOST-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.UserControllerApi;
+
+public class UserControllerApiExample {
+
+    public static void main(String[] args) {
+        UserControllerApi apiInstance = new UserControllerApi();
+        UserLogin body = ; // UserLogin | usuario
+        try {
+            UserLogin result = apiInstance.logarUsingPOST(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserControllerApi#logarUsingPOST");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-UserController-logarUsingPOST-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-UserController-logarUsingPOST-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">UserLogin *body = ; // usuario
+
+UserControllerApi *apiInstance = [[UserControllerApi alloc] init];
+
+// logar
+[apiInstance logarUsingPOSTWith:body
+              completionHandler: ^(UserLogin output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-logarUsingPOST-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
+
+var api = new FreegUnity.UserControllerApi()
+var body = ; // {{UserLogin}} usuario
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.logarUsingPOST(body, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-UserController-logarUsingPOST-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-UserController-logarUsingPOST-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class logarUsingPOSTExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new UserControllerApi();
+            var body = new UserLogin(); // UserLogin | usuario
+
+            try
+            {
+                // logar
+                UserLogin result = apiInstance.logarUsingPOST(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UserControllerApi.logarUsingPOST: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-logarUsingPOST-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiUserControllerApi();
+$body = ; // UserLogin | usuario
+
+try {
+    $result = $api_instance->logarUsingPOST($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserControllerApi->logarUsingPOST: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-logarUsingPOST-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::UserControllerApi;
+
+my $api_instance = WWW::SwaggerClient::UserControllerApi->new();
+my $body = WWW::SwaggerClient::Object::UserLogin->new(); # UserLogin | usuario
+
+eval { 
+    my $result = $api_instance->logarUsingPOST(body => $body);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling UserControllerApi->logarUsingPOST: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-logarUsingPOST-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.UserControllerApi()
+body =  # UserLogin | usuario
+
+try: 
+    # logar
+    api_response = api_instance.logar_using_post(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserControllerApi->logarUsingPOST: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -5525,7 +6203,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Usuario"
+        "$ref" : "#/components/schemas/UserLogin"
       }
     }
   },
@@ -5543,12 +6221,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_postUsingPOST_body');
+                                  var result = $('#d2e199_logarUsingPOST_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_postUsingPOST_body"></div>
+                                <div id="d2e199_logarUsingPOST_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -5560,14 +6238,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-postUsingPOST-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-logarUsingPOST-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-postUsingPOST-200-schema">
-                                  <div id='responses-postUsingPOST-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-logarUsingPOST-200-schema">
+                                  <div id='responses-logarUsingPOST-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -5575,7 +6253,7 @@ except ApiException as e:
   "content" : {
     "*/*" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Usuario"
+        "$ref" : "#/components/schemas/UserLogin"
       }
     }
   }
@@ -5593,14 +6271,374 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-postUsingPOST-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-postUsingPOST-200-schema-200');
+                                        $('#responses-logarUsingPOST-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-logarUsingPOST-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-postUsingPOST-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-logarUsingPOST-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 201 - Criado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 400 - Erro na requisição! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 401 - Não Autorizado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 403 - Proibido! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 404 - Não Encontrado! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Erro! </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-UserController-putUsingPUT2">
+                      <article id="api-UserController-putUsingPUT2-0" data-group="User" data-name="putUsingPUT2" data-version="0">
+                        <div class="pull-left">
+                          <h1>putUsingPUT2</h1>
+                          <p>put</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/usuarios/atualizar</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-UserController-putUsingPUT2-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-UserController-putUsingPUT2-0-java">Java</a></li>
+                          <li class=""><a href="#examples-UserController-putUsingPUT2-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-UserController-putUsingPUT2-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-UserController-putUsingPUT2-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-UserController-putUsingPUT2-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-UserController-putUsingPUT2-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-UserController-putUsingPUT2-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-UserController-putUsingPUT2-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-UserController-putUsingPUT2-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-UserController-putUsingPUT2-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-UserController-putUsingPUT2-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+-H "Accept: */*"\
+-H "Content-Type: application/json"\
+"//fregunity.herokuapp.com//usuarios/atualizar"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-UserController-putUsingPUT2-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.UserControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class UserControllerApiExample {
+
+    public static void main(String[] args) {
+        
+        UserControllerApi apiInstance = new UserControllerApi();
+        User body = ; // User | usuario
+        try {
+            User result = apiInstance.putUsingPUT2(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserControllerApi#putUsingPUT2");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-UserController-putUsingPUT2-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.UserControllerApi;
+
+public class UserControllerApiExample {
+
+    public static void main(String[] args) {
+        UserControllerApi apiInstance = new UserControllerApi();
+        User body = ; // User | usuario
+        try {
+            User result = apiInstance.putUsingPUT2(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserControllerApi#putUsingPUT2");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-UserController-putUsingPUT2-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-UserController-putUsingPUT2-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">User *body = ; // usuario
+
+UserControllerApi *apiInstance = [[UserControllerApi alloc] init];
+
+// put
+[apiInstance putUsingPUT2With:body
+              completionHandler: ^(User output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-putUsingPUT2-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var FreegUnity = require('freeg_unity');
+
+var api = new FreegUnity.UserControllerApi()
+var body = ; // {{User}} usuario
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.putUsingPUT2(body, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-UserController-putUsingPUT2-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-UserController-putUsingPUT2-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class putUsingPUT2Example
+    {
+        public void main()
+        {
+
+            var apiInstance = new UserControllerApi();
+            var body = new User(); // User | usuario
+
+            try
+            {
+                // put
+                User result = apiInstance.putUsingPUT2(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UserControllerApi.putUsingPUT2: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-putUsingPUT2-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiUserControllerApi();
+$body = ; // User | usuario
+
+try {
+    $result = $api_instance->putUsingPUT2($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserControllerApi->putUsingPUT2: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-putUsingPUT2-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::UserControllerApi;
+
+my $api_instance = WWW::SwaggerClient::UserControllerApi->new();
+my $body = WWW::SwaggerClient::Object::User->new(); # User | usuario
+
+eval { 
+    my $result = $api_instance->putUsingPUT2(body => $body);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling UserControllerApi->putUsingPUT2: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserController-putUsingPUT2-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.UserControllerApi()
+body =  # User | usuario
+
+try: 
+    # put
+    api_response = api_instance.put_using_put2(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserControllerApi->putUsingPUT2: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "usuario",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/User"
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_putUsingPUT2_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_putUsingPUT2_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-putUsingPUT2-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-putUsingPUT2-200-schema">
+                                  <div id='responses-putUsingPUT2-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "*/*" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/User"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["*/*"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-putUsingPUT2-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-putUsingPUT2-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-putUsingPUT2-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -6756,6 +7794,11 @@ except ApiException as e:
       this.open = open;
       this.options = options;
       this.isCollapsed = open <= 0;
+  
+      if (this.schema.type == undefined && this.schema.$ref) {
+        const elements = this.schema.$ref.split('/');
+        this.schema = defs[elements.pop()];
+      }
   
       // if schema is an empty object which means any JOSN
       this.isAny = typeof schema === 'object' && !Array.isArray(schema) && !Object.keys(schema).filter(function (k) {
