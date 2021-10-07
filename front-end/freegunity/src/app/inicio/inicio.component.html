@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="conteudoNavbarSuportado">
 
             <div class="m-2">
-                <button type="button" class="btn btnMenu" data-toggle="modal" data-target="#modalEntrar">
+                <button id="teste" type="button" class="btn btnMenu" data-toggle="modal" data-target="#modalEntrar">
                     Entre
                 </button>
             </div>
@@ -48,14 +48,13 @@
                                 <div class="input-group-prepend">
                                     <!--<div class="input-group-text">@</div>-->
                                 </div>
-                                <input type="text" name="username" class="form-control" id="username"
-                                    placeholder="Usuario">
+                                <input [(ngModel)]='userLogin.username' type="text" name="username" class="form-control"
+                                    id="username" placeholder="Usuario">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
-                            <small class="text-center pt-2"><a routerLink="" class="" id="signup">Esqueceu a
-                                    senha?</a></small>
+                            <input [(ngModel)]='userLogin.senha' type="password" name="senha" id="senha"
+                                class="form-control" placeholder="Senha">
                         </div>
 
                     </form>
@@ -64,11 +63,13 @@
                     <div class="col">
                         <div class="row d-flex align-items-center">
                             <div class="col-md-auto">
-                                <p class="text-center pt-2 tr-y"><a data-toggle="modal" data-target="#modalCadastrar"
-                                        class="">Criar conta</a></p>
+                                <a data-toggle="modal" data-target="#modalCadastrar" class="text-center">
+                                    Criar conta
+                                </a>
                             </div>
                             <div class="col-md-auto ml-auto">
-                                <button type="submit" class="btn btn-primary tr-y" id="btn-entrar">Entrar</button>
+                                <button (click)='entrar()' type="submit" class="btn btn-primary tr-y" id="btn-entrar"
+                                    data-dismiss="modal">Entrar</button>
                             </div>
                         </div>
                     </div>
@@ -83,7 +84,6 @@
         aria-hidden="true">
         <div class="modal-dialog cx-2" role="document">
             <div class="modal-content formato">
-
                 <div class="modal-header">
                     <img src="../../assets/img/favicon.png" width="35px" height="35px">
                     <h3 class="modal-title ml-auto fs-title text-secondary" id="exampleModalLabel">Inscreva-se</h3>
@@ -96,7 +96,7 @@
                 <div class="modal-body">
                     <form class="mt-2" action="" method="post" name="login">
                         <div class="form-group">
-                            <input type="password" name="senha" id="senha" class="form-control"
+                            <input [(ngModel)]='user.nome' type="text" name="senha" id="senha" class="form-control"
                                 placeholder="Nome completo">
                         </div>
                         <div class="form-group">
@@ -104,19 +104,21 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">@</div>
                                 </div>
-                                <input type="text" name="username" class="form-control" id="username"
-                                    placeholder="Usuario">
+                                <input [(ngModel)]='user.username' type="text" name="username" class="form-control"
+                                    id="username" placeholder="Usuario">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Email">
+                            <input [(ngModel)]='user.email' type="email" name="senha" id="senha" class="form-control"
+                                placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+                            <input [(ngModel)]='user.senha' (input)='tipoUser($event)' type="password" name="senha"
+                                id="senha" class="form-control" placeholder="Senha">
                         </div>
                         <div class="form-group">
-                            <input type="password" name="senha" id="senha" class="form-control"
-                                placeholder="Confirmar senha">
+                            <input (input)='confirmaSenha($event)' type="password" name="senha" id="senha"
+                                class="form-control" placeholder="Confirmar senha">
                         </div>
                     </form>
                 </div>
@@ -125,7 +127,8 @@
                     <div class="col">
                         <div class="row d-flex align-items-center">
                             <div class="col-md-auto ml-auto">
-                                <button type="submit" class="btn btn-primary tr-y" id="btn-cadastrar">Confirmar</button>
+                                <button (click)='cadastrar()' type="submit" class="btn btn-primary" id="btn-cadastrar"
+                                    data-dismiss="modal">Confirmar</button>
                             </div>
                         </div>
                     </div>
@@ -143,7 +146,8 @@
             <div class="col-md-4">
                 <div class="col-md-12">
                     <div class="row posbtnVisit">
-                        <a class="btn btnVisit border-light shadow-sm mb-5 m-5" href="#" role="button">Entre
+                        <a routerLink='/feed' class="btn btnVisit border-light shadow-sm mb-5 m-5" href="#"
+                            role="button">Entre
                             como visitante</a>
                     </div>
                 </div>
@@ -156,7 +160,8 @@
                         <h1 class="ftNome">FREEGUNITY</h1>
                         <hr class="my-1" color="white">
                         <h4 class="ftLogo">A rede que faz bem à vida de alguém</h4>
-                        <p class="d-flex justify-content-center"><a href=""><img src="assets/img/favicon-white.png" width="200px" height="200px"></a></p>
+                        <p class="d-flex justify-content-center"><a href=""><img src="assets/img/favicon-white.png"
+                                    width="200px" height="200px"></a></p>
                     </div>
                 </div>
             </div>

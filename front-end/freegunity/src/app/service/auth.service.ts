@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { UserLogin } from '../model/UserLogin';
-import { Usuario } from '../model/User';
+import { User } from '../model/User';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,8 @@ export class AuthService {
     return this.http.post<UserLogin>('https://fregunity.herokuapp.com/usuarios/entrar', userLogin)
   }
 
-  cadastrar(usuario: User): Observable<Usuario> {
-    return this.http.post<Usuario>('https://fregunity.herokuapp.com​/usuarios​/cadastrar', usuario)
+  cadastrar(user: User): Observable<User> {
+    return this.http.post<User>('https://fregunity.herokuapp.com/usuarios/cadastrar', user)
   }
 
   logado() {

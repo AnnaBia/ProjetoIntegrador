@@ -19,18 +19,18 @@ import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
-
+    
     InicioComponent,
+    
     FeedComponent,
     RodapeComponent,
     MenuComponent,
+
     PostagemDeleteComponent,
-    TemaDeleteComponent,
     PostagemEditComponent,
+    
+    TemaDeleteComponent,
     TemaEditComponent
-
-   
-
   ],
   imports: [
     BrowserModule,
