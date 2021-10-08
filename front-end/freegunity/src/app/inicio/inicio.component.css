@@ -7,14 +7,7 @@
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
-body
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #3c2846;
-}
+
 
 
 
@@ -119,15 +112,17 @@ body
     align-items: center;
     flex-wrap: wrap;
     padding: 40px;
-    background-color: #000000;
+    background-color: #3c2846;
+    background: cover;
 }
 .card
 {
+    border: transparent;
     position: relative;
     width: 320px;
     height: 450px;
     margin: 30px;
-    background: cyan;
+    background: #287bff;
     border-radius: 20px;
     border-bottom-left-radius: 160px;
     border-bottom-right-radius: 160px;
@@ -176,7 +171,7 @@ body
     position: relative;
     width: 140px;
     height: 120px;
-    background: #000000;
+    background: #3c2846;
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
     box-shadow: 0 10px 0 rgba(0,0,0,0.1),
@@ -195,7 +190,7 @@ body
     height: 50px;
     background: transparent;
     border-top-right-radius: 50px;
-    box-shadow: 15px -15px 0 5.6px #000000;
+    box-shadow: 15px -15px 0 5.6px #3c2846;
 }
 .icon::after
 {
@@ -207,7 +202,7 @@ body
     height: 50px;
     background: transparent;
     border-top-left-radius: 50px;
-    box-shadow: -15px -15px 0 5.8px #000000;
+    box-shadow: -15px -15px 0 5.8px #3c2846;
 }
 
 .icon img
