@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { UserLogin } from '../model/UserLogin';
-import { Usuario } from '../model/User';
+//import com erro, nome definido = Usuario
+import { User } from '../model/User';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +19,9 @@ export class AuthService {
   entrar(userLogin: UserLogin): Observable<UserLogin> {
     return this.http.post<UserLogin>('https://fregunity.herokuapp.com/usuarios/entrar', userLogin)
   }
-
-  cadastrar(usuario: User): Observable<Usuario> {
-    return this.http.post<Usuario>('https://fregunity.herokuapp.com​/usuarios​/cadastrar', usuario)
+//observable cadastrar  = : Observable<Usuario>
+  cadastrar(usuario: User): Observable<User> {
+    return this.http.post<User>('https://fregunity.herokuapp.com​/usuarios​/cadastrar', usuario)
   }
 
   logado() {
