@@ -4,7 +4,6 @@ import { Postagem } from './Postagem';
 export class Tema {
     public id: number
     public titulo: string
-    public texto: string
     public img: string
 
     // Relacionamento entre as classes
