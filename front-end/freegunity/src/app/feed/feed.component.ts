@@ -9,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
+  // Injeção de módulos e services
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
+    window.scroll(0, 0)
+    
     // if (environment.token == '') {
     //   // alert('Sua sessão expirou, faça login novamente.')
     //   this.router.navigate(['/entrar'])

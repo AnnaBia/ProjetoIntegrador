@@ -12,29 +12,30 @@ import { User } from '../model/User';
 })
 export class InicioComponent implements OnInit {
 
-  // INSTANCIAMENTO E CRIAÇÃO DE VARIAVEIS
+  // Instanciamento e criação de variáveis
   userLogin: UserLogin = new UserLogin()
   user: User = new User()
 
   confirmarSenha: string
   tipoUsuario: string
 
-  // INJEÇÃO DE MODULOS
+  // Injeção de módulos e services
   constructor(
     private auth: AuthService,
     private router: Router
   ) { }
 
+  // Método do Angular que inicia primeiro todos os métodos dentro dele
   ngOnInit() {
     window.scroll(0, 0)
   }
   
-  // MÉTODO PARA CHAMAR O BOTÃO ENTRAR DA PÁGINA INICIAL
+  // Método para chamar o botão entrar da página inicial
   click(){
     document.getElementById('teste')?.click()
   }
 
-  // MÉTODO PARA FAZER LOGIN
+  // Método para fazer login
   entrar() {
     this.auth.entrar(this.userLogin).subscribe((resp: UserLogin) => {
       this.userLogin = resp
@@ -55,15 +56,7 @@ export class InicioComponent implements OnInit {
     })
   }
 
-  // MÉTODOS PARA CADASTRAR USUARIOS
-  confirmaSenha(event: any) {
-    this.confirmarSenha = event.target.value
-  }
-
-  tipoUser(event: any) {
-    this.tipoUsuario = event.target.value
-  }
-
+  // Métodos para cadastrar usuários
   cadastrar() {
     if (this.tipoUsuario == "admin") {
       this.user.admin = "adm"
@@ -78,10 +71,18 @@ export class InicioComponent implements OnInit {
         this.user = resp
         
         this.click() // Chamando o método de clicar no botão entrar assim que cadastrar
-
+        
         alert('O usuário foi cadastrado com sucesso!')       
       })
     }
+  }
+
+  confirmaSenha(event: any) {
+    this.confirmarSenha = event.target.value
+  }
+
+  tipoUser(event: any) {
+    this.tipoUsuario = event.target.value
   }
 
 }

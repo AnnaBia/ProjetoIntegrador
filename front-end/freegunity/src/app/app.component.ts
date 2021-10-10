@@ -8,6 +8,7 @@ import { AuthService } from './service/auth.service';
 })
 export class AppComponent {
 
+  // Injeção de módulos
   constructor(
     public auth: AuthService
   ) {

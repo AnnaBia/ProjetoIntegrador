@@ -1,3 +1,4 @@
+// Importação de classes da model
 import { Postagem } from './Postagem';
 
 // Classe do back-end que vai ser exportada

@@ -16,29 +16,30 @@ import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component'
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 
+// Todos os componentes criados serão válidados aqui
 @NgModule({
   declarations: [
     AppComponent,
-    
+
     InicioComponent,
-    
+
     FeedComponent,
     RodapeComponent,
     MenuComponent,
 
     PostagemDeleteComponent,
     PostagemEditComponent,
-    
+
     TemaDeleteComponent,
     TemaEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, // Modulo HTTP
-    FormsModule // Modulo para Formularios
+    HttpClientModule, // Módulo HTTP
+    FormsModule // Módulo para Formulários
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] // Permissão do bootstrap agir em toda aplicação
 })
 export class AppModule { }

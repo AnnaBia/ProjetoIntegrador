@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FeedComponent } from './feed/feed.component';
 import { InicioComponent } from './inicio/inicio.component';
 
-// ROTAS DE TODA APLICAÇÃO
+// Rotas de toda a aplicação
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
 

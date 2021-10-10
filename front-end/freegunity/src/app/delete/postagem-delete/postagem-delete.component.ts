@@ -1,3 +1,7 @@
+import { environment } from 'src/environments/environment.prod';
+import { PostagemService } from './../../service/postagem.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Postagem } from './../../model/Postagem';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostagemDeleteComponent implements OnInit {
 
-  constructor() { }
+  // Instanciamento e criação de variáveis
+  postagem: Postagem = new Postagem()
+  idPost: number
 
-  ngOnInit(): void {
+  // Injeção de módulos e services
+  constructor(
+    private postagemService: PostagemService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
+
+  // Método do Angular que inicia primeiro todos os métodos dentro dele
+  ngOnInit() {
+    window.scroll(0,0)
+
+    if(environment.token == ''){
+      this.router.navigate(['/entrar'])
+    }
+
+    this.idPost = this.route.snapshot.params['id']
+    this.findByIdPostagem(this.idPost)
   }
 
+  // Método para encontrar postagem pelo Id
+  findByIdPostagem(id: number){
+    this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) => {
+      this.postagem = resp
+    })
+  }
+
+  // Método para apagar a postagem
+  apagar(){
+    this.postagemService.deletePostagem(this.idPost).subscribe(()=>{
+      alert('Postagem apagada com sucesso!')
+      this.router.navigate(['/home'])
+    })
+  }
 }
