@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   cadastrar(user: User): Observable<User> {
-    return this.http.post<User>('https://fregunity.herokuapp.com​/usuarios​/cadastrar', user)
+    return this.http.post<User>('https://fregunity.herokuapp.com/usuarios/cadastrar', user)
   }
 
   getByIdUser(id: number): Observable<User> {

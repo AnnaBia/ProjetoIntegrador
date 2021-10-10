@@ -28,11 +28,15 @@ export class InicioComponent implements OnInit {
   // Método do Angular que inicia primeiro todos os métodos dentro dele
   ngOnInit() {
     window.scroll(0, 0)
+
+    if (environment.token == '') {
+      this.router.navigate(['/inicio'])
+    }
   }
-  
+
   // Método para chamar o botão entrar da página inicial
-  click(){
-    document.getElementById('teste')?.click()
+  click() {
+    document.getElementById('btnLogin')?.click()
   }
 
   // Método para fazer login
@@ -57,8 +61,16 @@ export class InicioComponent implements OnInit {
   }
 
   // Métodos para cadastrar usuários
+  confirmaSenha(event: any) {
+    this.confirmarSenha = event.target.value
+  }
+
+  tipoUser(event: any) {
+    this.tipoUsuario = event.target.value
+  }
+
   cadastrar() {
-    if (this.tipoUsuario == "admin") {
+    if (this.tipoUsuario == "admin" || this.tipoUsuario == "root") {
       this.user.admin = "adm"
     } else {
       this.user.admin = "user"
@@ -67,22 +79,15 @@ export class InicioComponent implements OnInit {
     if (this.user.senha != this.confirmarSenha) {
       alert('As senhas estão incorretas!')
     } else {
-      this.auth.cadastrar(this.user).subscribe((resp: User) => {
-        this.user = resp
-        
-        this.click() // Chamando o método de clicar no botão entrar assim que cadastrar
-        
-        alert('O usuário foi cadastrado com sucesso!')       
-      })
+      // this.auth.cadastrar(this.user).subscribe((resp: User) => {
+      //   this.user = resp
+      // })
+      this.router.navigate(['/inicio'])
+      alert('O usuário foi cadastrado com sucesso!')
+      this.click() // Chamando o método de clicar no botão entrar assim que cadastrar
     }
   }
 
-  confirmaSenha(event: any) {
-    this.confirmarSenha = event.target.value
-  }
 
-  tipoUser(event: any) {
-    this.tipoUsuario = event.target.value
-  }
 
 }
