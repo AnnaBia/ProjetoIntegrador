@@ -79,12 +79,12 @@ export class InicioComponent implements OnInit {
     if (this.user.senha != this.confirmarSenha) {
       alert('As senhas estão incorretas!')
     } else {
-      // this.auth.cadastrar(this.user).subscribe((resp: User) => {
-      //   this.user = resp
-      // })
-      this.router.navigate(['/inicio'])
-      alert('O usuário foi cadastrado com sucesso!')
-      this.click() // Chamando o método de clicar no botão entrar assim que cadastrar
+      this.auth.cadastrar(this.user).subscribe((resp: User) => {
+        this.user = resp
+        this.router.navigate(['/inicio'])
+        alert('O usuário foi cadastrado com sucesso!')
+        this.click() // Chamando o método de clicar no botão entrar assim que cadastrar
+      })
     }
   }
 
