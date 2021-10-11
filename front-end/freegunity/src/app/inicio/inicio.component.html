@@ -49,14 +49,28 @@
                                     <!--<div class="input-group-text">@</div>-->
                                 </div>
                                 <input [(ngModel)]='userLogin.username' type="text" name="username" class="form-control"
-                                    id="username" placeholder="Usuario">
+                                    id="username" required #loginUsername="ngModel" placeholder="Usuario">
                             </div>
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="loginUsername.invalid && (loginUsername.dirty || loginUsername.touched)"
+                                class="alert">
+                                <small class="text-danger" *ngIf="loginUsername.errors?.required">
+                                    O campo "Usuário" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
                         </div>
                         <div class="form-group">
                             <input [(ngModel)]='userLogin.senha' type="password" name="senha" id="senha"
-                                class="form-control" placeholder="Senha">
+                                class="form-control" required #loginSenha="ngModel" placeholder="Senha">
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="loginSenha.invalid && (loginSenha.dirty || loginSenha.touched)" class="alert">
+                                <small class="text-danger" *ngIf="loginSenha.errors?.required">
+                                    O campo "Senha" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
                         </div>
-
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -97,7 +111,14 @@
                     <form class="mt-2" action="" method="post" name="login">
                         <div class="form-group">
                             <input [(ngModel)]='user.nome' type="text" name="senha" id="senha" class="form-control"
-                                placeholder="Nome completo">
+                                required #nome="ngModel" placeholder="Nome completo">
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert">
+                                <small class="text-danger" *ngIf="nome.errors?.required">
+                                    O campo "Nome" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
                         </div>
                         <div class="form-group">
                             <div class="input-group">
@@ -105,19 +126,40 @@
                                     <div class="input-group-text">@</div>
                                 </div>
                                 <input [(ngModel)]='user.username' type="text" name="username" class="form-control"
-                                    id="username" placeholder="Usuario">
+                                    id="username" required #username="ngModel" placeholder="Usuário">
                             </div>
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
+                                <small class="text-danger" *ngIf="username.errors?.required">
+                                    O campo "Usuário" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
                         </div>
                         <div class="form-group">
-                            <input [(ngModel)]='user.email' type="email" name="senha" id="senha" class="form-control"
-                                placeholder="Email">
+                            <input [(ngModel)]='user.email' type="email" name="email" id="email" class="form-control"
+                                required #email="ngModel" placeholder="Email">
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+                                <small class="text-danger" *ngIf="email.errors?.required">
+                                    Campo "Email" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
                         </div>
                         <div class="form-group">
                             <input [(ngModel)]='user.senha' (input)='tipoUser($event)' type="password" name="senha"
-                                id="senha" class="form-control" placeholder="Senha">
+                                id="senha" class="form-control" required #senha="ngModel" placeholder="Senha">
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="senha.invalid && (senha.dirty || senha.touched)" class="alert">
+                                <small class="text-danger" *ngIf="senha.errors?.required">
+                                    O campo "Senha" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
                         </div>
                         <div class="form-group">
-                            <input (input)='confirmaSenha($event)' type="password" name="senha" id="senha"
+                            <input (input)='confirmaSenha($event)' type="password" name="ConfSenha" id="ConfSenha"
                                 class="form-control" placeholder="Confirmar senha">
                         </div>
                     </form>
