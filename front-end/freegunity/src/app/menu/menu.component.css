@@ -1,0 +1,17 @@
+
+.menu
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    height: 50px;
+    background: #24ff72;
+    align-items:center;
+    justify-content: center;
+    box-shadow: 1px 0 3px rgba(0,0,0,0.6);
+}
+.imagemLogo
+{
+    width: 35px;
+}
