@@ -1,10 +1,9 @@
 /*IMPORTS NECESSARIOS*/
+
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 /*fonte-footer*/
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-
-
 .formato {
     position: relative;
     display: -ms-flexbox;
@@ -28,85 +27,82 @@
     background-size: cover;
 }
 
-.ftNome{
+.ftNome {
     margin-top: 15%;
     font-size: 80pt;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    letter-spacing: -2px;  
+    letter-spacing: -2px;
     flex-wrap: wrap;
 }
 
-.ftLogo{
+.ftLogo {
     font-size: 25pt;
     font-family: 'Montserrat', sans-serif;
-    color: white;  
+    color: white;
     flex-wrap: wrap;
     text-align: end;
 }
 
-.btnVisit{
+.btnVisit {
     margin-top: 100%;
     margin-top: 40%;
     font-size: 15pt;
-    width: 408px; 
+    width: 408px;
     padding: 16px;
     cursor: pointer;
-    color: white; 
+    color: white;
 }
 
-.posbtnVisit{
+.posbtnVisit {
     margin-top: 110%;
     position: relative;
 }
 
-.btnMenu{
-    font-size: 15pt; 
-    width: 200px; 
+.btnMenu {
+    font-size: 15pt;
+    width: 200px;
     padding: 8px;
     color: white;
 }
-.btnMenu:focus {
-    border: none; 
-    outline: none; 
-    box-shadow: 0 0 0 0;
 
+.btnMenu:focus {
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 0;
 }
 
-.cx-1{
+.cx-1 {
     margin-top: 10%;
     margin-left: auto;
 }
 
-.cx-2{
+.cx-2 {
     margin-top: 6%;
-    
 }
 
-.fs-title{
+.fs-title {
     font-size: 20pt;
 }
 
-#btn-entrar{
+#btn-entrar {
     background-color: #947BA0;
     border: none;
     width: 100px;
 }
 
-#btn-cadastrar{
+#btn-cadastrar {
     background-color: #947BA0;
     border: none;
 }
 
-#btn-criar{
+#btn-criar {
     background-color: #8BAD4D;
     border: none;
 }
 
-
 /*dev team*/
-.container-fluid.tm 
-{
+.container-fluid.tm {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,8 +111,8 @@
     background-color: #d1cdc7;
     background: cover;
 }
-.card
-{
+
+.card {
     border: transparent;
     position: relative;
     width: 320px;
@@ -126,62 +122,59 @@
     border-radius: 20px;
     border-bottom-left-radius: 160px;
     border-bottom-right-radius: 160px;
-    box-shadow: 0 15px 0 #fff,
-    inset 0 -15px 0 rgba(255,255,255,0.25),
-    0 45px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 15px 0 #fff, inset 0 -15px 0 rgba(255, 255, 255, 0.25), 0 45px 0 rgba(0, 0, 0, 0.15);
     overflow: hidden;
     display: flex;
     align-items: center;
 }
-.card::before
-{
+
+.card::before {
     content: '';
     position: absolute;
     top: -140px;
     left: -40%;
     width: 100%;
     height: 120%;
-    background: linear-gradient(90deg,transparent,rgba(255,255,255,0.2));
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
     transform: rotate(35deg);
     pointer-events: none;
     filter: blur(5px);
 }
-.card:nth-child(1)
-{
-    background: linear-gradient(to bottom,#24ff72, #9a4eff);
+
+.card:nth-child(1) {
+    background: linear-gradient(to bottom, #24ff72, #9a4eff);
 }
-.card:nth-child(2)
-{
-    background: linear-gradient(to bottom,#24ff72, #9a4eff);
+
+.card:nth-child(2) {
+    background: linear-gradient(to bottom, #24ff72, #9a4eff);
 }
-.card:nth-child(3)
-{
-    background: linear-gradient(to bottom,#24ff72, #9a4eff);
+
+.card:nth-child(3) {
+    background: linear-gradient(to bottom, #24ff72, #9a4eff);
 }
-.card:nth-child(4)
-{
-    background: linear-gradient(to bottom,#24ff72, #9a4eff);
+
+.card:nth-child(4) {
+    background: linear-gradient(to bottom, #24ff72, #9a4eff);
 }
-.card:nth-child(5)
-{
-    background: linear-gradient(to bottom,#24ff72, #9a4eff);
+
+.card:nth-child(5) {
+    background: linear-gradient(to bottom, #24ff72, #9a4eff);
 }
-.icon
-{
+
+.icon {
     position: relative;
     width: 140px;
     height: 120px;
     background: #d1cdc7;
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
-    box-shadow: 0 10px 0 rgba(0,0,0,0.1),
-    inset 0 -8px 0 #fff;
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.1), inset 0 -8px 0 #fff;
     z-index: 1000;
     display: flex;
     justify-content: center;
 }
-.icon::before
-{
+
+.icon::before {
     content: '';
     position: absolute;
     top: 0;
@@ -192,8 +185,8 @@
     border-top-right-radius: 50px;
     box-shadow: 9px -12px 0 6.3px #d1cdc7;
 }
-.icon::after
-{
+
+.icon::after {
     content: '';
     position: absolute;
     top: 0;
@@ -205,93 +198,91 @@
     box-shadow: -9px -12px 0 6.3px #d1cdc7;
 }
 
-.icon img
-{
-
+.icon img {
     padding: -40px;
     border-radius: 90px;
     margin-bottom: 10px;
     max-width: 105.64;
     max-height: 110;
 }
-.content
-{
+
+.content {
     position: absolute;
     width: 100%;
     padding: 30px;
     padding-top: 140px;
     text-align: center;
 }
-.content h2
-{
+
+.content h2 {
     font-size: 1.75em;
     color: #fff;
     margin-bottom: 10px;
 }
-.content p 
-{
+
+.content p {
     color: #fff;
     line-height: 1.5em;
 }
-hr{
+
+hr {
     margin: 0;
 }
-/*all-footer*/
 
+/*all-footer*/
 .container-fluid.ft {
     margin: 0%;
     padding: 70px 0;
     background: #24262b;
 }
-.row
-{
+
+.row {
     display: flex;
     flex-wrap: wrap;
 }
-ul
-{
+
+ul {
     list-style: none;
 }
-.footer
-{
-    background-color:#24262b ;
+
+.footer {
+    background-color: #24262b;
     max-width: 1170px;
     margin: auto;
     line-height: 1.5;
     font-family: 'Poppins', sans-serif;
 }
-.footer-col
-{
+
+.footer-col {
     width: 25%;
     padding: 0 15px;
 }
-.footer-col h4
-{
+
+.footer-col h4 {
     font-size: 18px;
     color: #ffffff;
     text-transform: capitalize;
     margin-bottom: 35px;
     font-weight: 500;
     position: relative;
- 
 }
-.footer-col h4::before
-{
+
+.footer-col h4::before {
     content: '';
     position: absolute;
     left: 0;
     bottom: -10px;
-    background-color:#24ff72;
+    background-color: #24ff72;
     height: 2px;
     box-sizing: border-box;
     width: 50px;
 }
-.footer-col ul li:not(:last-child)
-{
+
+.footer-col ul li:not(:last-child) {
     margin-bottom: 10px;
 }
-.footer-col ul li a 
-{
+
+.footer-col ul li a {
     font-size: 16px;
     text-transform: capitalize;
     color: #ffffff;
@@ -301,15 +292,14 @@ ul
     display: block;
     transition: all 0.3s ease;
 }
-.footer-col ul li a:hover
-{
+
+.footer-col ul li a:hover {
     color: #ffffff;
     padding-left: 4px;
     transition: all 0.2s ease;
-
 }
-.footer-col p
-{
+
+.footer-col p {
     font-size: 16px;
     text-transform: capitalize;
     color: #ffffff;
@@ -320,12 +310,12 @@ ul
     text-align: start;
     justify-content: center;
 }
-.footer-col .social-links a
-{
+
+.footer-col .social-links a {
     display: inline-block;
     height: 40px;
     width: 40px;
-    background-color:rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     margin-right: 0 10px 10px 0;
     text-align: center;
     line-height: 40px;
@@ -333,253 +323,198 @@ ul
     color: #ffffff;
     transition: all 0.5 ease;
 }
-.footer-col .social-links a:hover
-{
+
+.footer-col .social-links a:hover {
     color: #24262b;
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
+
 /*responsividade footer*/
-@media(max-width:767px)
-{
-    .footer-col
-    {
+
+@media(max-width:767px) {
+    .footer-col {
         width: 50%;
         margin-bottom: 30px;
         margin-left: 60px;
     }
 }
-@media(max-width:574px)
-{
-    .footer-col
-    {
+
+@media(max-width:574px) {
+    .footer-col {
         width: 100%;
     }
 }
+
 /*responsividade cards*/
-@media(max-width:1100px)
-{
-    .col-md
-    {
-       width: 100%;
-       margin-bottom: 40px;
+
+@media(max-width:1100px) {
+    .col-md {
+        width: 100%;
+        margin-bottom: 40px;
     }
 }
+
 /*responsividade freegunity inicial*/
-@media screen and (min-width:359px)
-{
-    .bg-fundo
-    {
-    
+
+@media screen and (min-width:359px) {
+    .bg-fundo {
         background: full-screen;
     }
-    .ftNome
-   {
-       margin: 0; 
-       margin-top: 10px;
-       font-size: 30px;
-   }
-   .footer-col.ml,.footer-col
-    {
-        margin-left: 55px;
+    .ftNome {
+        margin: 0;
+        margin-top: 10px;
+        font-size: 30px;
     }
-}
-@media screen and (min-width:481px) and (max-width:768px)
-{
-
-   .bg-fundo
-   {
-       width: 100%;
-       background: full-screen;
-   }
-   .ftNome
-   {
-       margin: 0; 
-       margin-top: 10px;
-       font-size: 30px;
-   }
-   .ftLogo
-   {
-       font-size: 15px;
-       text-align: start;
-   }
-   .my-1
-   {
-       size: 3px;
-       margin: 5px;
-   }
-   .posbtnVisit
-   {
-       margin: 0;
-       margin-top: 130pt;
-   }
-   .media
-   {
-       align-items: center;
-       margin-left: 80px;
-   }
-   .footer-col.ml
-   {
-       margin-left: 55px;
-       margin-right: 30px;
-   }
-   .justify
-   {
-       text-align: justify;
-   }
-   .footer-col.ml,.footer-col
-    {
+    .footer-col.ml, .footer-col {
         margin-left: 55px;
     }
 }
 
-@media screen and (min-width: 769px) and (max-width:992px) 
-{
-    .bg-fundo
-    {
+@media screen and (min-width:481px) and (max-width:768px) {
+    .bg-fundo {
+        width: 100%;
+        background: full-screen;
+    }
+    .ftNome {
+        margin: 0;
+        margin-top: 10px;
+        font-size: 30px;
+    }
+    .ftLogo {
+        font-size: 15px;
+        text-align: start;
+    }
+    .my-1 {
+        size: 3px;
+        margin: 5px;
+    }
+    .posbtnVisit {
+        margin: 0;
+        margin-top: 130pt;
+    }
+    .media {
+        align-items: center;
+        margin-left: 80px;
+    }
+    .footer-col.ml {
+        margin-left: 55px;
+        margin-right: 30px;
+    }
+    .justify {
+        text-align: justify;
+    }
+    .footer-col.ml, .footer-col {
+        margin-left: 55px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width:992px) {
+    .bg-fundo {
         width: 100%;
     }
-    .ftNome
-    {
+    .ftNome {
         width: 100%;
         font-size: 80px;
         margin-top: 70px;
         margin-left: 20px;
-        
     }
-    .ftLogo
-    {
+    .ftLogo {
         font-size: 20px;
         text-align: start;
     }
-    .my-1
-    {
+    .my-1 {
         size: 3px;
     }
-    .posbtnVisit
-    {
+    .posbtnVisit {
         margin-left: -30px;
         margin-top: 130pt;
     }
-    .media
-   {
-       align-items: center;
-       margin-left: 195px;
-   }
-  
-    .footer-col.ml,.footer-col
-    {
+    .media {
+        align-items: center;
+        margin-left: 195px;
+    }
+    .footer-col.ml, .footer-col {
         margin-left: 55px;
     }
-    
-    
 }
 
-@media screen and (min-width:993px)
-{
-    .bg-fundo
-    {
+@media screen and (min-width:993px) {
+    .bg-fundo {
         width: 100%;
     }
-    .ftNome
-    {
+    .ftNome {
         width: 100%;
         font-size: 80px;
         margin-top: 70px;
         margin-left: 20px;
-       
     }
-    .ftLogo
-    {
-        
+    .ftLogo {
         font-size: 20px;
         text-align: start;
     }
-    .my-1
-    {
+    .my-1 {
         size: 3px;
     }
-    .posbtnVisit
-    {
+    .posbtnVisit {
         margin-top: 100px;
     }
-    .footer-col.ml,.footer-col
-    {
+    .footer-col.ml, .footer-col {
         margin-left: 55px;
     }
 }
-@media screen and (min-width:1200) and (max-width:1280px)
-{
-    .bg-fundo
-    {
+
+@media screen and (min-width:1200) and (max-width:1280px) {
+    .bg-fundo {
         width: 100%;
     }
-    .ftNome
-    {
-        
+    .ftNome {
         font-size: 75px;
         margin-top: 40px;
-        
     }
-    .ftLogo
-    {
-        
+    .ftLogo {
         font-size: 20px;
         text-align: start;
     }
-    .my-1
-    {
+    .my-1 {
         size: 3px;
     }
-    .posbtnVisit
-    {
+    .posbtnVisit {
         margin: 10px;
     }
 }
-@media screen and (min-width:1201) and (max-width:1600px)
-{
-    .bg-fundo
-    {
+
+@media screen and (min-width:1201) and (max-width:1600px) {
+    .bg-fundo {
         width: 100%;
     }
-    .ftNome
-    {
+    .ftNome {
         width: 100%;
-        margin-top: 20; 
+        margin-top: 20;
         font-size: 60px;
-       
     }
-    .ftLogo
-    {
-        
+    .ftLogo {
         font-size: 16px;
         text-align: start;
     }
-    .my-1
-    {
+    .my-1 {
         size: 3px;
     }
 }
-@media screen and (min-width:1601px) and (max-width:1900px)
-{
-    .bg-fundo
-    {
+
+@media screen and (min-width:1601px) and (max-width:1900px) {
+    .bg-fundo {
         width: 100%;
     }
-    .ftNome
-    {
+    .ftNome {
         width: 100%;
-        margin-top: 20; 
+        margin-top: 20;
         font-size: 60px;
-        
     }
-    .ftLogo
-    {
-        
+    .ftLogo {
         font-size: 16px;
         text-align: start;
     }
-    .my-1
-    {
+    .my-1 {
         size: 3px;
     }
 }
