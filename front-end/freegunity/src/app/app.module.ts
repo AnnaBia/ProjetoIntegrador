@@ -1,9 +1,11 @@
 // Módulos Globais
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
 
 // Componentes Globais
 import { AppComponent } from './app.component';
@@ -15,7 +17,9 @@ import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delet
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+
 import { TemaComponent } from './tema/tema.component';
+
 
 // Todos os componentes criados serão válidados aqui
 @NgModule({
@@ -33,13 +37,15 @@ import { TemaComponent } from './tema/tema.component';
 
     TemaDeleteComponent,
     TemaEditComponent,
+
     TemaComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, // Módulo HTTP
-    FormsModule // Módulo para Formulários
+    HttpClientModule, 
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent] // Permissão do bootstrap agir em toda aplicação

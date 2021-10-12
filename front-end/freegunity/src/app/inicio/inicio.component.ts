@@ -1,3 +1,4 @@
+import { AlertasService } from './../service/alertas.service';
 import { environment } from 'src/environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,14 +17,14 @@ export class InicioComponent implements OnInit {
   userLogin: UserLogin = new UserLogin()
   user: User = new User()
 
-
   confirmarSenha: string
   tipoUsuario: string
 
   // Injeção de módulos e services
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private alert: AlertasService
   ) { }
 
   // Método do Angular que inicia primeiro todos os métodos dentro dele
@@ -36,7 +37,7 @@ export class InicioComponent implements OnInit {
   }
 
   // Método para chamar o botão entrar da página inicial
-  click() {
+  clickLogin() {
     document.getElementById('btnLogin')?.click()
   }
 
@@ -56,7 +57,7 @@ export class InicioComponent implements OnInit {
       this.router.navigate(['/feed'])
     }, erro => {
       if (erro.status == 500) {
-        alert('Usuário ou senha estão incorretos!')
+        this.alert.showAlertDanger('Usuário ou senha estão incorretos!')
       }
     })
   }
@@ -78,14 +79,14 @@ export class InicioComponent implements OnInit {
     }
 
     if (this.user.senha != this.confirmarSenha) {
-      alert('As senhas estão incorretas!')
+      this.alert.showAlertDanger('As senhas estão incorretas!')
     } else {
       // this.auth.cadastrar(this.user).subscribe((resp: User) => {
       //   this.user = resp
       // })
       this.router.navigate(['/inicio'])
-      alert('O usuário foi cadastrado com sucesso!')
-      this.click() // Chamando o método de clicar no botão entrar assim que cadastrar
+      this.alert.showAlertSucess('O usuário foi cadastrado com sucesso!')
+      this.clickLogin() // Chamando o método de clicar no botão entrar assim que cadastrar
     }
   }
 }

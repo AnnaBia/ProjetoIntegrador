@@ -1,3 +1,4 @@
+import { AlertasService } from './../service/alertas.service';
 import { User } from './../model/User';
 import { environment } from 'src/environments/environment.prod';
 import { Router } from '@angular/router';
@@ -14,15 +15,16 @@ export class FeedComponent implements OnInit {
 
   // Injeção de módulos e services
   constructor(
-    private router: Router
+    private router: Router,
+    private alert: AlertasService
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0)
     
     if (environment.token == '') {
-      // alert('Sua sessão expirou, faça login novamente.')
-      this.router.navigate(['/entrar'])
+      this.alert.showAlertInfo('Sua sessão expirou, faça login novamente.')
+      this.router.navigate(['/inicio'])
     }
   }
 
