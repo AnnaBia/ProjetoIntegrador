@@ -1,3 +1,4 @@
+import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'tema-delete/:id', component: TemaDeleteComponent },
   { path: 'tema-edit/:id', component: TemaEditComponent },
 
+  { path: 'user/:id', component: UserComponent },
   { path: 'user-edit/:id', component: UserEditComponent }
 ];
 

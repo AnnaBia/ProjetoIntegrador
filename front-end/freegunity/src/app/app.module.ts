@@ -25,6 +25,7 @@ import { UserComponent } from './user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
+    AlertasComponent,
 
     InicioComponent,
 
@@ -37,7 +38,7 @@ import { UserComponent } from './user/user.component';
 
     TemaDeleteComponent,
     TemaEditComponent,
-    AlertasComponent,
+
     UserEditComponent,
     UserComponent
   ],
