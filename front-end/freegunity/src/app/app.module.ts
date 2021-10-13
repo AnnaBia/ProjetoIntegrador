@@ -1,25 +1,26 @@
-// Módulos Globais
+// Componentes Globais
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+import { TemaComponent } from './tema/tema.component';
+import { UserComponent } from './user/user.component';
+import { UserEditComponent } from './edit/user-edit/user-edit.component';
+import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
+import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
+import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
+import { MenuComponent } from './menu/menu.component';
+import { RodapeComponent } from './rodape/rodape.component';
+import { FeedComponent } from './feed/feed.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { AlertasComponent } from './alertas/alertas.component';
+import { AppComponent } from './app.component';
 
+// Módulos Globais
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-
-
-// Componentes Globais
-import { AppComponent } from './app.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { FeedComponent } from './feed/feed.component';
-import { RodapeComponent } from './rodape/rodape.component';
-import { MenuComponent } from './menu/menu.component';
-import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
-import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
-import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
-import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
-
-import { TemaComponent } from './tema/tema.component';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe';
 
 // Todos os componentes criados serão válidados aqui
 @NgModule({
@@ -36,22 +37,21 @@ import { TemaComponent } from './tema/tema.component';
     PostagemDeleteComponent,
     PostagemEditComponent,
 
+    TemaComponent,
     TemaDeleteComponent,
     TemaEditComponent,
 
-<<<<<<< HEAD
     UserEditComponent,
     UserComponent
-=======
-    TemaComponent
 
->>>>>>> b6b5ab3041984ee8a45f032207ed426577f01f6a
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, 
+    HttpClientModule,
     FormsModule,
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent] // Permissão do bootstrap agir em toda aplicação
