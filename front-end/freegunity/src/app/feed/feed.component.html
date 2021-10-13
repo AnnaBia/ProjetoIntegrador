@@ -13,15 +13,37 @@
 
                 </div>
             </div>
-        </div>
-        <!--Formulário de Envio-->
-        <div class="col-7">
-            <div class="newPost d-flex justify-content-start">
-                <div class="infoUser">
-                    <!--IMG DO USUÁRIO TS-->
-                    <div class="imgUser"></div>
-                    <!--NOME DO USUÁRIO TS-->
-                    <strong class="usuario">Thiago Machado</strong>
+
+            <!--Formulário de Envio-->
+            <div class="col-7 ">
+                <div class="newPost d-flex justify-content-start">
+                    <div class="infoUser">
+                        <!--IMG DO USUÁRIO TS-->
+                        <div class="imgUser"></div>
+                        <!--NOME DO USUÁRIO TS-->
+                        <strong class="usuario">Thiago Machado</strong>
+                    </div>
+                    <form action="" class="formPost">
+                        <textarea name="textarea" placeholder="no que você está pensando?"></textarea>
+                        <div class="iconsAndButton">
+                            <div class="icons">
+                                <button class="btnFileForm"><i class="fa fa-picture-o" aria-hidden="true"></i></button>
+                                <button class="btnFileForm"><i class="fa fa-video-camera"
+                                        aria-hidden="true"></i></button>
+                            </div>
+
+                            <label class="text-secondary font-weight-bold">Escolha um tema:
+                            </label>
+                            <select name="tema" id="tema" class="form-control">
+                               
+                            </select>
+
+
+
+                            <button class="btnSubmitForm" type="submit">Publicar</button>
+                        </div>
+                    </form>
+
                 </div>
                 <form action="" class="formPost">
                     <textarea name="textarea" placeholder="no que você está pensando?"></textarea>
