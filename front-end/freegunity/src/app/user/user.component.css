@@ -1,0 +1,116 @@
+.card {
+    background-color: #eef1f7;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #b7c880;
+    transform: scaleY(1);
+    transition: all 0.5s;
+    transform-origin: bottom
+}
+
+.card:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #80A45F;
+    transform: scaleY(0);
+    transition: all 0.5s;
+    transform-origin: bottom
+}
+
+.card:hover::after {
+    transform: scaleY(1)
+}
+
+.fonts {
+    font-size: 11px
+}
+
+.buttons button {
+    border: 1px solid #b7c880 !important;
+    color: #80A45F;
+    height: 40px
+}
+
+.buttons button:hover {
+    border: 1px solid #b7c880 !important;
+    color: #fff;
+    height: 40px;
+    background-color: #80A45F
+}
+
+.bg-adm {
+    background-color: #80A45F;
+}
+
+.btn {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0) !important;
+    border-bottom: 0px;
+    border: none !important;
+}
+
+/* POSTAGENS */
+ul.posts li.post {
+    width: 100%;
+    margin-bottom: 50px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+}
+
+ul.posts {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoUserPost {
+    display: flex;
+    align-items: center;
+}
+
+.imgUserPost {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.postagemGhost {
+    width: 100%;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #727272;
+}
+
+.horaPostada {
+    color: #D1D1D1;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.userAll {
+    margin-left: 5px;
+    color: #23A0FF;
+}
+
+.usuario {
+    color: black;
+    margin-left: 5px;
+}

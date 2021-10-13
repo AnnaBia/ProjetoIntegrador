@@ -1,3 +1,7 @@
+import { environment } from './../../environments/environment.prod';
+import { User } from './../model/User';
+import { AuthService } from './../service/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  user: User = new User()
+  idUser: number
+  editUser = environment.id
 
-  ngOnInit(): void {
+  key: 'data'
+  reverse: true
+
+  constructor(
+    public authService: AuthService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) { }
+
+  ngOnInit() {
+    if (environment.token == '') {
+      this.router.navigate(['/inicio'])
+    }
+
+    this.idUser = this.route.snapshot.params['id']
+    this.findByIdUser(this.idUser)
+  }
+
+  findByIdUser(id: number) {
+    this.authService.getByIdUser(id).subscribe((resp: User) => {
+      this.user = resp
+    })
   }
 
 }

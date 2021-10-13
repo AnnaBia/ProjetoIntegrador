@@ -46,10 +46,10 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <!--<div class="input-group-text">@</div>-->
+                                    <div class="input-group-text">@</div>
                                 </div>
                                 <input [(ngModel)]='userLogin.username' type="text" name="username" class="form-control"
-                                    id="username" required #loginUsername="ngModel" placeholder="Usuario">
+                                    id="username" required #loginUsername="ngModel" placeholder="Usuário">
                             </div>
                             <!-- Alerta de preenchimento do formulario -->
                             <div *ngIf="loginUsername.invalid && (loginUsername.dirty || loginUsername.touched)"
@@ -102,7 +102,6 @@
                     <img src="../../assets/img/favicon.png" width="35px" height="35px">
                     <h3 class="modal-title ml-auto fs-title text-secondary" id="exampleModalLabel">Inscreva-se</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -164,7 +163,10 @@
                         </div>
                     </form>
                 </div>
-
+                <div class="d-none">
+                    <input [(ngModel)]='user.foto' type="password" name="ConfSenha" id="ConfSenha"
+                                class="form-control" placeholder="Confirmar senha">
+                </div>
                 <div class="modal-footer">
                     <div class="col">
                         <div class="row d-flex align-items-center">

@@ -20,9 +20,11 @@ export class InicioComponent implements OnInit {
   confirmarSenha: string
   tipoUsuario: string
 
+  foto = new Image(100,100)
+
   // Injeção de módulos e services
   constructor(
-    private auth: AuthService,
+    private authService: AuthService,
     private router: Router,
     private alert: AlertasService
   ) { }
@@ -31,9 +33,9 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0)
 
-    if (environment.token == '') {
-      this.router.navigate(['/inicio'])
-    }
+    // if (environment.token == '') {
+    //   this.router.navigate(['/inicio'])
+    // }
   }
 
   // Método para chamar o botão entrar da página inicial
@@ -41,23 +43,25 @@ export class InicioComponent implements OnInit {
     document.getElementById('btnLogin')?.click()
   }
 
+  
+
   // Método para fazer login
   entrar() {
-    this.auth.entrar(this.userLogin).subscribe((resp: UserLogin) => {
+    this.authService.entrar(this.userLogin).subscribe((resp: UserLogin)=>{
       this.userLogin = resp
 
       environment.id = this.userLogin.id
       environment.nome = this.userLogin.nome
       environment.username = this.userLogin.username
+      environment.foto = this.userLogin.foto
       environment.token = this.userLogin.token
       environment.email = this.userLogin.email
       environment.admin = this.userLogin.admin
-      environment.foto = this.userLogin.foto
 
       this.router.navigate(['/feed'])
-    }, erro => {
-      if (erro.status == 500) {
-        this.alert.showAlertDanger('Usuário ou senha estão incorretos!')
+    }, erro =>{
+      if(erro.status == 500){
+        this.alert.showAlertWarning('Usuário ou senha estão incorretos!')
       }
     })
   }
@@ -81,12 +85,12 @@ export class InicioComponent implements OnInit {
     if (this.user.senha != this.confirmarSenha) {
       this.alert.showAlertDanger('As senhas estão incorretas!')
     } else {
-      // this.auth.cadastrar(this.user).subscribe((resp: User) => {
-      //   this.user = resp
-      // })
-      this.router.navigate(['/inicio'])
-      this.alert.showAlertSucess('O usuário foi cadastrado com sucesso!')
-      this.clickLogin() // Chamando o método de clicar no botão entrar assim que cadastrar
+      this.authService.cadastrar(this.user).subscribe((resp: User) => {
+        this.user = resp
+        this.router.navigate(['/inicio'])
+        this.alert.showAlertSucess('O usuário foi cadastrado com sucesso!')
+        this.clickLogin() // Chamando o método de clicar no botão entrar assim que cadastrar
+      })
     }
   }
 }
