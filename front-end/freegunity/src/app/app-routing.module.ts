@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FeedComponent } from './feed/feed.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { TemaComponent } from './tema/tema.component';
 
 // Rotas de toda a aplicação
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'postagem-delete/:id', component: PostagemDeleteComponent },
   { path: 'postagem-edit/:id', component: PostagemEditComponent },
 
+  { path: 'tema', component: TemaComponent},
   { path: 'tema-delete/:id', component: TemaDeleteComponent },
   { path: 'tema-edit/:id', component: TemaEditComponent },
 

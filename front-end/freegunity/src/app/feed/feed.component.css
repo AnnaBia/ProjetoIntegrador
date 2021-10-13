@@ -154,6 +154,7 @@ button {
     outline: none;
     cursor: pointer;
     border-radius: 20px;
+    margin-left: 1em;
 }
 
 .icons {
@@ -172,7 +173,7 @@ ul.posts li.post {
     background: #fff;
     border-radius: 10px;
     padding: 25px;
-    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.3);
 }
 
 ul.posts {
@@ -199,7 +200,7 @@ ul.posts {
 }
 
 .usuario {
-    color: black;
+    color: #23A0FF;
     margin-left: 5px;
 }
 
@@ -274,4 +275,12 @@ ul.posts {
 strong {
     color: #fff;
     margin-left: 0;
+}
+.tema
+{
+    height: 20px;
+}
+.temaName
+{
+    margin-right: 5px;
 }
