@@ -1,4 +1,4 @@
-import { environment } from './../../environments/environment.prod';
+import { environment } from 'src/environments/environment.prod';
 import { User } from './../model/User';
 import { AuthService } from './../service/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -31,6 +31,18 @@ export class UserComponent implements OnInit {
 
     this.idUser = this.route.snapshot.params['id']
     this.findByIdUser(this.idUser)
+  }
+
+  icon() {
+    let pic: string = 'assets/img/user-default.jpg'
+
+    if (this.user.foto == '') {
+      environment.foto = pic
+    } else {
+      environment.foto = this.user.foto
+    }
+
+    return environment.foto
   }
 
   findByIdUser(id: number) {
