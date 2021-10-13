@@ -17,7 +17,7 @@
         </a>
 
         <ul class="navbar-nav ml-auto icon">
-            <div class="dropdown">
+            <div class="dropdown" *ngIf='authService.adm()'>
                 <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true">
                     <i class="fa fa-cog" aria-hidden="true"></i>
                 </button>
@@ -29,12 +29,12 @@
             </div>
 
             <li class="nav-item active">
-                <button class="btn">
+                <button *ngIf='authService.visitante()' class="btn">
                     <i class="fa fa-bell" aria-hidden="true"></i>
                 </button>
             </li>
             <li class="nav-item">
-                <button class="btn">
+                <button *ngIf='authService.visitante()' class="btn">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
                 </button>
             </li>
