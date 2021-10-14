@@ -3,20 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-html {
-    background: #fbfbfb;
-}
-
 body {
-    font-family: 'Roboto', sans-serif;
+    font-size: 11px
     /*melhorar a qualidade das fontes*/
-    -webkit-font-smoothing: antialiased !important;
+    
+}
+.row
+{
+    background-color: #eef1f7;
 }
 
-li {
-    list-style: none;
-}
+
 .form-controll
 {
     width: 160px;
@@ -129,8 +126,7 @@ textarea {
     resize: none;
     border: 0;
     outline: none;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
     color: #727272;
 }
 
@@ -152,14 +148,22 @@ button {
 }
 
 .btnSubmitForm {
-    background: #23A0FF;
+    border: 1px solid #b7c880 !important;
+    color: #80A45F;
+    height: 40px;
     padding: 10px 50px;
-    color: #fff;
-    font-weight: bold;
     outline: none;
     cursor: pointer;
     border-radius: 20px;
     margin-left: 20em;
+    transition: background 0.3s;
+}
+.btnSubmitForm:hover
+{
+    border: 1px solid #b7c880 !important;
+    color: #fff;
+    height: 40px;
+    background-color: #80A45F;
 }
 .iconss
 {
@@ -172,20 +176,11 @@ button {
     align-items: center;
 }
 
-.btnSubmitForm:hover {
-    background: rgb(8, 138, 236);
-}
 
-ul.posts li.post {
-    width: 100%;
-    margin-bottom: 50px;
-    background: #fff;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.3);
-}
 
-ul.posts {
+
+
+div.posts {
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -222,8 +217,9 @@ ul.posts {
 .postagemGhost {
     width: 100%;
     margin: 20px 0;
-    font-weight: bold;
     color: #727272;
+    padding: 30px;
+
 }
 
 .actionBtnPost {
@@ -292,4 +288,8 @@ strong {
 .temaName
 {
     margin-right: 5px;
+}
+hr
+{
+    margin: 10px;
 }
