@@ -3,19 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-size: 11px
     /*melhorar a qualidade das fontes*/
-    
 }
-.row
-{
+
+.row {
     background-color: #eef1f7;
 }
 
-
-.form-controll
-{
+.form-controll {
     width: 160px;
     align-items: flex-start;
 }
@@ -158,27 +156,24 @@ button {
     margin-left: 20em;
     transition: background 0.3s;
 }
-.btnSubmitForm:hover
-{
+
+.btnSubmitForm:hover {
     border: 1px solid #b7c880 !important;
     color: #fff;
     height: 40px;
     background-color: #80A45F;
 }
-.iconss
-{
-    margin-right:0;
+
+.iconss {
+    margin-right: 0;
     display: flex;
 }
+
 .icons {
     width: 100px;
     display: flex;
     align-items: center;
 }
-
-
-
-
 
 div.posts {
     width: 100%;
@@ -219,7 +214,6 @@ div.posts {
     margin: 20px 0;
     color: #727272;
     padding: 30px;
-
 }
 
 .actionBtnPost {
@@ -281,15 +275,15 @@ strong {
     color: #fff;
     margin-left: 0;
 }
-.tema
-{
+
+.tema {
     height: 20px;
 }
-.temaName
-{
+
+.temaName {
     margin-right: 5px;
 }
-hr
-{
+
+hr {
     margin: 10px;
 }

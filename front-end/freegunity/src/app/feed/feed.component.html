@@ -1,15 +1,23 @@
-<div class="container-fluid ">
+<div class="container-fluid">
     <div class="row">
         <!--Card perfil do usuário-->
-        <div class="col-3 d-flex justify-content-center cardUser">
+        <div class="col-3 ml-3 cardUser">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <!--Nome do Usuário Ts-->
-                    <img class="imagemUsuario" src="" alt="">
-                    <h5 class="card-title">{{ user }}</h5>
-                    <p class="sobreMim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, deleniti!
-                    </p>
-
+                    <div class="text-center">
+                        <a [routerLink]="['/user', idUser]">
+                            <img src="{{ icon() }}" width="100" class="rounded-circle mt-3">
+                        </a>
+                        <!-- <h5 class="card-title">{{ user }}</h5> -->
+                        <h5 class="card-title">{{ user.nome }}</h5>
+                        <span class="fs-11 text-center text-muted">@{{ user.username }}</span><br>
+                        <p class="sobreMim p-3 text-justify">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id quisquam assumenda
+                            exercitationem nesciunt laudantium consectetur repellendus ex, praesentium deleniti eos
+                            consequatur quaerat. Tempore, fuga. lorem100
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -21,7 +29,7 @@
                     <!--IMG DO USUÁRIO TS-->
                     <div class="imgUser"></div>
                     <!--NOME DO USUÁRIO TS-->
-                    <strong class="usuario">{{ user }}</strong>
+                    <strong class="usuario">Nome completo</strong>
                 </div>
                 <form action="" class="formPost">
                     <textarea name="textarea" placeholder="no que você está pensando?"></textarea>
@@ -36,21 +44,14 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-</div>
-<!--TODAS AS POSTAGENS DA REDE-->
-<div class="coontainer-fluid">
-    <div class="row ">
-        <div class="col-3"></div>
-        <div class="col-7">
+            <hr>
             <div class="posts">
                 <div class="post">
                     <div class="newPost d-flex justify-content-start">
                         <div class="infoUserPost">
                             <div class="imgUserPost"></div>
                             <div class="nomeAndHour">
-                                <strong class="userAll text-black">{{ user }}</strong>
+                                <strong class="userAll text-black">Nome completo</strong>
                                 <p class="horaPostada">21h</p>
                             </div>
                         </div>
@@ -65,9 +66,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
