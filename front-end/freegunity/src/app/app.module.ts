@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { OrderModule } from 'ngx-order-pipe';
+import { MensagemComponent } from './mensagem/mensagem.component';
 
 // Todos os componentes criados serão válidados aqui
 @NgModule({
@@ -42,7 +43,8 @@ import { OrderModule } from 'ngx-order-pipe';
     TemaEditComponent,
 
     UserEditComponent,
-    UserComponent
+    UserComponent,
+    MensagemComponent
 
   ],
   imports: [
