@@ -61,13 +61,6 @@
     height: auto;
 }
 
-/*
-.form-control:focus {
-    box-shadow: none;
-    border-color: #80A45F
-}
-*/
-
 .bg-fundo {
     background-image: url(src/assets/img/bg.png);
     min-height: 300px;
@@ -123,6 +116,10 @@
 
 .icon-animation:hover {
     transform: scale(1.16);
+}
+
+.cc {
+    text-decoration: none;
 }
 
 .seta {

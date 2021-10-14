@@ -47,13 +47,8 @@
                 <div class="modal-body">
                     <form class="mt-2" action="" method="post" name="login">
                         <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
-                                </div>
-                                <input [(ngModel)]='userLogin.username' type="text" name="username" class="form-control"
-                                    id="username" required #loginUsername="ngModel" placeholder="Usuário">
-                            </div>
+                            <input [(ngModel)]='userLogin.username' type="text" name="username" class="form-control"
+                                id="username" required #loginUsername="ngModel" placeholder="Usuário">
                             <!-- Alerta de preenchimento do formulario -->
                             <div *ngIf="loginUsername.invalid && (loginUsername.dirty || loginUsername.touched)"
                                 class="alert">
@@ -80,12 +75,13 @@
                     <div class="col">
                         <div class="row d-flex align-items-center">
                             <div class="col-md-auto">
-                                <a data-toggle="modal" data-target="#modalCadastrar" class="text-center">
+                                <a data-toggle="modal" data-dismiss="modal" data-target="#modalCadastrar"
+                                    class="text-center cc">
                                     Criar conta
                                 </a>
                             </div>
-                            <div class="col-md-auto ml-auto">
-                                <button (click)='entrar()' type="submit" class="btn btn-primary tr-y" id="btn-entrar"
+                            <div class="col-md-4 ml-auto">
+                                <button (click)='entrar()' type="submit" class="btn btn-primary" id="btn-entrar"
                                     data-dismiss="modal">Entrar</button>
                             </div>
                         </div>
