@@ -12,8 +12,10 @@ import { FeedComponent } from './feed/feed.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { AppComponent } from './app.component';
+import { MensagemComponent } from './mensagem/mensagem.component';
 
 // Módulos Globais
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
@@ -21,7 +23,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { OrderModule } from 'ngx-order-pipe';
-import { MensagemComponent } from './mensagem/mensagem.component';
 
 // Todos os componentes criados serão válidados aqui
 @NgModule({
@@ -55,7 +56,13 @@ import { MensagemComponent } from './mensagem/mensagem.component';
     ModalModule.forRoot(),
     OrderModule
   ],
-  providers: [],
+  
+   // Auxilia as rotas e na rolagem automatica da pag
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
+
   bootstrap: [AppComponent] // Permissão do bootstrap agir em toda aplicação
 })
 export class AppModule { }
