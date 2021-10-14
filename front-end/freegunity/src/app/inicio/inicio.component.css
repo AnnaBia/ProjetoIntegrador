@@ -4,6 +4,8 @@
 /*fonte-footer*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/** formatação modais **/
 .formato {
     position: relative;
     display: -ms-flexbox;
@@ -20,54 +22,81 @@
     max-width: 500px;
 }
 
+.fs-title{
+    font-size: 20pt;
+}
+
+#btn-entrar{
+    background-color: #947BA0;
+    border: none;
+    width: 100px;
+    width: 90%;
+}
+
+#btn-cadastrar{
+    background-color: #947BA0;
+    border: none;
+}
+
+#btn-criar{
+    background-color: #8BAD4D;
+    border: none;
+}
+/** fim formatação modais **/
+
+
+/** formatação tela inicial **/
+.btn{
+    cursor:pointer; 
+}
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+}
+
+.mg-icon{
+    width: 40px;
+    height: auto;
+}
+/*
 .form-control:focus {
     box-shadow: none;
     border-color: #80A45F
 }
+*/
 
 .bg-fundo {
     background-image: url(src/assets/img/bg.png);
-    min-height: 720px;
-    background: full-screen;
-    background-size: cover;
+    min-height: 300px;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    padding: 0%; 
 }
 
-.ftNome {
-    margin-top: 15%;
-    font-size: 80pt;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    letter-spacing: -2px;
-    flex-wrap: wrap;
-}
-
-.ftLogo {
-    font-size: 25pt;
-    font-family: 'Montserrat', sans-serif;
+.ft-pergunta{
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
     flex-wrap: wrap;
     text-align: end;
+    display: flex;
+    letter-spacing: 0px; 
+    width: 90%; 
 }
 
 .btnVisit {
-    margin-top: 100%;
-    margin-top: 40%;
     font-size: 15pt;
     width: 408px;
     padding: 16px;
     cursor: pointer;
-    color: white;
-}
-
-.posbtnVisit {
-    margin-top: 110%;
-    position: relative;
+    color: white; 
+    justify-content: center;
 }
 
 .btnMenu {
     font-size: 15pt;
-    width: 200px;
-    padding: 8px;
+    width: 120px;
+    padding: 2px;
     color: white;
 }
 
@@ -77,34 +106,135 @@
     box-shadow: 0 0 0 0;
 }
 
-.cx-1 {
-    margin-top: 10%;
-    margin-left: auto;
+.barra{
+    display: block;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 1px;
+    opacity: .1;
+    background-color: currentColor;
+    margin-top: 1.5%;
+    max-width: 300px;
+    display: -ms-flexbox;
 }
 
-.cx-2 {
-    margin-top: 6%;
+.bg-preto {
+    background-image: url(src/assets/img/fundoEscuro.png);
+    min-height: 300px;
+    margin: auto;
+    max-width: 1000px;
+    padding: 0%;
+    width: 90%;
 }
 
-.fs-title {
-    font-size: 20pt;
+.ft-titSig{
+    width: 90%;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    letter-spacing: 2px;  
+    flex-wrap: wrap; 
+    padding: 0%;
+    display: flex;
 }
 
-#btn-entrar {
-    background-color: #947BA0;
-    border: none;
-    width: 100px;
+.ft-subSig{
+    width: 90%;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    letter-spacing: 2px;  
+    flex-wrap: wrap;
+    padding: 0%;
+    display: flex;
+    text-align: none;   
 }
 
-#btn-cadastrar {
-    background-color: #947BA0;
-    border: none;
+.ft-txtSig{
+    width: 90%;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    letter-spacing: 2px;  
+    flex-wrap: wrap;
+    padding: 0%;
+    display: flex;
+    margin: 0%;
+    text-align: justify;
 }
 
-#btn-criar {
-    background-color: #8BAD4D;
-    border: none;
+.ft-dicas{
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-wrap: wrap;
+    text-align: end;
+    display: flex;
+    letter-spacing: 0px;  
 }
+
+.bg-sobre{
+    margin: auto;
+    background-color: #d1cdc7;
+    padding: 0%;
+    max-width: 2000px  
+}
+
+.bg-lixo{
+    background-image: url(src/assets/img/fosco.png);
+    min-height: 400px;
+    padding: 0;
+    max-width: 2000px;
+}
+
+.txt-titObjetivo{
+    font-size: 50px;
+    letter-spacing: -1px; 
+    font-weight: bold;
+    line-height: 1.25;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.txt-objetivo{
+    font-size: 25px;
+    letter-spacing: 1px; 
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    text-align: justify;
+}
+
+.ft-titSobre{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;   
+}
+
+.ft-txtSobre{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    color: rgb(100, 97, 97);
+    max-width: 2000px;
+}
+
+.sizeDicas{
+    max-width:650px;
+    max-height:380px;
+    height: auto;
+}
+
+.img-User{
+    max-width:150px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+}
+
+.fas{
+    color: black;
+    max-width:150px;
+    max-height:150px;
+}
+/** fim formatação tela inicial **/
 
 /*dev team*/
 .container-fluid.tm {
@@ -146,24 +276,30 @@
     filter: blur(5px);
 }
 
-.card:nth-child(1) {
-    background: linear-gradient(to bottom, #24ff72, #9a4eff);
+.card:nth-child(1)
+{
+    background: #b7c880;
+    background: linear-gradient(90deg, rgba(183, 200, 128, 1) 0%, rgba(128, 164, 95, 1) 55%, rgba(90, 129, 87, 1) 100%);
 }
-
-.card:nth-child(2) {
-    background: linear-gradient(to bottom, #24ff72, #9a4eff);
+.card:nth-child(2)
+{
+    background: #b7c880;
+    background: linear-gradient(90deg, rgba(183, 200, 128, 1) 0%, rgba(128, 164, 95, 1) 55%, rgba(90, 129, 87, 1) 100%);
 }
-
-.card:nth-child(3) {
-    background: linear-gradient(to bottom, #24ff72, #9a4eff);
+.card:nth-child(3)
+{
+    background: #b7c880;
+    background: linear-gradient(90deg, rgba(183, 200, 128, 1) 0%, rgba(128, 164, 95, 1) 55%, rgba(90, 129, 87, 1) 100%);
 }
-
-.card:nth-child(4) {
-    background: linear-gradient(to bottom, #24ff72, #9a4eff);
+.card:nth-child(4)
+{
+    background: #b7c880;
+    background: linear-gradient(90deg, rgba(183, 200, 128, 1) 0%, rgba(128, 164, 95, 1) 55%, rgba(90, 129, 87, 1) 100%);
 }
-
-.card:nth-child(5) {
-    background: linear-gradient(to bottom, #24ff72, #9a4eff);
+.card:nth-child(5)
+{
+    background: #b7c880;
+    background: linear-gradient(90deg, rgba(183, 200, 128, 1) 0%, rgba(128, 164, 95, 1) 55%, rgba(90, 129, 87, 1) 100%);
 }
 
 .icon {
@@ -277,7 +413,8 @@ ul {
     position: absolute;
     left: 0;
     bottom: -10px;
-    background-color: #24ff72;
+    background: #b7c880;
+    background: linear-gradient(90deg, rgba(183, 200, 128, 1) 0%, rgba(128, 164, 95, 1) 55%, rgba(90, 129, 87, 1) 100%);
     height: 2px;
     box-sizing: border-box;
     width: 50px;
@@ -380,23 +517,17 @@ ul {
         width: 100%;
         background: full-screen;
     }
-    .ftNome {
+    .ftPergunta {
         margin: 0;
         margin-top: 10px;
         font-size: 30px;
     }
-    .ftLogo {
-        font-size: 15px;
-        text-align: start;
-    }
+    
     .my-1 {
         size: 3px;
         margin: 5px;
     }
-    .posbtnVisit {
-        margin: 0;
-        margin-top: 130pt;
-    }
+    
     .media {
         align-items: center;
         margin-left: 80px;
@@ -417,23 +548,17 @@ ul {
     .bg-fundo {
         width: 100%;
     }
-    .ftNome {
+    .ftPergunta {
         width: 100%;
         font-size: 80px;
         margin-top: 70px;
         margin-left: 20px;
     }
-    .ftLogo {
-        font-size: 20px;
-        text-align: start;
-    }
+    
     .my-1 {
         size: 3px;
     }
-    .posbtnVisit {
-        margin-left: -30px;
-        margin-top: 130pt;
-    }
+    
     .media {
         align-items: center;
         margin-left: 195px;
@@ -447,22 +572,17 @@ ul {
     .bg-fundo {
         width: 100%;
     }
-    .ftNome {
+    .ftPergunta {
         width: 100%;
         font-size: 80px;
         margin-top: 70px;
         margin-left: 20px;
     }
-    .ftLogo {
-        font-size: 20px;
-        text-align: start;
-    }
+    
     .my-1 {
         size: 3px;
     }
-    .posbtnVisit {
-        margin-top: 100px;
-    }
+    
     .footer-col.ml, .footer-col {
         margin-left: 55px;
     }
@@ -472,35 +592,27 @@ ul {
     .bg-fundo {
         width: 100%;
     }
-    .ftNome {
+    .ftPergunta {
         font-size: 75px;
         margin-top: 40px;
     }
-    .ftLogo {
-        font-size: 20px;
-        text-align: start;
-    }
+    
     .my-1 {
         size: 3px;
     }
-    .posbtnVisit {
-        margin: 10px;
-    }
+   
 }
 
 @media screen and (min-width:1201) and (max-width:1600px) {
     .bg-fundo {
         width: 100%;
     }
-    .ftNome {
+    .ftPergunta {
         width: 100%;
         margin-top: 20;
         font-size: 60px;
     }
-    .ftLogo {
-        font-size: 16px;
-        text-align: start;
-    }
+    
     .my-1 {
         size: 3px;
     }
@@ -510,15 +622,12 @@ ul {
     .bg-fundo {
         width: 100%;
     }
-    .ftNome {
+    .ftPergunta {
         width: 100%;
         margin-top: 20;
         font-size: 60px;
     }
-    .ftLogo {
-        font-size: 16px;
-        text-align: start;
-    }
+    
     .my-1 {
         size: 3px;
     }
