@@ -11,16 +11,17 @@
 
         <!-- Icon marca -->
         <a class="navbar-brand mg-icon" href="#proposito" id="entrar">
-            <img src="assets/img/favicon-white.png" alt="Freegunity" class="img-fluid">
+            <img src="assets/img/favicon-white.png" alt="Freegunity" class="img-fluid icon-animation">
         </a>
 
         <div class="collapse navbar-collapse justify-content-end " id="conteudoNavbarSuportado">
             <!-- botão Entre -->
-            <button id="btnLogin" type="button" class="btn btnMenu" data-toggle="modal" data-target="#modalEntrar">
+            <button id="btnLogin" type="button" class="btn btnMenu btn-animation" data-toggle="modal"
+                data-target="#modalEntrar">
                 Entre
             </button>
             <!-- botão Cadastre-se -->
-            <button type="button" class="btn border-light btnMenu shadow-sm " data-toggle="modal"
+            <button type="button" class="btn border-light btnMenu shadow-sm btn-animation" data-toggle="modal"
                 data-target="#modalCadastrar">
                 Cadastre-se
             </button>
@@ -211,7 +212,7 @@
                     <!-- /pergunta -->
                     <!-- botão visitante -->
                     <div class="mt-5">
-                        <a class="btn btnVisit border-light shadow-sm" href="#" role="button"
+                        <a class="btn btnVisit btn-animation border-light shadow-sm" href="#" role="button"
                             (click)='entrarVisitante()'>Entre
                             como visitante</a>
                     </div>
@@ -450,8 +451,10 @@
                             Conecte-se e faça parte dessa corrente do bem!
                         </p>
                     </div>
-                    <a href="#entrar" class="d-flex justify-content-center"><img src="assets/img/favicon.png"
-                            width="40px" height="40px" alt="Freegunity" class="img-fluid"></a>
+                    <a href="#entrar" class="d-flex justify-content-center">
+                        <img src="assets/img/favicon.png" width="40px" height="40px" alt="Freegunity"
+                            class="img-fluid icon-animation">
+                    </a>
                 </div>
             </div>
         </div>
@@ -730,8 +733,11 @@
                 </ul>
             </div>
 
-            <div class="footer-col">
-                <a class="text-white" href="inicio"><i class="far fa-arrow-alt-circle-up"></i></a>
+            <div class="footer-col d-flex justify-content-center">
+                <a href="#entrar">
+                    <img src="assets/img/arrow-up.png" class="seta img-fluid">
+                    <!-- <i class="far fa-arrow-alt-circle-up"></i> -->
+                </a>
             </div>
 
         </div>

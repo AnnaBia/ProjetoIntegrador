@@ -43,8 +43,6 @@ export class InicioComponent implements OnInit {
     document.getElementById('btnLogin')?.click()
   }
 
-
-
   // Método para fazer login
   entrar() {
     this.authService.entrar(this.userLogin).subscribe((resp: UserLogin) => {
