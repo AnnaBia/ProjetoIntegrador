@@ -17,6 +17,11 @@ body {
 li {
     list-style: none;
 }
+.form-controll
+{
+    width: 160px;
+    align-items: flex-start;
+}
 
 .fa-sign-out::before {
     color: black;
@@ -132,7 +137,7 @@ textarea {
 .iconsAndButton {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    margin: 5px;
 }
 
 button {
@@ -154,9 +159,13 @@ button {
     outline: none;
     cursor: pointer;
     border-radius: 20px;
-    margin-left: 1em;
+    margin-left: 20em;
 }
-
+.iconss
+{
+    margin-right:0;
+    display: flex;
+}
 .icons {
     width: 100px;
     display: flex;

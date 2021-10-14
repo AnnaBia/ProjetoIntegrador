@@ -26,7 +26,7 @@
                     <form action="" class="formPost">
                         <textarea name="textarea" placeholder="no que você está pensando?"></textarea>
                         <div class="iconsAndButton">
-                            <div class="icons">
+                            <div class="iconss">
                                 <button class="btnFileForm"><i class="fa fa-picture-o" aria-hidden="true"></i></button>
                                 <button class="btnFileForm"><i class="fa fa-video-camera"
                                         aria-hidden="true"></i></button>
@@ -34,9 +34,8 @@
                             
                             <label class="temaName text-secondary font-weight-bold">Tema:</label>
                             
-                            <select name="tema" id="tema" class="form-control">
-                               
-                            </select>
+                            <select name="tema" id="tema" class="form-controll"></select>
+                            
 
 
 
@@ -49,12 +48,120 @@
         
 
     </div>
+</div>
+
+<div class="container mb-5 mt-5">
+    <nav>
+        <div class="nav nav-tabs d-flex justify-content-center" id="nav-todasPostagens-tab" role="tablist">
+          <a class="nav-item nav-link active text-secondary" id="nav-home-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="todasPostagens" aria-selected="true">Todas as Postagens</a>
+
+          <a class="nav-item nav-link text-secondary" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+
+          <a class="nav-item nav-link text-secondary" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagens por tema</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
+            <div class="row d-flex justify-content-start">
+                <div class="col-3"></div> 
+               <div class="col-7">
+                   Todas as postagens da rede
+                   <div class="card-columns">
+               
+                       <div class="card text-center"> 
+                           <div class="card-body">
+                             <h5 class="card-title">Título do card</h5>
+                             <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> 
+                           
+                             <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                            
+                           </div>
+                         </div>
+                   </div>
+               </div>
+           </div>
+
+        </div>
+
+
+        <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+            <div class="card-columns">
+               
+                <div class="card text-center"> 
+                    <div class="card-body">
+                      <h5 class="card-title">Título do card</h5>
+                      <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> 
+                    
+                      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                     
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+
+        <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
+            <div class="card-columns">
+               
+                <div class="card text-center"> 
+                    <div class="card-body">
+                      <h5 class="card-title">Título do card</h5>
+                      <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> 
+                    
+                      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                     
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- CARDS DAS POSTAGENS
 
     <div class="row d-flex justify-content-start">
          <div class="col-3"></div> 
         <div class="col-7">
-            <!--Todas as postagens da rede-->
-            <ul class="posts">
+            Todas as postagens da rede
+            <div class="card-columns">
+        
+                <div class="card text-center"> 
+                    <div class="card-body">
+                      <h5 class="card-title">Título do card</h5>
+                      <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> 
+                    
+                      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                     
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+-->
+
+
+
+
+
+
+
+
+<!--
+    <ul class="posts">
                 <li class="post">
                     <div class="infoUserPost">
                         <div class="imgUserPost"></div>
@@ -74,6 +181,4 @@
                     </div>
                 </li>
             </ul>
-        </div>
-    </div>
-</div>
+-->
