@@ -12,8 +12,10 @@ import { FeedComponent } from './feed/feed.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { AppComponent } from './app.component';
+import { MensagemComponent } from './mensagem/mensagem.component';
 
 // Módulos Globais
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
@@ -42,7 +44,8 @@ import { OrderModule } from 'ngx-order-pipe';
     TemaEditComponent,
 
     UserEditComponent,
-    UserComponent
+    UserComponent,
+    MensagemComponent
 
   ],
   imports: [
@@ -53,7 +56,13 @@ import { OrderModule } from 'ngx-order-pipe';
     ModalModule.forRoot(),
     OrderModule
   ],
-  providers: [],
+  
+   // Auxilia as rotas e na rolagem automatica da pag
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
+
   bootstrap: [AppComponent] // Permissão do bootstrap agir em toda aplicação
 })
 export class AppModule { }

@@ -20,7 +20,7 @@ export class InicioComponent implements OnInit {
   confirmarSenha: string
   tipoUsuario: string
 
-  foto = new Image(100,100)
+  foto = new Image(100, 100)
 
   // Injeção de módulos e services
   constructor(
@@ -33,9 +33,9 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0)
 
-    // if (environment.token == '') {
-    //   this.router.navigate(['/inicio'])
-    // }
+    if (environment.token == '') {
+      this.router.navigate(['/inicio'])
+    }
   }
 
   // Método para chamar o botão entrar da página inicial
@@ -43,11 +43,11 @@ export class InicioComponent implements OnInit {
     document.getElementById('btnLogin')?.click()
   }
 
-  
+
 
   // Método para fazer login
   entrar() {
-    this.authService.entrar(this.userLogin).subscribe((resp: UserLogin)=>{
+    this.authService.entrar(this.userLogin).subscribe((resp: UserLogin) => {
       this.userLogin = resp
 
       environment.id = this.userLogin.id
@@ -59,9 +59,30 @@ export class InicioComponent implements OnInit {
       environment.admin = this.userLogin.admin
 
       this.router.navigate(['/feed'])
-    }, erro =>{
-      if(erro.status == 500){
+    }, erro => {
+      if (erro.status == 500) {
         this.alert.showAlertWarning('Usuário ou senha estão incorretos!')
+      }
+    })
+  }
+
+  entrarVisitante() {
+    this.authService.entrar(this.userLogin).subscribe((resp: UserLogin) => {
+
+      environment.id = this.userLogin.id = 6
+      environment.nome = this.userLogin.nome = 'Visitante'
+      environment.username = this.userLogin.username = 'Visitante'
+      environment.foto = this.userLogin.foto = ''
+      environment.token = this.userLogin.token
+      environment.email = this.userLogin.email = 'guest@guest.com'
+      environment.admin = this.userLogin.admin = 'guest'
+
+      this.userLogin = resp
+
+      this.router.navigate(['/feed'])
+    }, erro => {
+      if (erro.status == 500) {
+        this.alert.showAlertDanger('ERRO')
       }
     })
   }

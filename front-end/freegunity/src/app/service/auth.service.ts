@@ -47,10 +47,21 @@ export class AuthService {
     return ok
   }
 
+  // Permissões de Administrador
   adm() {
     let ok: boolean = false
 
-    if (environment.username != 'adm') {
+    if (environment.admin == 'adm') {
+      ok = true
+    }
+    return ok
+  }
+
+  // Modo visitante
+  visitante() {
+    let ok: boolean = false
+
+    if (environment.admin != 'guest') {
       ok = true
     }
 

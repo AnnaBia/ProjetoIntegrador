@@ -1,3 +1,4 @@
+import { MensagemComponent } from './mensagem/mensagem.component';
 import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
@@ -25,7 +26,10 @@ const routes: Routes = [
   { path: 'tema-edit/:id', component: TemaEditComponent },
 
   { path: 'user/:id', component: UserComponent },
-  { path: 'user-edit/:id', component: UserEditComponent }
+  { path: 'user-edit/:id', component: UserEditComponent },
+
+  { path: 'inbox/:id', component: MensagemComponent },
+  
 ];
 
 @NgModule({
