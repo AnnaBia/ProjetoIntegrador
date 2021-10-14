@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { OrderModule } from 'ngx-order-pipe';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common'; // Para rolagem automatica da tela
 
 // Todos os componentes criados serão válidados aqui
 @NgModule({
@@ -53,7 +54,13 @@ import { OrderModule } from 'ngx-order-pipe';
     ModalModule.forRoot(),
     OrderModule
   ],
-  providers: [],
+  
+   // Auxilia as rotas e na rolagem automatica da pag
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
+
   bootstrap: [AppComponent] // Permissão do bootstrap agir em toda aplicação
 })
 export class AppModule { }
