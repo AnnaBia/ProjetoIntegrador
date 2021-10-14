@@ -17,6 +17,11 @@ body {
 li {
     list-style: none;
 }
+.form-controll
+{
+    width: 160px;
+    align-items: flex-start;
+}
 
 .fa-sign-out::before {
     color: black;
@@ -132,7 +137,7 @@ textarea {
 .iconsAndButton {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    margin: 5px;
 }
 
 button {
@@ -154,8 +159,13 @@ button {
     outline: none;
     cursor: pointer;
     border-radius: 20px;
+    margin-left: 20em;
 }
-
+.iconss
+{
+    margin-right:0;
+    display: flex;
+}
 .icons {
     width: 100px;
     display: flex;
@@ -172,7 +182,7 @@ ul.posts li.post {
     background: #fff;
     border-radius: 10px;
     padding: 25px;
-    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.3);
 }
 
 ul.posts {
@@ -199,7 +209,7 @@ ul.posts {
 }
 
 .usuario {
-    color: black;
+    color: #23A0FF;
     margin-left: 5px;
 }
 
@@ -274,4 +284,12 @@ ul.posts {
 strong {
     color: #fff;
     margin-left: 0;
+}
+.tema
+{
+    height: 20px;
+}
+.temaName
+{
+    margin-right: 5px;
 }

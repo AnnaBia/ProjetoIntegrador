@@ -1,0 +1,145 @@
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!--Card perfil do usuário-->
+        <div class="col-3 d-flex justify-content-center cardUser">
+
+        Card perfil do usuário
+        <div class="col-md-auto d-flex justify-content-center cardUser">
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    Nome do Usuário Ts
+                    <img class="imagemUsuario" src="/assets/img/kid.jpg" alt="Thiago Machado">
+                    <h5 class="card-title">{{ user }}</h5>
+                    <p class="sobreMim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, deleniti!
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+            Formulário de Envio
+            <div class="col-7 ">
+                <div class="newPost d-flex justify-content-start">
+                    <div class="infoUser">
+                        IMG DO USUÁRIO TS
+                        <div class="imgUser"></div>
+
+                        <!--NOME DO USUÁRIO TS-->
+                        <strong class="usuario">{{ user }}</strong>
+
+                        NOME DO USUÁRIO TS
+                        <strong class="usuario">Thiago Machado</strong>
+
+                    </div>
+                    <form action="" class="formPost">
+                        <textarea name="textarea" placeholder="no que você está pensando?"></textarea>
+                        <div class="iconsAndButton">
+                            <div class="iconss">
+                                <button class="btnFileForm"><i class="fa fa-picture-o" aria-hidden="true"></i></button>
+                                <button class="btnFileForm"><i class="fa fa-video-camera"
+                                        aria-hidden="true"></i></button>
+                            </div>
+
+                            
+                            <label class="temaName text-secondary font-weight-bold">Tema:</label>
+                            
+                            <select name="tema" id="tema" class="form-controll"></select>
+                            
+
+
+                            <label class="text-secondary font-weight-bold">Escolha um tema:
+                            </label>
+                            <select name="tema" id="tema" class="form-control">
+
+                            </select>
+
+
+
+
+                            <button class="btnSubmitForm" type="submit">Publicar</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        
+
+    </div>
+</div>
+</div>
+
+<div class="container mb-5 mt-5">
+    <nav>
+        <div class="nav nav-tabs d-flex justify-content-center" id="nav-todasPostagens-tab" role="tablist">
+          <a class="nav-item nav-link active text-secondary" id="nav-home-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="todasPostagens" aria-selected="true">Todas as Postagens</a>
+
+          <a class="nav-item nav-link text-secondary" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+
+          <a class="nav-item nav-link text-secondary" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagens por tema</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
+            <div class="row d-flex justify-content-start">
+                <div class="col-3"></div> 
+               <div class="col-7">
+                   Todas as postagens da rede
+                   <div class="card-columns">
+               
+                       <div class="card text-center"> 
+                           <div class="card-body">
+                             <h5 class="card-title">Título do card</h5>
+                             <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> 
+                           
+                             <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                            
+                           </div>
+                         </div>
+                   </div>
+               </div>
+           </div>
+
+        </div>
+
+
+        <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+            <div class="card-columns">
+               
+                <div class="card text-center"> 
+                    <div class="card-body">
+                      <h5 class="card-title">Título do card</h5>
+                      <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> 
+                    
+                      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                     
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+
+        <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
+            <div class="card-columns">
+               
+                <div class="card text-center"> 
+                    <div class="card-body">
+                      <h5 class="card-title">Título do card</h5>
+                      <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> 
+                    
+                      <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                     
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+      </div>
+</div>
+
+        
+    
+
