@@ -1,24 +1,35 @@
+.container-fluid{
+    background-image: url("src/assets/img/fundo02.jpg");
+
+}
+
 .get_in_touch
 {
     max-width: 800px;
     margin: 50px auto;
     position: relative;
-    box-shadow: 0 10px 30px 0px rgba(0,0,0,0.1);
-    padding: 30px;
+    box-shadow: 0 10px 30px 0px rgba(0,0,0,0.5);
+    padding: 50px;
+    background-color: white;
+    border-radius: 3%;
 }
 .title
 {
-    text-transform: uppercase;
+    font-family: 'Roboto';
+    margin-top: -10%;
+    /*text-transform: uppercase;*/
     text-align: center;
-    letter-spacing: 3px;
+    /*letter-spacing: 3px;*/
     font-size: 3em;
     line-height: 48px;
     padding-bottom: 20px;
-    color: #5543ca;
-    background:linear-gradient(to right, #24ff72 0%, #9a4eff 100%);
+    background: #808080;
+    /*color: #5543ca;
+    /*background:linear-gradient(to right, #24ff72 0%, #9a4eff 100%);*/
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent
 }
+
 .form-field
 {
     position: relative;
@@ -30,7 +41,7 @@
     width: 100%;
     height: 36px;
     border-width: 0 0 2px 0;
-    border-color: #5543ca;
+    border-color: #353839;
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
@@ -52,11 +63,12 @@
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
-    color: #5543ca;
+    color: #353839;
     cursor: text;
     
     transition: transform 0.2s ease-in-out;
 }
+/*
 .submit-btn
 {
     display: inline-block;
@@ -70,5 +82,41 @@
     border: none;
     width: 200px;
     cursor: pointer;
+}
+*/
 
+.btn-editar{
+    background: #8BAD4D;
+    color: white;
+    width: 80px;
+    height: 40px;
+}
+
+.btn-cadastrar{
+    background: #8BAD4D;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border: none;
+    margin-bottom: 30px;
+}
+
+.btn-apagar{
+    background: #947BA0;
+    color: white;
+    width: 80px;
+}
+
+
+.btn-cancelar{
+    background: #947BA0;
+    color: white;
+    width: 90px;
+    height: 40px;
+    text-align: center;
+}
+
+.modal-content{
+    border-radius: 20px;
+    border: none;
 }
