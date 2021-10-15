@@ -7,15 +7,13 @@
                     <!--Nome do Usuário Ts-->
                     <div class="text-center">
                         <a [routerLink]="['/user', idUser]">
-                            <img src="{{ icon() }}" width="100" class="rounded-circle mt-3">
+                            <img src="{{ user.foto }}" width="100" class="rounded-circle mt-3" title="Perfil">
+                            <h5 class="card-title text-secondary">{{ user.nome }}</h5>
                         </a>
-                        <!-- <h5 class="card-title">{{ user }}</h5> -->
-                        <h5 class="card-title">{{ user.nome }}</h5>
                         <span class="fs-11 text-center text-muted">@{{ user.username }}</span><br>
-                        <p class="sobreMim p-3 text-justify">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste id quisquam assumenda
-                            exercitationem nesciunt laudantium consectetur repellendus ex, praesentium deleniti eos
-                            consequatur quaerat. Tempore, fuga. lorem100
+                        <p class="sobreMim p-4 text-justify">
+                            <!-- {{ user.sobre }} -->
+                            {{ user.sobre }}
                         </p>
                     </div>
                 </div>
@@ -27,41 +25,63 @@
             <div class="newPost d-flex justify-content-start">
                 <div class="infoUser">
                     <!--IMG DO USUÁRIO TS-->
-                    <div class="imgUser"></div>
+                    <a [routerLink]="['/user', idUser]">
+                        <img src="{{ user.foto }}" class="imgUser rounded-circle">
+                    </a>
                     <!--NOME DO USUÁRIO TS-->
-                    <strong class="usuario">Nome completo</strong>
+                    <strong class="usuario text-secondary">{{ user.nome }}</strong>
                 </div>
-                <form action="" class="formPost">
-                    <textarea name="textarea" placeholder="no que você está pensando?"></textarea>
+                <div class="formPost">
+                    <textarea [(ngModel)]='postagem.texto' name="textarea"
+                        placeholder="No que você está pensando?"></textarea>
                     <div class="iconsAndButton">
-                        <div class="iconss">
-                            <button class="btnFileForm"><i class="fa fa-picture-o" aria-hidden="true"></i></button>
-                            <button class="btnFileForm"><i class="fa fa-video-camera" aria-hidden="true"></i></button>
+                        <div class="d-flex text-muted">
+                            <i class="fa fa-picture-o mt-2" aria-hidden="true" title="Inserir imagem"></i>
+                            <strong class="text-muted mt-1">:</strong>
+                            <input [(ngModel)]='postagem.imagem' type="text" class="form-control ml-1 p-0 w-auto"
+                                placeholder="Insira aqui a URL da imagem">
                         </div>
-                        <label class="temaName text-secondary">Tema:</label>
-                        <select name="tema" id="tema" class="form-controll"></select>
-                        <button class="btnSubmitForm" type="submit">Publicar</button>
+                        <label class="text-secondary ml-3">Tema:</label>
+                        <select name="tema" class="form-control ml-1 form-tema" [(ngModel)]='idTema'
+                            (change)='findByIdTema()'>
+                            <option *ngFor='let item of listaTemas' value="{{ item.id }}">
+                                {{ item.titulo }}
+                            </option>
+                        </select>
+                        <button (click)='publicar()' class="btn btnSubmitForm ml-auto" type="submit">Publicar</button>
                     </div>
-                </form>
+                </div>
             </div>
             <hr>
-            <div class="posts">
+            <div class="posts" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
                 <div class="post">
                     <div class="newPost d-flex justify-content-start">
                         <div class="infoUserPost">
-                            <div class="imgUserPost"></div>
+                            <a [routerLink]="['/user', item.user.id]">
+                                <img src="{{ item.user.foto }}" class="imgUserPost" alt="Foto do usuário da postagem">
+                            </a>
                             <div class="nomeAndHour">
-                                <strong class="userAll text-black">Nome completo</strong>
-                                <p class="horaPostada">21h</p>
+                                <strong class="userAll text-muted">
+                                    <a [routerLink]="['/user', item.user.id]" class="text-muted">
+                                        {{ item.user.nome }}
+                                    </a> | {{ item.tema.titulo }}
+                                </strong>
+                                <p class="horaPostada">
+                                    {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                                </p>
                             </div>
                         </div>
-                        <p class="postagemGhost">oi</p>
+                        <p class="postagemGhost">
+                            {{ item.texto }}
+                        </p>
+                        <img class="imgPost" src="{{ item.imagem }}" width="50px" alt="Imagem da Postagem">
                         <div class="actionBtnPost">
-                            <button type="button" class="filesPost curtir"><i class="fa fa-heart sz"
+                            <button type="button" class="btn filesPost curtir"><i class="fa fa-heart sz"
                                     aria-hidden="true"></i><strong>Curtir</strong></button>
-                            <button type="button" class="filesPost comentar"><i class="fa fa-comments sz"
+                            <button type="button" class="btn filesPost comentar"><i class="fa fa-comments sz"
                                     aria-hidden="true"></i><strong>Comentar</strong></button>
-                            <button type="button" class="filesPost compartilhar"><i class="fa fa-share-alt-square sz"
+                            <button type="button" class="btn filesPost compartilhar"><i
+                                    class="fa fa-share-alt-square sz"
                                     aria-hidden="true"></i><strong>Compartilhar</strong></button>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ export class User {
     public id: number
     public nome: string
     public username: string
+    public sobre: string
     public foto: string
     public email: string
     public senha: string

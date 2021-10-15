@@ -6,7 +6,7 @@ import { User } from './User';
 export class Postagem {
     public id: number
     public texto: string
-    public img: string
+    public imagem: string
     public data: Date
 
     // Relacionamento entre as classes
