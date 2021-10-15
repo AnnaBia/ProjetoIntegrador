@@ -1,3 +1,4 @@
+import { AuthService } from './../../service/auth.service';
 import { Postagem } from './../../model/Postagem';
 import { Tema } from './../../model/Tema';
 import { environment } from './../../../environments/environment.prod';
@@ -22,6 +23,7 @@ export class PostagemEditComponent implements OnInit {
 
   // Injeção de módulos e services
   constructor(
+    public authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
     private postagemService: PostagemService,
@@ -36,6 +38,7 @@ export class PostagemEditComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
+    this.authService.visitanteRota()
     let id = this.route.snapshot.params['id']
     this.findByIdPostagem(id)
     this.findAllTemas()

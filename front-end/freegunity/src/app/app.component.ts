@@ -11,9 +11,9 @@ export class AppComponent {
   // Injeção de módulos
   constructor(
     public auth: AuthService
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
+
   }
 }

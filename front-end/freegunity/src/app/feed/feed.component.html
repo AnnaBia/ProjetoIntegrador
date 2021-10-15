@@ -10,7 +10,7 @@
                             <img src="{{ user.foto }}" width="100" class="rounded-circle mt-3" title="Perfil">
                             <h5 class="card-title text-secondary">{{ user.nome }}</h5>
                         </a>
-                        <span class="fs-11 text-center text-muted">@{{ user.username }}</span><br>
+                        <span *ngIf='authService.visitante()' class="fs-11 text-center text-muted">@{{ user.username }}</span><br>
                         <p class="sobreMim p-4 text-justify">
                             <!-- {{ user.sobre }} -->
                             {{ user.sobre }}
@@ -22,7 +22,7 @@
 
         <!--Formulário de Envio-->
         <div class="col-7 ">
-            <div class="newPost d-flex justify-content-start">
+            <div class="newPost d-flex justify-content-start" *ngIf='authService.visitante()' >
                 <div class="infoUser">
                     <!--IMG DO USUÁRIO TS-->
                     <a [routerLink]="['/user', idUser]">
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <hr>
+            <hr *ngIf='authService.visitante()'>
             <div class="posts" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
                 <div class="post">
                     <div class="newPost d-flex justify-content-start">
@@ -75,7 +75,7 @@
                             {{ item.texto }}
                         </p>
                         <img class="imgPost" src="{{ item.imagem }}" width="50px" alt="Imagem da Postagem">
-                        <div class="actionBtnPost">
+                        <div class="actionBtnPost" *ngIf='authService.visitante()'>
                             <button type="button" class="btn filesPost curtir"><i class="fa fa-heart sz"
                                     aria-hidden="true"></i><strong>Curtir</strong></button>
                             <button type="button" class="btn filesPost comentar"><i class="fa fa-comments sz"

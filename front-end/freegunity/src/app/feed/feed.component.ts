@@ -16,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
-  user: User = new User()
+  user: User
   idUser = environment.id
 
   postagem: Postagem = new Postagem()
@@ -31,7 +31,7 @@ export class FeedComponent implements OnInit {
 
   // Injeção de módulos e services
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     private alert: AlertasService,
     private temaService: TemaService,

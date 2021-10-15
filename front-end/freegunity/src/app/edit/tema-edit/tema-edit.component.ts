@@ -1,3 +1,4 @@
+import { AuthService } from './../../service/auth.service';
 import { environment } from 'src/environments/environment.prod';
 import { Tema } from './../../model/Tema';
 import { TemaService } from './../../service/tema.service';
@@ -16,6 +17,7 @@ export class TemaEditComponent implements OnInit {
 
   // Injeção de módulos e services
   constructor(
+    public authService: AuthService,
     private temaService: TemaService,
     private router: Router,
     private actRoute: ActivatedRoute
@@ -29,6 +31,7 @@ export class TemaEditComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
+    this.authService.visitanteRota()
     let id = this.actRoute.snapshot.params['id']
     this.findByIdTema(id)
   }

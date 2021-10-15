@@ -1,3 +1,4 @@
+import { AuthService } from './../../service/auth.service';
 import { environment } from 'src/environments/environment.prod';
 import { Tema } from './../../model/Tema';
 import { Component, OnInit } from '@angular/core';
@@ -17,6 +18,7 @@ export class TemaDeleteComponent implements OnInit {
 
   // Injeção de módulos e services
   constructor(
+    public authService: AuthService,
     private temaService: TemaService,
     private router: Router,
     private actRoute: ActivatedRoute
@@ -30,6 +32,7 @@ export class TemaDeleteComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
+    this.authService.visitanteRota()
     this.idTema = this.actRoute.snapshot.params['id']
     this.findByIdTema(this.idTema)
   }
