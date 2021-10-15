@@ -67,12 +67,12 @@ export class InicioComponent implements OnInit {
   entrarVisitante() {
     this.authService.entrar(this.userLogin).subscribe((resp: UserLogin) => {
 
-      environment.id = this.userLogin.id = 6
+      environment.id = this.userLogin.id = 4
       environment.nome = this.userLogin.nome = 'Visitante'
-      environment.username = this.userLogin.username = 'Visitante'
+      environment.username = this.userLogin.username = 'visitante'
       environment.foto = this.userLogin.foto = ''
       environment.token = this.userLogin.token
-      environment.email = this.userLogin.email = 'guest@guest.com'
+      environment.email = this.userLogin.email = 'visitante@email.com'
       environment.admin = this.userLogin.admin = 'guest'
 
       this.userLogin = resp
@@ -80,7 +80,7 @@ export class InicioComponent implements OnInit {
       this.router.navigate(['/feed'])
     }, erro => {
       if (erro.status == 500) {
-        this.alert.showAlertDanger('ERRO')
+        this.alert.showAlertDanger('Erro no servidor.')
       }
     })
   }

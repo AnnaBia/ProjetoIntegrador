@@ -1,3 +1,4 @@
+import { AlertasService } from './../service/alertas.service';
 import { environment } from 'src/environments/environment.prod';
 import { User } from './../model/User';
 import { AuthService } from './../service/auth.service';
@@ -22,6 +23,7 @@ export class UserComponent implements OnInit {
     public authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
+    private alert: AlertasService
   ) { }
 
   ngOnInit() {
@@ -29,6 +31,7 @@ export class UserComponent implements OnInit {
       this.router.navigate(['/inicio'])
     }
 
+    this.authService.visitanteRota()
     this.idUser = this.route.snapshot.params['id']
     this.findByIdUser(this.idUser)
   }

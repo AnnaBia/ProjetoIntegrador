@@ -23,7 +23,7 @@
                 </button>
                 <div class="dropdown-menu">
                     <!-- Dropdown menu links -->
-                    <a class="dropdown-item" >Temas</a>
+                    <a class="dropdown-item" routerLink='/tema'>Temas</a>
                     <a class="dropdown-item" [routerLink]="['/user-edit', idUser]">Alterar usuário</a>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             </li>
             <li>
                 <a [routerLink]="['/user', idUser]">
-                    <button class="btn">
+                    <button *ngIf='authService.visitante()' class="btn">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </button>
                 </a>

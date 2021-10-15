@@ -59,7 +59,7 @@
                             <!-- /Alerta de preenchimento do formulario -->
                         </div>
                         <div class="form-group">
-                            <input [(ngModel)]='userLogin.senha' type="password" name="senha" id="senha"
+                            <input [(ngModel)]='userLogin.senha' type="password" name="loginSenha" id="loginSenha"
                                 class="form-control" required #loginSenha="ngModel" placeholder="Senha">
                             <!-- Alerta de preenchimento do formulario -->
                             <div *ngIf="loginSenha.invalid && (loginSenha.dirty || loginSenha.touched)" class="alert">
@@ -108,8 +108,8 @@
                 <div class="modal-body">
                     <form class="mt-2" action="" method="post" name="login">
                         <div class="form-group">
-                            <input [(ngModel)]='user.nome' type="text" name="senha" id="senha" class="form-control"
-                                required #nome="ngModel" placeholder="Nome completo">
+                            <input [(ngModel)]='user.nome' type="text" name="cadSenha" id="cadSenha"
+                                class="form-control" required #nome="ngModel" placeholder="Nome completo">
                             <!-- Alerta de preenchimento do formulario -->
                             <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert">
                                 <small class="text-danger" *ngIf="nome.errors?.required">
@@ -123,8 +123,8 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">@</div>
                                 </div>
-                                <input [(ngModel)]='user.username' type="text" name="username" class="form-control"
-                                    id="username" required #username="ngModel" placeholder="Usuário">
+                                <input [(ngModel)]='user.username' type="text" name="cadUsername" class="form-control"
+                                    id="cadUsername" required #username="ngModel" placeholder="Usuário">
                             </div>
                             <!-- Alerta de preenchimento do formulario -->
                             <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
@@ -163,7 +163,7 @@
                     </form>
                 </div>
                 <div class="d-none">
-                    <input [(ngModel)]='user.foto' type="password" name="ConfSenha" id="ConfSenha" class="form-control"
+                    <input [(ngModel)]='user.foto' type="password" name="foto" id="foto" class="form-control"
                         placeholder="Confirmar senha">
                 </div>
                 <div class="modal-footer">

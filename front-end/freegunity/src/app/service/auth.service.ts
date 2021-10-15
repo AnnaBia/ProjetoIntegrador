@@ -1,18 +1,25 @@
+import { User } from './../model/User';
+import { AlertasService } from './alertas.service';
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { UserLogin } from '../model/UserLogin';
-import { User } from '../model/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  user: User
+  userLogin: UserLogin
+
   // Injeção de módulos e services
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
+    private alert: AlertasService
   ) { }
 
   token = {
@@ -66,5 +73,16 @@ export class AuthService {
     }
 
     return ok
+  }
+
+  visitanteRota() {
+    let rota: string = '/feed'
+
+    if (environment.id == 4) {
+      if(this.router.url != rota) {
+        this.alert.showAlertWarning('Você precisa fazer login ou se cadastrar para acessar essa rota!')
+        this.router.navigate(['/feed'])
+      }
+    }
   }
 }

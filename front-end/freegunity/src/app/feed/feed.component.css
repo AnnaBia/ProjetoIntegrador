@@ -13,9 +13,18 @@ body {
     background-color: #eef1f7;
 }
 
-.form-controll {
-    width: 160px;
-    align-items: flex-start;
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-tema {
+    width: 90px;
+    /* height: auto; */
+}
+
+.fa {
+    font-size: 17pt;
 }
 
 .fa-sign-out::before {
@@ -134,39 +143,15 @@ textarea {
     margin: 5px;
 }
 
-button {
-    outline: none;
-    background: #fff;
-    border: 0;
-    margin-right: 15px;
-    cursor: pointer;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
 .btnSubmitForm {
     border: 1px solid #b7c880 !important;
-    color: #80A45F;
-    height: 40px;
-    padding: 10px 50px;
+    color: #fff;
+    background-color: #80A45F;
     outline: none;
     cursor: pointer;
     border-radius: 20px;
-    margin-left: 20em;
-    transition: background 0.3s;
-}
-
-.btnSubmitForm:hover {
-    border: 1px solid #b7c880 !important;
-    color: #fff;
+    width: 110px;
     height: 40px;
-    background-color: #80A45F;
-}
-
-.iconss {
-    margin-right: 0;
-    display: flex;
 }
 
 .icons {
@@ -276,14 +261,12 @@ strong {
     margin-left: 0;
 }
 
-.tema {
-    height: 20px;
-}
-
-.temaName {
-    margin-right: 5px;
-}
-
 hr {
     margin: 10px;
+}
+
+/* "Método" integrado ao CSS para que não exiba a tag <img> se o 'src' estiver vazio, nas postagens apenas */
+
+.imgPost[src=""] {
+    display: none;
 }
