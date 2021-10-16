@@ -198,7 +198,7 @@ div.posts {
     width: 100%;
     margin: 20px 0;
     color: #727272;
-    padding: 30px;
+    
 }
 
 .actionBtnPost {
@@ -269,4 +269,148 @@ hr {
 
 .imgPost[src=""] {
     display: none;
+}
+.postagemGhost[src=""]{
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+/*responsividade feed*/
+
+@media screen and (max-width:480){
+    .container-fluid
+    {
+        background: 100%;
+        
+
+    }
+    .newPost,.cardUser
+    {
+        margin-left:5rem;
+        margin-right: 5rem;
+        align-items: center;
+    }
+    .iconsAndButton
+    {
+        padding: 30px;
+        margin: 0;
+        width: 100%;
+    }
+    .actionBtnPost
+    {
+        width: 100%;
+    }
+    .cardUser
+    {
+        display: none;
+    }
+    
+    
+   
+}
+
+@media screen and (min-width:481px) and (max-width:768px) {
+    .container-fluid
+    {
+        background: 100%;
+    }
+    .postagemGhost
+    {
+        padding: 20px;
+    }
+    .imgPost
+    {
+        display: none;
+    }
+    .newPost,.cardUser
+    {
+        display: flex;
+        
+    }
+    .cardUser
+    {
+       
+       margin-left:100px;
+    }
+    .actionBtnPost
+    {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 769px) and (max-width:992px) {
+    .container-fluid, .newPost,.cardUser
+    {
+        width: 100%;
+        background: 100%;
+        align-items: flex-end;
+        
+    }
+    .postagemGhost
+    {
+        padding: 30px;
+    }
+    .imgPost
+    {
+        display: none;
+    }
+    .newPost,.cardUser
+    {
+        margin-left:5px;
+        margin-right: 5px;
+        align-items: center;
+    }
+    .cardUser
+    {
+        margin-right: 7rem;
+    }
+    .actionBtnPost
+    {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+   
+}
+
+@media screen and (min-width:993px) {
+    .postagemGhost
+    {
+        padding: 30px;
+    }
+    .imgPost
+    {
+        display: none;
+    }
+    .iconsAndButton
+    {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    .cardUser
+    {
+        margin-right: 70px;
+    }
+   
+
+}
+
+@media screen and (min-width:1200) and (max-width:1280px) {
+  
+   
+    
+}
+
+@media screen and (min-width:1201) and (max-width:1600px) {
+    
+    
+}
+
+@media screen and (min-width:1601px) and (max-width:1900px) {
+  
+    
 }
