@@ -1,6 +1,6 @@
-<div class="container mt-5">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-8">
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center pt-5">
+        <div class="col-md-7">
             <div class="card p-3 py-4">
                 <div class="text-center"> <img src="{{ icon() }}" width="100" class="rounded-circle">
                 </div>
@@ -20,27 +20,37 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- <div class="row d-flex justify-content-center mt-3">
-        <div class="col-md-8">
-            <div class="card p-3 py-4">
-                <div class="card-body">
-                    <ul class="posts">
-                        <li class="post">
-                            <div class="infoUserPost">
-                                <div class="imgUserPost">
-                                    <img class="imgUserPost" src="{{ user.foto }}">
-                                </div>
-                                <div class="nomeAndHour">
-                                    <strong class="usuario text-black">{{ user }}</strong>
-                                    <p class="horaPostada">21h</p>
-                                </div>
+        <div class="col-7">
+            <div class="posts" *ngFor='let item of user.postagem | orderBy : key : reverse'>
+                <div class="post">
+                    <div class="newPost d-flex justify-content-start">
+                        <div class="infoUserPost">
+                            <img src="{{ user.foto }}" class="imgUserPost" alt="Foto do usuário da postagem">
+                            <div class="nomeAndHour pt-2">
+                                <strong class="userAll text-muted">
+                                    {{ user.nome }} | {{ item.tema.titulo }}
+                                </strong>
+                                <p class="horaPostada">
+                                    {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                                </p>
                             </div>
-                            <p class="postagemGhost">oi</p>                            
-                        </li>
-                    </ul>
+                        </div>
+                        <p class="postagemGhost">
+                            {{ item.texto }}
+                        </p>
+                        <img class="imgPost" src="{{ item.imagem }}" width="50px" alt="Imagem da Postagem">
+                        <!-- <div class="actionBtnPost" *ngIf='authService.visitante()'>
+                            <button type="button" class="btn filesPost curtir"><i class="fa fa-heart sz"
+                                    aria-hidden="true"></i><strong>Curtir</strong></button>
+                            <button type="button" class="btn filesPost comentar"><i class="fa fa-comments sz"
+                                    aria-hidden="true"></i><strong>Comentar</strong></button>
+                            <button type="button" class="btn filesPost compartilhar"><i
+                                    class="fa fa-share-alt-square sz"
+                                    aria-hidden="true"></i><strong>Compartilhar</strong></button>
+                        </div> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </div>

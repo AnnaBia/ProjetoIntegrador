@@ -5,12 +5,12 @@
       <i class="fa fa-angle-double-left" aria-hidden="true"></i>início
     </a>-->
     <section class="get_in_touch">
-      <img src="assets/img/favicon.png" id="logo-tema" width="45px" height="45px">
+      <img src="assets/img/favicon.png" id="logo-tema" alt="Logo" title="Logo" width="45px" height="45px">
       <h1 class="title">Temas</h1>
       <div class="container">
         <div class="contact-form row">
           <div class="form-field col-lg-12 d-flex justify-content-center">
-            <input [(ngModel)]= 'tema.titulo' id="message" class="input-text" type="text" name="">
+            <input [(ngModel)]='tema.titulo' id="message" class="input-text" type="text" name="">
             <label for="message" class="label">Digite o título do tema</label>
           </div>
 
@@ -44,7 +44,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor = 'let tema of listaTemas'>
+                <tr *ngFor='let tema of listaTemas'>
                   <th>{{tema.id}}</th>
                   <td>{{tema.titulo}}</td>
                   <td class="d-flex justify-content-end">
@@ -59,7 +59,6 @@
           </div>
         </div>
       </div>
-
 
       <!-- Modal Editar-->
       <div class="modal fade" id="ExemploModalCentralizado1" tabindex="-1" role="dialog"

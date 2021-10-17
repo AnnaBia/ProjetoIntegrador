@@ -1,3 +1,4 @@
+import { AuthService } from './../service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -13,17 +14,20 @@ export class TemaComponent implements OnInit {
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
+  idTema: number
 
   constructor(
     private router: Router,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(){
     if(environment.token == ''){
-      this.router.navigate(['/entrar'])
+      this.router.navigate(['/inicio'])
     }
 
+    this.authService.visitanteRota()
     this.findAllTemas()
   }
 
@@ -41,5 +45,4 @@ export class TemaComponent implements OnInit {
       this.tema = new Tema()
     })
   }
-
 }
