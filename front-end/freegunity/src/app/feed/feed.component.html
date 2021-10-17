@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <!--Card perfil do usuário-->
-        <div class="col-3 ml-3 cardUser">
+        <div class="cardUser col-sm-3 ml-4">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <!--Nome do Usuário Ts-->
@@ -21,7 +21,7 @@
         </div>
 
         <!--Formulário de Envio-->
-        <div class="col-7">
+        <div class="col-sm-7">
             <div class="newPost d-flex justify-content-start" *ngIf='authService.visitante()' >
                 <div class="infoUser">
                     <!--IMG DO USUÁRIO TS-->
@@ -39,7 +39,7 @@
                             <i class="fa fa-picture-o mt-2" aria-hidden="true" title="Inserir imagem"></i>
                             <strong class="text-muted mt-1">:</strong>
                             <input [(ngModel)]='postagem.imagem' type="text" class="form-control ml-1 p-0 w-auto"
-                                placeholder="Insira aqui a URL da imagem">
+                                placeholder=" url da imagem">
                         </div>
                         <label class="text-secondary ml-3">Tema:</label>
                         <select name="tema" class="form-control ml-1 form-tema" [(ngModel)]='idTema'
@@ -73,8 +73,9 @@
                         </div>
                         <p class="postagemGhost">
                             {{ item.texto }}
+                            <br>
+                            <img class="imgPost" src="{{ item.imagem }}" width="70" height="70" alt="Imagem da Postagem">
                         </p>
-                        <img class="imgPost" src="{{ item.imagem }}" width="50px" alt="Imagem da Postagem">
                         <div class="actionBtnPost" *ngIf='authService.visitante()'>
                             <button type="button" class="btn filesPost curtir"><i class="fa fa-heart sz"
                                     aria-hidden="true"></i><strong>Curtir</strong></button>
