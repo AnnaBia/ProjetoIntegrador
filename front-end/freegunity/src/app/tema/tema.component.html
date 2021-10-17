@@ -73,7 +73,11 @@
               </button>
             </div>
             <div class="modal-body">
-              ...
+              <!--<h1 class="text-center text-secondary">Atualizar Tema</h1>-->
+              <div class="form-group">
+                <label for="descricao">Atualização</label>
+                <input type="text" class="form-control" id="descricao" [(ngModel)]= 'tema.titulo'>
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-cancelar" data-dismiss="modal">Cancelar</button>
