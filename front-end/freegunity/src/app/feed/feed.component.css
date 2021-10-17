@@ -172,15 +172,14 @@ div.posts {
 }
 
 .imgUserPost {
-    width: 30px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: #333;
 }
 
 .userAll {
     margin-left: 5px;
-    color: #23A0FF;
 }
 
 .usuario {
