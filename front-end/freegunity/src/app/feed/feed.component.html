@@ -10,7 +10,8 @@
                             <img src="{{ user.foto }}" width="100" class="rounded-circle mt-3" title="Perfil">
                             <h5 class="card-title text-secondary">{{ user.nome }}</h5>
                         </a>
-                        <span *ngIf='authService.visitante()' class="fs-11 text-center text-muted">@{{ user.username }}</span><br>
+                        <span *ngIf='authService.visitante()' class="fs-11 text-center text-muted">@{{ user.username
+                            }}</span><br>
                         <p class="sobreMim p-4 text-justify">
                             <!-- {{ user.sobre }} -->
                             {{ user.sobre }}
@@ -22,7 +23,7 @@
 
         <!--Formulário de Envio-->
         <div class="col-sm-7">
-            <div class="newPost d-flex justify-content-start" *ngIf='authService.visitante()' >
+            <div class="newPost d-flex justify-content-start" *ngIf='authService.visitante()'>
                 <div class="infoUser">
                     <!--IMG DO USUÁRIO TS-->
                     <a [routerLink]="['/user', idUser]">
@@ -74,7 +75,8 @@
                         <p class="postagemGhost">
                             {{ item.texto }}
                             <br>
-                            <img class="imgPost" src="{{ item.imagem }}" width="70" height="70" alt="Imagem da Postagem">
+                            <img class="imgPost" src="{{ item.imagem }}" width="70" height="70"
+                                alt="Imagem da Postagem">
                         </p>
                         <div class="actionBtnPost" *ngIf='authService.visitante()'>
                             <button type="button" class="btn filesPost curtir"><i class="fa fa-heart sz"
