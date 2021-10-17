@@ -13,6 +13,7 @@ export class TemaComponent implements OnInit {
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
+  idTema: number
 
   constructor(
     private router: Router,
@@ -21,7 +22,7 @@ export class TemaComponent implements OnInit {
 
   ngOnInit(){
     if(environment.token == ''){
-      this.router.navigate(['/entrar'])
+      this.router.navigate(['/inicio'])
     }
 
     this.findAllTemas()
@@ -42,4 +43,21 @@ export class TemaComponent implements OnInit {
     })
   }
 
+  // Método para editar o tema
+  atualizar() {
+    this.temaService.putTema(this.tema).subscribe((resp: Tema) => {
+      this.tema = resp
+      alert('Tema atualizado com sucesso!')
+      this.router.navigate(['/tema'])
+    })
+  }
+
+  // Método para apagar o tema
+  apagar() {
+    this.temaService.deleteTema(this.idTema).subscribe(() => {
+      alert('Tema deletado com sucesso!')
+      this.router.navigate(['/tema'])
+      this.findAllTemas()
+    })
+  }
 }
