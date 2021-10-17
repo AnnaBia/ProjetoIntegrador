@@ -1,3 +1,4 @@
+import { AuthService } from './../service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -17,7 +18,8 @@ export class TemaComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(){
@@ -25,6 +27,7 @@ export class TemaComponent implements OnInit {
       this.router.navigate(['/inicio'])
     }
 
+    this.authService.visitanteRota()
     this.findAllTemas()
   }
 
@@ -40,24 +43,6 @@ export class TemaComponent implements OnInit {
       alert('Tema cadastrado com sucesso!')
       this.findAllTemas()
       this.tema = new Tema()
-    })
-  }
-
-  // Método para editar o tema
-  atualizar() {
-    this.temaService.putTema(this.tema).subscribe((resp: Tema) => {
-      this.tema = resp
-      alert('Tema atualizado com sucesso!')
-      this.router.navigate(['/tema'])
-    })
-  }
-
-  // Método para apagar o tema
-  apagar() {
-    this.temaService.deleteTema(this.idTema).subscribe(() => {
-      alert('Tema deletado com sucesso!')
-      this.router.navigate(['/tema'])
-      this.findAllTemas()
     })
   }
 }
