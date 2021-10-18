@@ -13,7 +13,7 @@
                         </p>
                     </div>
                     <div class="buttons mt-3">
-                        <button *ngIf='authService.visitante()' [routerLink]="['/user-edit', editUser]"
+                        <button *ngIf='authService.outroPerfil()'  [routerLink]="['/user-edit', editUser]"
                             class="btn btn-outline mr-1">Editar
                             Perfil</button>
                     </div>
@@ -38,7 +38,7 @@
                         <p class="postagemGhost">
                             {{ item.texto }}
                         </p>
-                        <img class="imgPost" src="{{ item.imagem }}" width="50px" alt="Imagem da Postagem">
+                        <!-- <img class="imgPost" src="{{ item.imagem }}" width="50px" alt="Imagem da Postagem"> -->
                         <!-- <div class="actionBtnPost" *ngIf='authService.visitante()'>
                             <button type="button" class="btn filesPost curtir"><i class="fa fa-heart sz"
                                     aria-hidden="true"></i><strong>Curtir</strong></button>

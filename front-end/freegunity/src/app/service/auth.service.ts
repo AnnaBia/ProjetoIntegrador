@@ -64,6 +64,16 @@ export class AuthService {
     return ok
   }
 
+  outroPerfil() {
+    let ok: boolean = false
+
+    if (environment.username != 'jotape') {
+      ok = true
+    }
+
+    return ok
+  }
+
   // Modo visitante
   visitante() {
     let ok: boolean = false
