@@ -321,16 +321,17 @@ hr {
     {
         display: none;
     }
-    .newPost,.cardUser
+    .newPost,.iconsAndButton
     {
-        display: flex;
+       
+        width: 100%;
         
     }
     .cardUser
     {
-       
-       margin-left:100px;
+       display: none;
     }
+
     .actionBtnPost
     {
         padding: 0;
@@ -358,12 +359,14 @@ hr {
     }
     .newPost,.cardUser
     {
+        width: 100%;
         margin-left:5px;
         margin-right: 5px;
         align-items: center;
     }
     .cardUser
     {
+        width: 100%;
         margin-right: 7rem;
     }
     .actionBtnPost
@@ -397,7 +400,7 @@ hr {
    
 
 }
-
+/*
 @media screen and (min-width:1200) and (max-width:1280px) {
   
    
@@ -413,3 +416,4 @@ hr {
   
     
 }
+*/
