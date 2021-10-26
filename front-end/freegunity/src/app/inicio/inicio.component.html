@@ -119,13 +119,8 @@
                             <!-- /Alerta de preenchimento do formulario -->
                         </div>
                         <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
-                                </div>
-                                <input [(ngModel)]='user.username' type="text" name="cadUsername" class="form-control"
-                                    id="cadUsername" required #username="ngModel" placeholder="Usuário">
-                            </div>
+                            <input [(ngModel)]='user.username' type="text" name="cadUsername" class="form-control"
+                                id="cadUsername" required #username="ngModel" placeholder="Usuário">
                             <!-- Alerta de preenchimento do formulario -->
                             <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
                                 <small class="text-danger" *ngIf="username.errors?.required">
@@ -465,7 +460,8 @@
                 <div class="content">
                     <h2>Thiago da Silva Machado</h2>
                     <h5 class="text-white">Desenvolvedor Fullstack</h5>
-                    <p class="text-white">Atuei no Front-End da Freegunity, gosto de maratonar série e pedir pizza as sextas-feiras
+                    <p class="text-white">Atuei no Front-End da Freegunity, gosto de maratonar série e pedir pizza as
+                        sextas-feiras
                     </p>
                 </div>
             </div>
@@ -489,7 +485,7 @@
                     <h2>Ana Beatriz Yujra Espejo</h2>
                     <h5 class="text-white">Desenvolvedora Fullstack</h5>
                     <p>Atuei como fullStack da Freegunity, sou bem família, amante da cultura e voluntária.</p>
-                    
+
                 </div>
             </div>
         </div>
@@ -502,7 +498,7 @@
                     <h2>Pamela Paulino</h2>
                     <h5 class="text-white">Desenvolvedora Fullstack</h5>
                     <p>Atuei no Front-End da Freegunity, vegetariana, feminista e arteira nas horas vagas.</p>
-                    
+
                 </div>
             </div>
         </div>
@@ -513,7 +509,7 @@
                     <h2>Maicon Gomes Cerqueira</h2>
                     <h5 class="text-white">Desenvolvedor Fullstack</h5>
                     <p></p>
-                    
+
                 </div>
             </div>
         </div>
