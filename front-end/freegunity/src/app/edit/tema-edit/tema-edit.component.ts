@@ -1,3 +1,4 @@
+import { AlertasService } from './../../service/alertas.service';
 import { AuthService } from './../../service/auth.service';
 import { environment } from 'src/environments/environment.prod';
 import { Tema } from './../../model/Tema';
@@ -20,16 +21,17 @@ export class TemaEditComponent implements OnInit {
     public authService: AuthService,
     private temaService: TemaService,
     private router: Router,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private alert: AlertasService
   ) { }
 
   // Método do Angular que inicia primeiro todos os métodos dentro dele
   ngOnInit() {
     window.scroll(0, 0)
 
-    // if (environment.token == '') {
-    //   this.router.navigate(['/inicio'])
-    // }
+    if (environment.token == '') {
+      this.router.navigate(['/inicio'])
+    }
 
     this.authService.visitanteRota()
     let id = this.actRoute.snapshot.params['id']
@@ -47,7 +49,7 @@ export class TemaEditComponent implements OnInit {
   atualizar() {
     this.temaService.putTema(this.tema).subscribe((resp: Tema) => {
       this.tema = resp
-      alert('Tema atualizado com sucesso!')
+      this.alert.showAlertSucess('Tema atualizado com sucesso!')
       this.router.navigate(['/tema'])
     })
   }
