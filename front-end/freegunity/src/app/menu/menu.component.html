@@ -42,9 +42,9 @@
             </li>
             <li>
                 <a [routerLink]="['/user', idUser]"></a>
-                    <button *ngIf='authService.visitante()' class="btn">
-                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                    </button>
+                <button *ngIf='authService.visitante()' class="btn">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                </button>
             </li>
             <li>
                 <a [routerLink]="['/user', idUser]">

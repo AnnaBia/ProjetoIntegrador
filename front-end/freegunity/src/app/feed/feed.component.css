@@ -311,19 +311,13 @@ hr {
     .imgPost {
         display: none;
     }
-    .newPost,.iconsAndButton
-    {
-       
+    .newPost, .iconsAndButton {
         width: 100%;
-        
     }
-    .cardUser
-    {
-       display: none;
+    .cardUser {
+        display: none;
     }
-
-    .actionBtnPost
-    {
+    .actionBtnPost {
         padding: 0;
         margin: 0;
         width: 100%;
@@ -342,15 +336,13 @@ hr {
     .imgPost {
         display: none;
     }
-    .newPost,.cardUser
-    {
+    .newPost, .cardUser {
         width: 100%;
-        margin-left:5px;
+        margin-left: 5px;
         margin-right: 5px;
         align-items: center;
     }
-    .cardUser
-    {
+    .cardUser {
         width: 100%;
         margin-right: 7rem;
     }
@@ -377,6 +369,7 @@ hr {
         margin-right: 70px;
     }
 }
+
 /*
 @media screen and (min-width:1200) and (max-width:1280px) {
   
