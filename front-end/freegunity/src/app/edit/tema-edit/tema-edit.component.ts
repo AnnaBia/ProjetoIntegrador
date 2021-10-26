@@ -27,9 +27,9 @@ export class TemaEditComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0)
 
-    if (environment.token == '') {
-      this.router.navigate(['/entrar'])
-    }
+    // if (environment.token == '') {
+    //   this.router.navigate(['/inicio'])
+    // }
 
     this.authService.visitanteRota()
     let id = this.actRoute.snapshot.params['id']
