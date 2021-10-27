@@ -529,6 +529,10 @@ ul {
     .footer-col.ml, .footer-col {
         margin-left: 55px;
     }
+    .txt-titObjetivo
+    {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width:481px) and (max-width:768px) {
